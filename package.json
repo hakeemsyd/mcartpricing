@@ -20,8 +20,13 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "@ng-bootstrap/ng-bootstrap": "^4.0.2",
+    "angular-archwizard": "^3.0.0",
+    "angular-wizard": "^1.1.1",
+    "angularjs-slider": "^6.6.1",
     "bootstrap": "^3.4.0",
     "core-js": "^2.5.4",
+    "ng5-slider": "^1.1.13",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },

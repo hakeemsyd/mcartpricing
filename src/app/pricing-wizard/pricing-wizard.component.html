@@ -1,0 +1,51 @@
+<div>
+  <p>324</p>
+  <h1>Plan Calculator</h1>
+  <aw-wizard>
+    <aw-wizard-step>
+      <app-users-wizard></app-users-wizard>
+      <button type="button" awNextStep>Next Step</button>
+    </aw-wizard-step>
+    <aw-wizard-step>
+      <app-objective-wizard></app-objective-wizard>
+      <button type="button" awPreviousStep>Go to previous step</button>
+      <button type="button" awNextStep>Go to next step</button>
+    </aw-wizard-step>
+    <aw-wizard-step>
+      <app-sales-wizard></app-sales-wizard>
+      <button type="button" awPreviousStep>Previous Step</button>
+      <button type="button" awNextStep>Go to next step</button>
+    </aw-wizard-step>
+    <aw-wizard-step>
+      <app-gmv-wizard></app-gmv-wizard>
+      <button type="button" awPreviousStep>Previous Step</button>
+      <button type="button" awNextStep>Go to next step</button>
+    </aw-wizard-step>
+    <aw-wizard-step>
+      <app-store-wizard></app-store-wizard>
+      <button type="button" awPreviousStep>Previous Step</button>
+      <button type="button" awNextStep>Go to next step</button>
+    </aw-wizard-step>
+    <aw-wizard-step>
+      <app-categories-wizard></app-categories-wizard>
+      <button type="button" awPreviousStep>Previous Step</button>
+      <button type="button" awNextStep>Go to next step</button>
+    </aw-wizard-step>
+    <aw-wizard-step>
+      <app-influencers-wizard></app-influencers-wizard>
+      <button type="button" awPreviousStep>Previous Step</button>
+      <button type="button" awNextStep>Go to next step</button>
+    </aw-wizard-step>
+    <aw-wizard-step>
+      <app-users-wizard></app-users-wizard>
+      <button type="button" awPreviousStep>Previous Step</button>
+      <button type="button" awNextStep>Go to next step</button>
+    </aw-wizard-step>
+    <aw-wizard-step>
+      <p>not done</p>
+      <button type="button" awPreviousStep>Previous Step</button>
+      <button type="button" (click)="finishFunction()">Finish</button>
+    </aw-wizard-step>
+  </aw-wizard>
+
+</div>

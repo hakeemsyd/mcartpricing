@@ -1,0 +1,12 @@
+<div>
+  <h2>Step 1 - Business</h2>
+  <p>Please tell us about your business so we can suggest the right plan for you</p>
+  <div>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let item of itemsList">
+        <input type="radio" [(ngModel)]="radioSelected" name="list_name" value="{{item.value}}" (change)="onItemChange(item)" />
+        {{item.name}}
+      </li>
+    </ul>
+  </div>
+</div>

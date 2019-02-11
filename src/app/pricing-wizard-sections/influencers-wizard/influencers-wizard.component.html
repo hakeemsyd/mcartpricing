@@ -1,0 +1,41 @@
+<div>
+  <h2>Step 7 - Pick your influencers</h2>
+  <p>Pick from mCart Influencers or invite your own</p>
+  <div>
+    <div>
+      <p>mCart more than *</p>
+      <div class="row">
+        <div class="col">
+
+          <form [formGroup]="countryForm">
+            <select formControlName="countryControl">
+              <option [value]="country" *ngFor="let country of countries"> {{country}}</option>
+            </select>
+          </form>
+          <form [formGroup]="countryForm">
+            <select formControlName="countryControl">
+              <option [value]="country" *ngFor="let country of countries"> {{country}}</option>
+            </select>
+          </form>
+          <form [formGroup]="countryForm">
+            <select formControlName="countryControl">
+              <option [value]="country" *ngFor="let country of countries"> {{country}}</option>
+            </select>
+          </form>
+
+
+        </div>
+      </div>
+      <div *ngFor="let item of influencersList">
+        <p>{{item.name}}</p>
+        <img src={{item.img}} width="45" height="50" />
+        <!-- take round checkbox https://codepen.io/AllThingsSmitty/pen/WjZVjo -->
+        <div class="round">
+          <input type="checkbox" id={{item.id}} />
+          <label for={{item.id}}></label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
