@@ -3,11 +3,17 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod",
+    "preinstall": "npm install -g @angular/cli @angular/compiler-cli typescript"
+  },
+  "engines": {
+    "node": "11.4.0",
+    "npm": "6.4.1"
   },
   "private": true,
   "dependencies": {
@@ -26,7 +32,9 @@
     "angularjs-slider": "^6.6.1",
     "bootstrap": "^3.4.0",
     "core-js": "^2.5.4",
+    "express": "^4.16.4",
     "ng5-slider": "^1.1.13",
+    "path": "^0.12.7",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },

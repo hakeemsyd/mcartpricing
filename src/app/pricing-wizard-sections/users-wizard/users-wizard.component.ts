@@ -8,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class UsersWizardComponent implements OnInit {
 
   selected: 'please select';
-  itens = [
+  items = [
     { title: "Item 1", checked: false },
     { title: "Item 2", checked: true },
     { title: "Item 3", checked: false },
   ];
-  updateSelection (position, itens, title) {
+  updateSelection (position, items, title) {
     // alert('a')
-    itens.forEach((subscription, index) => {
+    items.forEach((subscription, index) => {
       if (position != index) {
         subscription.checked = false;
       }

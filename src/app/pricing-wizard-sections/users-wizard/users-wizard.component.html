@@ -1,12 +1,12 @@
 <div>
-  <h2>Step 8: Number of users</h2>
+  <h2>Step 1: Number of users</h2>
   <p>Pick the user package that fits your business needs</p>
   <div>
     <!-- Here i am trying to select only one checkbox at a time but it is not working -->
-    <div class="item-checkbox" *ngFor="let item of itens; let i = index">
+    <div class="item-checkbox" *ngFor="let item of items; let i = index">
       {{ item.title }}
       <input type="checkbox" ng-model="item.checked"
-        (click)="updateSelection(i, itens, item.title)">
+        (click)="updateSelection(i, items, item.title)">
     </div>
   </div>
 </div>
