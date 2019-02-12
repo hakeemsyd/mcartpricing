@@ -13,4 +13,8 @@ export class PricingWizardComponent implements OnInit {
   alert1(arg) {
     alert(arg);
   }
+
+  finishFunction() {
+    console.log('Wizard ended');
+  }
 }
