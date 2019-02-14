@@ -1,49 +1,47 @@
 <div>
-  <h2>Step 4 - GMV</h2>
-  <p>Pick your desired revenue and influencer payout and commission that you want to pay to see your approximate profit
+  <h2 class="wizardTitle">Step 4 - GMV</h2>
+  <p class="wizardSubtitle">Pick your desired revenue and influencer payout and commission that you want to pay to see
+    your approximate profit
     and platform cost. You can fine-tune these numbers in the next steps</p>
   <div>
-    <div>
-      <h2>Captured by the mCart platform</h2>
-      <p>GMV: {{gmv$}}</p>
+    <div class="row">
+      <h2 class="wizardSubtitleDark">Captured by the mCart platform</h2>
+      <h4 class="wizardSubtitle gmv">GMV: {{gmv$}}</h4>
     </div>
     <ng5-slider [(value)]="captureValue" [options]="captureOptions"></ng5-slider>
-    <div>
-      <p>0%</p>
-      <p>100%</p>
+    <div class="rowSlider">
+      <p class="percentage">0%</p>
+      <p class="percentage">100%</p>
     </div>
   </div>
   <div>
     <div>
-      <h2>Platform Commission</h2>
-      <p>GMV: {{gmv$}}</p>
+      <h2 class="wizardSubtitleDark">Platform Commission</h2>
     </div>
     <ng5-slider [(value)]="platformValue" [options]="platformOptions"></ng5-slider>
-    <div>
-      <p>0%</p>
-      <p>100%</p>
+    <div class="rowSlider">
+      <p class="percentage">0%</p>
+      <p class="percentage">100%</p>
     </div>
   </div>
   <div>
     <div>
-      <h2>Influencer Payout</h2>
-      <p>GMV: {{gmv$}}</p>
+      <h2 class="wizardSubtitleDark">Influencer Payout</h2>
     </div>
     <ng5-slider [(value)]="influencerValue" [options]="influencerOptions"></ng5-slider>
-    <div>
-      <p>0%</p>
-      <p>100%</p>
+    <div class="rowSlider">
+      <p class="percentage">0%</p>
+      <p class="percentage">100%</p>
     </div>
   </div>
   <div>
     <div>
-      <h2>Shopper's Rebate</h2>
-      <p>GMV: {{gmv$}}</p>
+      <h2 class="wizardSubtitleDark">Shopper's Rebate</h2>
     </div>
-    <ng5-slider [(value)]="influencerValue" [options]="influencerOptions"></ng5-slider>
-    <div>
-      <p>0%</p>
-      <p>100%</p>
+    <ng5-slider [(value)]="rebateValue" [options]="rebateOptions"></ng5-slider>
+    <div class="rowSlider">
+      <p class="percentage">0%</p>
+      <p class="percentage">100%</p>
     </div>
   </div>
 </div>

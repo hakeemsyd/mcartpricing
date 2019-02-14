@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Item, BusinessOptions } from '../../mock_data/items';
 @Component({
   selector: 'app-business-wizard',
   templateUrl: './business-wizard.component.html',
-  styleUrls: ['./business-wizard.component.css']
+  styleUrls: ['./business-wizard.component.css', '../../pricing-wizard/pricing-wizard.component.css'],
 })
 
 export class BusinessWizardComponent implements OnInit {

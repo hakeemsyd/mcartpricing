@@ -1,3 +1,80 @@
-h1{
-    color:blue;
+h2 {
+  color: '#515151';
+}
+
+.pricingWizard {
+  margin-left: 0px;
+  padding: 40px 30px 20px 30px;
+  background: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.wizardHeaderContainer {
+  border-bottom: 2px solid #e1e1e1;
+  padding-bottom: 15px;
+  margin-bottom: 40px;
+}
+
+#wizardPageNumber {
+  font-size: 12px;
+}
+
+.wizardHeader {
+  color: #515151;
+  font-size: 25px;
+}
+
+.wizardTitle {
+  font-size: 20px;
+  color: #d97475;
+  font-weight: 500;
+  letter-spacing: .6px;
+  margin-bottom: 0px;
+}
+
+.wizardSubtitle {
+  font-size: 14px;
+  color: #515151;
+  margin-bottom: 15px;
+}
+
+.wizardSubtitleDark{
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: .6px;
+  margin-bottom: 0px;
+  color:#515151
+}
+
+.infoTitle{}
+
+.optionText{
+  font-size: 16px;
+  color: #515151;
+  margin-bottom: 0px;
+}
+
+.navButtonContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* background: red; */
+  align-items: center;
+  height: 60px;
+  padding: 0px 5px;
+}
+
+.nextButton{
+  background-color: #eb7b74;
+  align-self: center;
+  position: absolute;
+  right:50px;
+  color: #fff;
+}
+
+.prevButton{
+  border-color: #e1e1e1;
+  color: #515151;
 }

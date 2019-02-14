@@ -4,7 +4,8 @@ import { Item, ObjectivesOptions } from '../../mock_data/items';
 @Component({
   selector: 'app-objective-wizard',
   templateUrl: './objective-wizard.component.html',
-  styleUrls: ['./objective-wizard.component.css']
+  styleUrls: ['./objective-wizard.component.css',
+  '../../pricing-wizard/pricing-wizard.component.css']
 })
 export class ObjectiveWizardComponent implements OnInit {
 

@@ -1,3 +1,33 @@
-<div>
-  <app-pricing-wizard></app-pricing-wizard>
+<div class="jumbotron">
+  <p class="jumbotronHeader"> Find the right plan for your business</p>
+  <p class="jumbotronSubHeader">Plug in your desired numbers in our Plan Calculator to discover your perfect plan</p>
+</div>
+<div class="container-fluid mainContainer">
+  <div class="row">
+    <div class="col-lg-8 col-md-12">
+      <div class="billingContainer">
+        <div class="billingInnerContainer">
+          <p class="billingHeader">Approximate Profit</p>
+          <p class="billingSubHeader">$200k</p>
+        </div>
+        <div class="billingInnerContainer">
+          <p class="billingHeader">Price Range:</p>
+          <p class="billingSubHeader">$10k-$15k</p>
+        </div>
+        <div class="btn-group billingInnerContainer" role="group">
+          <button type="button" class="btn buttonPricing" (click)="onClickPlan(0)"
+            [ngStyle]="annualStyle">
+            Secondary
+          </button>
+          <button type="button" class="btn buttonPricing" (click)="onClickPlan(1)"
+            [ngStyle]="monthlyStyle">Secondary
+          </button>
+        </div>
+      </div>
+      <div class="wizard">
+        <app-pricing-wizard></app-pricing-wizard>
+      </div>
+    </div>
+    <p class="col-lg-4 col-md-12">ads here</p>
+  </div>
 </div>

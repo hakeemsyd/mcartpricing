@@ -4,7 +4,8 @@ import { Options, LabelType } from 'ng5-slider';
 @Component({
   selector: 'app-gmv-wizard',
   templateUrl: './gmv-wizard.component.html',
-  styleUrls: ['./gmv-wizard.component.css']
+  styleUrls: ['./gmv-wizard.component.css',
+    '../../pricing-wizard/pricing-wizard.component.css']
 })
 export class GmvWizardComponent implements OnInit {
 
@@ -18,27 +19,60 @@ export class GmvWizardComponent implements OnInit {
         case LabelType.Ceil:
           return '';
         case LabelType.Floor:
-        return '';
+          return '';
         default:
-        return value.toString();
+          return value.toString();
       }
     }
   };
   platformValue: number = 50;
   platformOptions: Options = {
     floor: 0,
-    ceil: 100
+    ceil: 100,
+    translate: (value: number, label: LabelType): string => {
+      console.log(label);
+      switch (label) {
+        case LabelType.Ceil:
+          return '';
+        case LabelType.Floor:
+          return '';
+        default:
+          return value.toString();
+      }
+    }
   };
   influencerValue: number = 50;
   influencerOptions: Options = {
     floor: 0,
-    ceil: 100
+    ceil: 100,
+    translate: (value: number, label: LabelType): string => {
+      console.log(label);
+      switch (label) {
+        case LabelType.Ceil:
+          return '';
+        case LabelType.Floor:
+          return '';
+        default:
+          return value.toString();
+      }
+    }
   };
 
   rebateValue: number = 50;
   rebateOptions: Options = {
     floor: 0,
-    ceil: 100
+    ceil: 100,
+    translate: (value: number, label: LabelType): string => {
+      console.log(label);
+      switch (label) {
+        case LabelType.Ceil:
+          return '';
+        case LabelType.Floor:
+          return '';
+        default:
+          return value.toString();
+      }
+    }
   };
 
   gmv$: number = 70000;

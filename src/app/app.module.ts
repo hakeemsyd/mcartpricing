@@ -15,6 +15,7 @@ import { StoreWizardComponent } from './pricing-wizard-sections/store-wizard/sto
 import { CategoriesWizardComponent } from './pricing-wizard-sections/categories-wizard/categories-wizard.component';
 import { InfluencersWizardComponent } from './pricing-wizard-sections/influencers-wizard/influencers-wizard.component';
 import { UsersWizardComponent } from './pricing-wizard-sections/users-wizard/users-wizard.component';
+import { QuoteWizardComponent } from './pricing-wizard-sections/quote-wizard/quote-wizard.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { UsersWizardComponent } from './pricing-wizard-sections/users-wizard/use
     CategoriesWizardComponent,
     InfluencersWizardComponent,
     UsersWizardComponent,
+    QuoteWizardComponent,
   ],
   imports: [
     BrowserModule,

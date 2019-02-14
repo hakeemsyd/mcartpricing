@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-users-wizard',
   templateUrl: './users-wizard.component.html',
-  styleUrls: ['./users-wizard.component.css']
+  styleUrls: ['./users-wizard.component.css',
+  '../../pricing-wizard/pricing-wizard.component.css']
 })
 export class UsersWizardComponent implements OnInit {
 
@@ -13,9 +14,10 @@ export class UsersWizardComponent implements OnInit {
     { title: "Item 2", checked: true },
     { title: "Item 3", checked: false },
   ];
-  updateSelection (position, items, title) {
+  updateSelection (position, itens, title) {
     // alert('a')
-    items.forEach((subscription, index) => {
+    console.log(position, itens, title);
+    itens.forEach((subscription, index) => {
       if (position != index) {
         subscription.checked = false;
       }

@@ -1,0 +1,83 @@
+* {
+  font-family: Roboto;
+}
+
+.jumbotron {
+  background: #fff;
+  border-top: solid #e1e1e1 2px;
+  border-bottom: solid #e1e1e1 2px;
+  height: 200px;
+  /* padding: 3rem 2rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.jumbotronHeader {
+  font-size: 36px;
+  color: #797979;
+  font-weight: lighter;
+}
+
+.jumbotronSubHeader {
+  font-size: 14px;
+  color: #333333;
+  font-weight: 400;
+}
+
+.mainContainer {
+  padding: 0px 100px;
+}
+
+.billingContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 70px;
+  align-items: center;
+  padding: 0px 45px 0px 30px;
+  background-color: #fff;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(181, 167, 181, 1);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(181, 167, 181, 1);
+  box-shadow: 0px 0px 20px 0px rgba(181, 167, 181, 1);
+}
+
+.billingInnerContainer {
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  width: 180px;
+  align-items: center;
+  justify-content: center;
+}
+
+.billingHeader {
+  font-weight: bold;
+  color: #515151;
+  font-size: 14px;
+  margin-right: 20px;
+  margin-top: 16px;
+}
+
+.billingSubHeader {
+  font-weight: lighter;
+  color: #515151;
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+.buttonPricing {
+  outline: none;
+  border: 0;
+}
+
+.wizard {
+  margin-top: 35px;
+  /* margin-left: 15px; */
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(181, 167, 181, 1);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(181, 167, 181, 1);
+  box-shadow: 0px 0px 20px 0px rgba(181, 167, 181, 1);
+}

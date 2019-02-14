@@ -1,0 +1,33 @@
+.wizardSubtitleDark {
+    padding-right: 15px;
+}
+
+.gmv {
+    border-left: 2px solid #e1e1e1;
+    padding-left: 15px;
+}
+
+.row {
+    margin-left: 0px;
+    align-items: center;
+    /* background: red; */
+}
+
+.rowSlider {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.wizardSubtitle {
+    align-self: center;
+    /* background: rgb(216, 49, 49); */
+    margin-top: 15px;
+}
+
+.percentage {
+    font-size: 14px;
+    color: #515151;
+    margin-bottom: 15px;
+}

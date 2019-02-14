@@ -3,43 +3,26 @@
   <p>Select any store that wish to support in your marketplace</p>
 
   <div>
-    <div>
-      <p>store list</p>
+    <div class="list-group">
+      <li class="list-group-item">Morbi leo risus</li>
+      <li class="list-group-item">
+        {{orders[i].name}}
+        <input type="checkbox" [formControlName]="i">
+      </li>
     </div>
-    <form [formGroup]="form" (ngSubmit)="submit()">
-      <label formArrayName="orders" *ngFor="let order of form.controls.orders.controls; let i = index">
 
-        <div *ngIf="orders[i].id === -1; then addbox else checbox"></div>
-        <ng-template #addbox>
-
+    <div>
+      <div>
+        <p>store list</p>
+      </div>
+      <form [formGroup]="storeForm" (ngSubmit)="submit()">
+        <label formArrayName="suggestedStores"
+          *ngFor="let store of storeForm.controls.suggestedStores.controls; let i = index">
           <div>
-            <p>Add new store</p>
-            <img src="https://icons-for-free.com/free-icons/png/512/1312548.png" width="25" height="25"
-              (click)="addStore()" />
-          </div>
-        </ng-template>
-        <ng-template #checbox>
-          <div>
-            {{orders[i].name}}
+            {{suggestedStores[i].name}}
             <input type="checkbox" [formControlName]="i">
           </div>
-        </ng-template>
-      </label>
-    </form>
-  </div>
-
-  <div>
-    <div>
-      <p>store list</p>
+        </label>
+      </form>
     </div>
-    <form [formGroup]="storeForm" (ngSubmit)="submit()">
-      <label formArrayName="suggestedStores"
-        *ngFor="let store of storeForm.controls.suggestedStores.controls; let i = index">
-        <div>
-          {{suggestedStores[i].name}}
-          <input type="checkbox" [formControlName]="i">
-        </div>
-      </label>
-    </form>
   </div>
-</div>

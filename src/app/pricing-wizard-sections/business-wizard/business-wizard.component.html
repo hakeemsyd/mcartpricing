@@ -1,11 +1,13 @@
-<div>
-  <h2>Step 1 - Business</h2>
-  <p>Please tell us about your business so we can suggest the right plan for you</p>
+<!-- put width 100% -->
+<div class="container">
+  <p class="wizardTitle">Step 1 - Business</p>
+  <p class="wizardSubtitle">Please tell us about your business so we can suggest the right plan for you</p>
   <div>
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let item of itemsList">
-        <input type="radio" [(ngModel)]="radioSelected" name="list_name" value="{{item.value}}" (change)="onItemChange(item)" />
-        {{item.name}}
+        <input type="radio" [(ngModel)]="radioSelected" name="list_name" value="{{item.value}}"
+          (change)="onItemChange(item)" class="radioButton"/>
+        <p class="optionText">{{item.name}}</p>
       </li>
     </ul>
   </div>

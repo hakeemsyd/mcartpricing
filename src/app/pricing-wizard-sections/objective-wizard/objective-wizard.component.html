@@ -1,10 +1,10 @@
 <div>
-  <h2>Step 2 - Objective(s)</h2>
-  <p>What is/are your main objective(s)</p>
+  <h2 class="wizardTitle">Step 2 - Objective(s)</h2>
+  <p class="wizardSubtitle">What is/are your main objective(s)</p>
   <div>
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let item of itemsList">
-        <input type="checkbox" [checked]="item.check == 'true'">
+        <input type="checkbox" class="radioButton" [checked]="item.check == 'true'">
         {{item.name}}
       </li>
     </ul>
