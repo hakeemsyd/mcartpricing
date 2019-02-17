@@ -10,8 +10,8 @@
     </div>
     <ng5-slider [(value)]="captureValue" [options]="captureOptions"></ng5-slider>
     <div class="rowSlider">
-      <p class="percentage">0%</p>
-      <p class="percentage">100%</p>
+      <p class="percentage">{{captureOptions.floor}}%</p>
+      <p class="percentage">{{captureOptions.ceil}}%</p>
     </div>
   </div>
   <div>
@@ -20,8 +20,8 @@
     </div>
     <ng5-slider [(value)]="platformValue" [options]="platformOptions"></ng5-slider>
     <div class="rowSlider">
-      <p class="percentage">0%</p>
-      <p class="percentage">100%</p>
+      <p class="percentage">{{platformOptions.floor}}%</p>
+      <p class="percentage">{{platformOptions.ceil}}%</p>
     </div>
   </div>
   <div>
@@ -30,8 +30,8 @@
     </div>
     <ng5-slider [(value)]="influencerValue" [options]="influencerOptions"></ng5-slider>
     <div class="rowSlider">
-      <p class="percentage">0%</p>
-      <p class="percentage">100%</p>
+      <p class="percentage">{{influencerOptions.floor}}%</p>
+      <p class="percentage">{{influencerOptions.ceil}}%</p>
     </div>
   </div>
   <div>
@@ -40,8 +40,8 @@
     </div>
     <ng5-slider [(value)]="rebateValue" [options]="rebateOptions"></ng5-slider>
     <div class="rowSlider">
-      <p class="percentage">0%</p>
-      <p class="percentage">100%</p>
-    </div>
+        <p class="percentage">{{rebateOptions.floor}}%</p>
+        <p class="percentage">{{rebateOptions.ceil}}%</p>
+      </div>
   </div>
 </div>

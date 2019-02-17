@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ArchwizardModule } from 'angular-archwizard';
 import { Ng5SliderModule } from 'ng5-slider';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {MatRadioModule} from '@angular/material/radio';
 
 import { AppComponent } from './app.component';
 import { PricingWizardComponent } from './pricing-wizard/pricing-wizard.component';
@@ -16,6 +17,8 @@ import { CategoriesWizardComponent } from './pricing-wizard-sections/categories-
 import { InfluencersWizardComponent } from './pricing-wizard-sections/influencers-wizard/influencers-wizard.component';
 import { UsersWizardComponent } from './pricing-wizard-sections/users-wizard/users-wizard.component';
 import { QuoteWizardComponent } from './pricing-wizard-sections/quote-wizard/quote-wizard.component';
+import { AddStoreModalComponent } from './pricing-wizard-sections/store-wizard/add-store-modal/add-store-modal.component';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { QuoteWizardComponent } from './pricing-wizard-sections/quote-wizard/quo
     InfluencersWizardComponent,
     UsersWizardComponent,
     QuoteWizardComponent,
+    AddStoreModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,7 @@ import { QuoteWizardComponent } from './pricing-wizard-sections/quote-wizard/quo
     ArchwizardModule,
     Ng5SliderModule,
     NgbModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

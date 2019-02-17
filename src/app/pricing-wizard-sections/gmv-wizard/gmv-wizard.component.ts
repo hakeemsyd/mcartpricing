@@ -9,7 +9,7 @@ import { Options, LabelType } from 'ng5-slider';
 })
 export class GmvWizardComponent implements OnInit {
 
-  captureValue: number = 50;
+  captureValue: number = 56;
   captureOptions: Options = {
     floor: 0,
     ceil: 100,
@@ -25,10 +25,10 @@ export class GmvWizardComponent implements OnInit {
       }
     }
   };
-  platformValue: number = 50;
+  platformValue: number = 32;
   platformOptions: Options = {
     floor: 0,
-    ceil: 100,
+    ceil: 40,
     translate: (value: number, label: LabelType): string => {
       console.log(label);
       switch (label) {
@@ -41,10 +41,10 @@ export class GmvWizardComponent implements OnInit {
       }
     }
   };
-  influencerValue: number = 50;
+  influencerValue: number = 37;
   influencerOptions: Options = {
-    floor: 0,
-    ceil: 100,
+    floor: 30,
+    ceil: 50,
     translate: (value: number, label: LabelType): string => {
       console.log(label);
       switch (label) {
@@ -58,10 +58,10 @@ export class GmvWizardComponent implements OnInit {
     }
   };
 
-  rebateValue: number = 50;
+  rebateValue: number = 9;
   rebateOptions: Options = {
-    floor: 0,
-    ceil: 100,
+    floor: 5,
+    ceil: 20,
     translate: (value: number, label: LabelType): string => {
       console.log(label);
       switch (label) {

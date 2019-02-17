@@ -1,41 +1,57 @@
 <div>
-  <h2>Step 7 - Pick your influencers</h2>
-  <p>Pick from mCart Influencers or invite your own</p>
-  <div>
-    <div>
-      <p>mCart more than *</p>
-      <div class="row">
-        <div class="col">
-
-          <form [formGroup]="countryForm">
-            <select formControlName="countryControl">
-              <option [value]="country" *ngFor="let country of countries"> {{country}}</option>
-            </select>
-          </form>
-          <form [formGroup]="countryForm">
-            <select formControlName="countryControl">
-              <option [value]="country" *ngFor="let country of countries"> {{country}}</option>
-            </select>
-          </form>
-          <form [formGroup]="countryForm">
-            <select formControlName="countryControl">
-              <option [value]="country" *ngFor="let country of countries"> {{country}}</option>
-            </select>
-          </form>
-
-
+  <h2 class="wizardTitle">Step 7 - Pick your influencers</h2>
+  <p class="wizardSubtitle">Pick from mCart Influencers or invite your own</p>
+  <div class="optionContainer">
+    <div class="optionContainer">
+      <p class="dropdownTitle">mCart more than *</p>
+      <div class="col">
+        <div ngbDropdown class="dropdownContainer">
+          <button class="dropdownButton" id="dropdownBasic1" ngbDropdownToggle>{{currMCartVal}}</button>
+          <ul ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdownContainer">
+            <li *ngFor="let mCart of mCartArr; let i = index">
+              <button class="dropdown-item" (click)="onSelectMCart(mCart)">{{mCart}}</button>
+            </li>
+          </ul>
         </div>
       </div>
-      <div *ngFor="let item of influencersList">
-        <p>{{item.name}}</p>
-        <img src={{item.img}} width="45" height="50" />
-        <!-- take round checkbox https://codepen.io/AllThingsSmitty/pen/WjZVjo -->
-        <div class="round">
-          <input type="checkbox" id={{item.id}} />
-          <label for={{item.id}}></label>
+    </div>
+    <div class="optionContainer">
+      <p class="dropdownTitle">Followers more than *</p>
+      <div class="col">
+        <div ngbDropdown class="dropdownContainer">
+          <button class="dropdownButton" id="dropdownBasic1" ngbDropdownToggle>{{currFollowersVal}}</button>
+          <ul ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdownContainer">
+            <li *ngFor="let follower of followersArr; let i = index">
+              <button class="dropdown-item" (click)="onSelectFollowers(follower)">{{follower}}</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="optionContainer">
+      <p class="dropdownTitle">Influencers interests</p>
+      <div class="col">
+        <div ngbDropdown class="dropdownContainer">
+          <button class="dropdownButton" id="dropdownBasic1" ngbDropdownToggle>{{interests[0].name}}</button>
+          <ul ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdownContainer">
+            <li *ngFor="let region of interests; let i = index">
+              <button class="dropdown-item" (click)="onSelectInterest(region)">{{region.name}}</button>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 
+  <div class="row">
+    <div class="rowContainer col-sm-3 col-xs-4" *ngFor="let influencer of influencersList; let i = index">
+      <div class="profileContainer">
+          <h4 class="nameHeader">{{influencer.name}}</h4>
+        <div class="profileImageContainer">
+          <img class="rounded profileImage img-responsive" src={{influencer.img}}>
+        </div>
+        <input type="checkbox" [checked]="influencersList[i].checked" class="imgChkBox" id="tag{{influencer.id}}"/>
+      </div>
+    </div>
+  </div>
 </div>

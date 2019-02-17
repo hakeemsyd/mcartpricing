@@ -1,46 +1,123 @@
 .round {
-    position: relative;
-  }
-  
-  .round label {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    cursor: pointer;
-    height: 28px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 28px;
-  }
-  
-  .round label:after {
-    border: 2px solid #fff;
-    border-top: none;
-    border-right: none;
-    content: "";
-    height: 6px;
-    left: 7px;
-    opacity: 0;
-    position: absolute;
-    top: 8px;
-    transform: rotate(-45deg);
-    width: 12px;
-  }
-  
-  .round input[type="checkbox"] {
-    visibility: hidden;
-  }
-  
-  .round input[type="checkbox"]:checked + label {
-    background-color: #66bb6a;
-    border-color: #66bb6a;
-  }
-  
-  .round input[type="checkbox"]:checked + label:after {
-    opacity: 1;
-  }
-  
-  body {
-    background-color: #f1f2f3;
-  }
+  position: relative;
+}
+
+.round label {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+
+.round label:after {
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 7px;
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked+label {
+  background-color: #66bb6a;
+  border-color: #66bb6a;
+}
+
+.round input[type="checkbox"]:checked+label:after {
+  opacity: 1;
+}
+
+body {
+  background-color: #f1f2f3;
+}
+
+.dropdownTitle {
+  font-size: 12px;
+  color: #515151;
+  margin-top: 12px;
+  align-self: center;
+}
+
+.dropdownContainer {
+  height: 25px;
+}
+
+.dropdownButton {
+  font-size: 12px;
+  height: 25px;
+}
+
+.optionContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 3px;
+}
+
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+  margin: 10px 0px;
+  overflow: hidden;
+  border: 1px #ccc solid;
+  width: 100%;
+}
+
+.nameHeader {
+  height: 30px;
+  font-size: 14px;
+  border: 1px #99cccc solid;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  align-items: center;
+  padding-top: 5px;
+  color: #99cccc;
+}
+
+.profileImageContainer {
+  height: 200px;
+  width: 100%;
+  flex: 1;
+  /* margin-top: -8px; */
+}
+
+.profileImage {
+  height: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  border: 0px;
+}
+
+.imgChkBox {
+  position: absolute;
+  z-index: 3;
+  bottom: 40px;
+}

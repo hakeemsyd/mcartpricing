@@ -4,22 +4,25 @@ import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn } from '@an
 @Component({
   selector: 'app-categories-wizard',
   templateUrl: './categories-wizard.component.html',
-  styleUrls: ['./categories-wizard.component.css']
+  styleUrls: ['./categories-wizard.component.css',
+  '../../pricing-wizard/pricing-wizard.component.css']
 })
 export class CategoriesWizardComponent implements OnInit {
 
   form: FormGroup;
   storeForm: FormGroup;
   orders = [
-    { id: 100, name: 'order 1' },
-    { id: 200, name: 'order 2' },
-    { id: 300, name: 'order 3' },
-    { id: 400, name: 'order 4' },
-    { id: -1, name: 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png' }
+    { id: 100, name: 'Athleta' },
+    { id: 200, name: 'Banana Republic' },
+    { id: 300, name: 'Bergdorf Goodman' },
+    { id: 400, name: 'Betsey Johnson' },
+    { id: 500, name: 'Bloomingdale\'s' },
   ];
 
   suggestedStores = [
-    { id: 100, name: 'order 1' },
+    { id: 100, name: 'Kids' },
+    { id: 101, name: 'Women' },
+
   ];
 
   imageUrl = 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
@@ -50,7 +53,7 @@ export class CategoriesWizardComponent implements OnInit {
     console.log(selectedOrderIds);
   }
 
-  addCategory(){}
+  addCategory() { }
 
   ngOnInit() {
   }

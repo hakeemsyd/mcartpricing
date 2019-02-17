@@ -1,28 +1,31 @@
 <div>
-  <h2>Step 5 - Supported Stores</h2>
-  <p>Select any store that wish to support in your marketplace</p>
+  <h2 class="wizardTitle">Step 5 - Supported Stores</h2>
+  <p class="wizardSubtitle">Select any store that wish to support in your marketplace</p>
 
   <div>
-    <div class="list-group">
-      <li class="list-group-item">Morbi leo risus</li>
-      <li class="list-group-item">
-        {{orders[i].name}}
-        <input type="checkbox" [formControlName]="i">
+    <ul class="list-group list-container">
+      <li class="list-group-item listHeader listItemContainer">
+        <p class="list-item-title"><b>Store List</b></p>
       </li>
-    </div>
-
-    <div>
-      <div>
-        <p>store list</p>
-      </div>
-      <form [formGroup]="storeForm" (ngSubmit)="submit()">
-        <label formArrayName="suggestedStores"
-          *ngFor="let store of storeForm.controls.suggestedStores.controls; let i = index">
-          <div>
-            {{suggestedStores[i].name}}
-            <input type="checkbox" [formControlName]="i">
-          </div>
-        </label>
-      </form>
-    </div>
+      <li class="list-group-item listItemContainer" *ngFor="let order of orders; let i = index;"
+        [ngClass]="{oddListRow: (i % 2) === 1, evenListRow: (i % 2) === 0 }">
+        <p class="list-item-title">{{order.name}}</p>
+        <input type="checkbox">
+      </li>
+      <app-add-store-modal></app-add-store-modal>
+    </ul>
   </div>
+
+
+  <div class="suggested-stores">
+    <ul class="list-group list-container">
+      <li class="list-group-item listHeader listItemContainer">
+        <p class="list-item-title"><b>Suggested Stores</b></p>
+      </li>
+      <li class="list-group-item listItemContainer" *ngFor="let order of suggestedStores; let i = index;"
+        [ngClass]="{oddListRow: (i % 2) === 1, evenListRow: (i % 2) === 0 }">
+        <p class="list-item-title">{{order.name}}</p>
+      </li>
+    </ul>
+  </div>
+</div>

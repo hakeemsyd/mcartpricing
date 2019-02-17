@@ -7,7 +7,7 @@
       <li class="list-group-item" *ngFor="let item of itemsList">
         <input type="radio" [(ngModel)]="radioSelected" name="list_name" value="{{item.value}}"
           (change)="onItemChange(item)" class="radioButton"/>
-        <p class="optionText">{{item.name}}</p>
+        <p class="optionText radioOpt">{{item.name}}</p>
       </li>
     </ul>
   </div>

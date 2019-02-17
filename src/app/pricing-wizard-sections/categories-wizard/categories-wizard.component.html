@@ -1,43 +1,34 @@
-<div>
-  <h2>Step 6- Choose your categories</h2>
-  <p>Select any category that wish to support in your marketplace</p>
-    <div>
-      <div>
-        <p>Category list</p>
-      </div>
-      <form [formGroup]="form" (ngSubmit)="submit()">
-        <label formArrayName="orders" *ngFor="let order of form.controls.orders.controls; let i = index">
-  
-          <div *ngIf="orders[i].id === -1; then addbox else checbox"></div>
-          <ng-template #addbox>
-  
-            <div>
-              <p>Add new category</p>
-              <img src="https://icons-for-free.com/free-icons/png/512/1312548.png" width="25" height="25"
-                (click)="addStore()" />
-            </div>
-          </ng-template>
-          <ng-template #checbox>
-            <div>
-              {{orders[i].name}}
-              <input type="checkbox" [formControlName]="i">
-            </div>
-          </ng-template>
-        </label>
-      </form>
-    </div>
-  
-    <div>
-      <div>
-        <p>Suggested Categories</p>
-      </div>
-      <form [formGroup]="storeForm" (ngSubmit)="submit()">
-        <label formArrayName="suggestedStores" *ngFor="let store of storeForm.controls.suggestedStores.controls; let i = index">
-          <div>
-            {{suggestedStores[i].name}}
-            <input type="checkbox" [formControlName]="i">
-          </div>
-        </label>
-      </form>
-    </div>
+<div class="container">
+  <h2 class="wizardTitle">Step 6- Choose your categories</h2>
+  <p class="wizardSubtitle">Select any category that wish to support in your marketplace</p>
+
+  <div>
+    <ul class="list-group list-container">
+      <li class="list-group-item listHeader listItemContainer">
+        <p class="list-item-title"><b>Categories List</b></p>
+      </li>
+      <li class="list-group-item listItemContainer" *ngFor="let order of orders; let i = index;"
+        [ngClass]="{oddListRow: (i % 2) === 1, evenListRow: (i % 2) === 0 }">
+        <p class="list-item-title">{{order.name}}</p>
+        <input type="checkbox">
+      </li>
+      <li class="list-group-item listItemContainer"> <b>
+          <p class="list-item-title">Add new category</p>
+        </b>
+      </li>
+    </ul>
   </div>
+
+  <div class="suggested-stores">
+    <ul class="list-group list-container">
+      <li class="list-group-item listHeader listItemContainer">
+        <p class="list-item-title"><b>Suggested Categories</b></p>
+      </li>
+      <li class="list-group-item listItemContainer" *ngFor="let order of suggestedStores; let i = index;"
+        [ngClass]="{oddListRow: (i % 2) === 1, evenListRow: (i % 2) === 0 }">
+        <p class="list-item-title">{{order.name}}</p>
+        <input type="checkbox">
+      </li>
+    </ul>
+  </div>
+</div>

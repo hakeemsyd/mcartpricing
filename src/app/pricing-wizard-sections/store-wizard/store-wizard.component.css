@@ -1,4 +1,45 @@
-.formClass{
-    display: flex;
-    flex-direction: column;
+.formClass {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-container {
+  border-width: 3px;
+  border-color: red;
+}
+
+.listItemContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: .0rem 1.25rem;
+  border-width: 0px;
+}
+
+.listHeader {
+  background: #f0f3fa;
+}
+
+.list-item-title {
+  font-size: 14px;
+  margin-bottom: 0px;
+  color: #363636;
+}
+
+.listAddStore {
+  color: #555555;
+}
+
+.oddListRow {
+  background: #f9f9f9;
+}
+
+.evenListRow {
+  background: #fdfdfd;
+}
+
+.suggested-stores{
+  margin-top: 22px;
 }
