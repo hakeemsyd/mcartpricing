@@ -1,33 +1,42 @@
-<div class="jumbotron">
+<div class="jumbotron-fluid">
   <p class="jumbotronHeader"> Find the right plan for your business</p>
   <p class="jumbotronSubHeader">Plug in your desired numbers in our Plan Calculator to discover your perfect plan</p>
 </div>
-<div class="container-fluid mainContainer">
-  <div class="row">
-    <div class="col-lg-8 col-md-12">
-      <div class="billingContainer">
-        <div class="billingInnerContainer">
-          <p class="billingHeader">Approximate Profit</p>
-          <p class="billingSubHeader">$200k</p>
-        </div>
-        <div class="billingInnerContainer">
-          <p class="billingHeader">Price Range:</p>
-          <p class="billingSubHeader">$10k-$15k</p>
-        </div>
-        <div class="btn-group billingInnerContainer" role="group">
-          <button type="button" class="btn buttonPricing" (click)="onClickPlan(0)"
-            [ngStyle]="annualStyle">
-            Annual Billing
-          </button>
-          <button type="button" class="btn buttonPricing" (click)="onClickPlan(1)"
-            [ngStyle]="monthlyStyle">Monthly Billing
-          </button>
-        </div>
+<div class="container-fluid mainContainer row">
+  <div class="col-lg-8 col-md-12 leftContainer">
+    <div class="billingContainer row">
+      <div class="billingInnerContainer col-md-4 col-sm-6 col-xs-12">
+        <p class="billingHeader">Approximate Profit</p>
+        <p class="billingSubHeader">$200k</p>
       </div>
-      <div class="wizard">
-        <app-pricing-wizard></app-pricing-wizard>
+      <div class="billingInnerContainer col-md-4 col-sm-6 col-xs-12">
+        <p class="billingHeader">Price Range:</p>
+        <p class="billingSubHeader">$10k-$15k</p>
+      </div>
+      <div class="btn-group billingInnerContainer col-md-4 col-sm-6 col-xs-12" role="group">
+        <button type="button" class="btn buttonPricing" (click)="onClickPlan(0)" [ngStyle]="annualStyle">
+          Annual Billing
+        </button>
+        <button type="button" class="btn buttonPricing" (click)="onClickPlan(1)" [ngStyle]="monthlyStyle">Monthly
+          Billing
+        </button>
       </div>
     </div>
-    <p class="col-lg-4 col-md-12">ads here</p>
+    <div class="wizard col-xs-12">
+      <app-pricing-wizard class="col-xs-12"></app-pricing-wizard>
+    </div>
+
   </div>
+  <p class="col-lg-3 col-md-12 adsContainer">ads here</p>
+</div>
+<div>
+  <div class="d-none d-xl-block" style="background: #007bff; color: #fff; padding: 5px; text-align: center;">XL</div>
+  <div class="d-none d-lg-block d-xl-none" style="background: #27a745; color: #fff; padding: 5px; text-align: center;">
+    LG</div>
+  <div class="d-none d-md-block d-lg-none" style="background: #ffc108; color: #fff; padding: 5px; text-align: center;">
+    MD</div>
+  <div class="d-none d-sm-block d-md-none" style="background: #18a2b8; color: #fff; padding: 5px; text-align: center;">
+    SM</div>
+  <div class="d-block d-sm-none" style="background: #dc3545; color: #fff; padding: 5px; text-align: center;">XS</div>
+
 </div>

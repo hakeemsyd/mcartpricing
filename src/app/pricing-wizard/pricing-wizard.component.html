@@ -1,68 +1,88 @@
-<div class="row pricingWizard">
-  <div class="wizardHeaderContainer">
+<div class="row pricingWizard col-xs-12">
+  <div class="wizardHeaderContainer col-xs-12">
     <p id="wizardPageNumber">1/6</p>
     <h2 class="wizardHeader">Plan Calculator</h2>
   </div>
 
   <aw-wizard navBarLocation="bottom">
     <aw-wizard-step>
-      <app-influencers-wizard></app-influencers-wizard>
+      <div class="wizardContainer">
+        <!-- <app-business-wizard></app-business-wizard> -->
+        <app-influencers-wizard></app-influencers-wizard>
+
+      </div>
       <div class="navButtonContainer">
         <button type="button" class="btn nextButton" awNextStep>Next</button>
       </div>
     </aw-wizard-step>
     <aw-wizard-step>
-      <app-objective-wizard></app-objective-wizard>
+      <div class="wizardContainer">
+        <app-objective-wizard></app-objective-wizard>
+      </div>
       <div class="navButtonContainer">
         <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
         <button type="button" class="btn nextButton" awNextStep>Next</button>
       </div>
     </aw-wizard-step>
     <aw-wizard-step>
-      <app-sales-wizard></app-sales-wizard>
+      <div class="wizardContainer">
+        <app-sales-wizard></app-sales-wizard>
+      </div>
       <div class="navButtonContainer">
         <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
         <button type="button" class="btn nextButton" awNextStep>Next</button>
       </div>
     </aw-wizard-step>
     <aw-wizard-step>
-      <app-gmv-wizard></app-gmv-wizard>
+      <div class="wizardContainer">
+        <app-gmv-wizard></app-gmv-wizard>
+      </div>
       <div class="navButtonContainer">
         <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
         <button type="button" class="btn nextButton" awNextStep>Next</button>
       </div>
     </aw-wizard-step>
     <aw-wizard-step>
-      <app-store-wizard></app-store-wizard>
+      <div class="wizardContainer">
+        <app-store-wizard></app-store-wizard>
+      </div>
       <div class="navButtonContainer">
         <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
         <button type="button" class="btn nextButton" awNextStep>Next</button>
       </div>
     </aw-wizard-step>
     <aw-wizard-step>
-      <app-categories-wizard></app-categories-wizard>
-      <div class="navButtonContainer">
+      <div class="wizardContainer">
+        <app-categories-wizard></app-categories-wizard>
+        <div class="navButtonContainer">
+        </div>
         <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
         <button type="button" class="btn nextButton" awNextStep>Next</button>
       </div>
     </aw-wizard-step>
     <aw-wizard-step>
-      <app-influencers-wizard></app-influencers-wizard>
-      <div class="navButtonContainer">
+      <div class="wizardContainer">
+        <app-influencers-wizard></app-influencers-wizard>
+        <div class="navButtonContainer">
+        </div>
         <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
         <button type="button" class="btn nextButton" awNextStep>Next</button>
       </div>
     </aw-wizard-step>
     <aw-wizard-step>
-      <app-users-wizard></app-users-wizard>
-      <div class="navButtonContainer">
+      <div class="wizardContainer">
+        <app-users-wizard></app-users-wizard>
+        <div class="navButtonContainer">
+        </div>
         <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
         <button type="button" class="btn nextButton" awNextStep>Next</button>
       </div>
     </aw-wizard-step>
     <aw-wizard-step>
-      <p>not done</p>
-      <div class="navButtonContainer">
+      <div class="wizardContainer">
+        <p>not done</p>
+        <div class="navButtonContainer">
+        </div>
         <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
         <button type="button" class="btn nextButton" awNextStep>Next</button>
       </div>

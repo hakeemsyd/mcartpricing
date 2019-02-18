@@ -61,19 +61,24 @@ body {
   height: 25px;
 }
 
+.optionMainContainer{
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0px;
+}
 .optionContainer {
   display: flex;
+  flex:1;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
 .rowContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 0px 3px;
+  margin: 0px;
 }
 
 .profileContainer {
@@ -81,30 +86,35 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  flex: 1;
-  margin: 10px 0px;
+  /* flex: 1; */
+  /* margin: 10px 0px; */
   overflow: hidden;
-  border: 1px #ccc solid;
-  width: 100%;
+  border: 1.5px #ccc solid;
+  padding:0px;
+  width: 188px;
+  margin-top: 20px;
 }
 
 .nameHeader {
   height: 30px;
   font-size: 14px;
-  border: 1px #99cccc solid;
+  font-weight: 500;
+  /* border: .7px #99cccc solid; */
   justify-content: center;
   text-align: center;
   width: 100%;
   align-items: center;
-  padding-top: 5px;
-  color: #99cccc;
+  padding-top: 9px;
+  color: #515151;
+  width: 188px;
 }
 
 .profileImageContainer {
   height: 200px;
-  width: 100%;
+  width: 188px;
   flex: 1;
-  /* margin-top: -8px; */
+  margin-top: -8px;
+  border-top: .7px #99cccc solid; 
 }
 
 .profileImage {
@@ -114,6 +124,7 @@ body {
   margin-right: auto;
   margin-top: 0px;
   border: 0px;
+  width: 100%;
 }
 
 .imgChkBox {

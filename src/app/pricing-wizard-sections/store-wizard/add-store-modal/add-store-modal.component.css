@@ -1,8 +1,8 @@
-.modalContainer {
+.modal-content {
   background: red;
-  height: 150px;
-  width: 40%;
   align-self: center;
+  margin: 0px 20px;
+  width: 90%;
 }
 
 .modalHeader {

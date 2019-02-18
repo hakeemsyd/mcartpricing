@@ -1,8 +1,8 @@
 <div>
   <h2 class="wizardTitle">Step 7 - Pick your influencers</h2>
   <p class="wizardSubtitle">Pick from mCart Influencers or invite your own</p>
-  <div class="optionContainer">
-    <div class="optionContainer">
+  <div class="optionMainContainer .col-xs-12 row">
+    <div class="optionContainer .col-md-4 .col-sm-6 .col-xs-12">
       <p class="dropdownTitle">mCart more than *</p>
       <div class="col">
         <div ngbDropdown class="dropdownContainer">
@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <div class="optionContainer">
+    <div class="optionContainer .col-md-4 .col-sm-6 .col-xs-12">
       <p class="dropdownTitle">Followers more than *</p>
       <div class="col">
         <div ngbDropdown class="dropdownContainer">
@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    <div class="optionContainer">
+    <div class="optionContainer .col-md-4 .col-sm-6 .col-xs-12">
       <p class="dropdownTitle">Influencers interests</p>
       <div class="col">
         <div ngbDropdown class="dropdownContainer">
@@ -43,14 +43,17 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="rowContainer col-sm-3 col-xs-4" *ngFor="let influencer of influencersList; let i = index">
-      <div class="profileContainer">
+  <div class="row rowContainer">
+    <div *ngFor="let influencer of influencersList; let i = index">
+      <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="profileContainer">
           <h4 class="nameHeader">{{influencer.name}}</h4>
-        <div class="profileImageContainer">
-          <img class="rounded profileImage img-responsive" src={{influencer.img}}>
+          <div class="profileImageContainer">
+            <img class="rounded profileImage" src={{influencer.img}}>
+          </div>
+
+          <input type="checkbox" [checked]="influencersList[i].checked" class="imgChkBox" id="tag{{influencer.id}}" />
         </div>
-        <input type="checkbox" [checked]="influencersList[i].checked" class="imgChkBox" id="tag{{influencer.id}}"/>
       </div>
     </div>
   </div>
