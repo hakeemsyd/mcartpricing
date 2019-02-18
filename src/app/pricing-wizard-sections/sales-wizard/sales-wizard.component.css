@@ -6,7 +6,7 @@
   margin-bottom: 30px;
   font-weight: 400;
   height: 30px;
-  border-width: .7px solid;
+  border: 1px solid #ddd;
   width:100%;
   max-width: 450px;
 }
