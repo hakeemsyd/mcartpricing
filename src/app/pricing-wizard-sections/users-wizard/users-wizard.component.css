@@ -1,24 +1,40 @@
-.list-group{
-    padding-bottom: 40px;
-    border-bottom: 2px solid #E1E1E1;
-    /* background: #eee; */
-    
-  }
-  
-  .list-group-item {
-    display: flex;
-    flex-direction: row;
-    border-width: 0px;
-    border-bottom: 2px solid;
-    border-bottom-color: #E1E1E1;
-    width: 250px;
-    /* border-bottom-color: -moz-linear-gradient(left, #E1E1E1 0%, #e1e1e1 50%, #FFFFFF 100%);
-    border-bottom-color: -webkit-linear-gradient(left, #E1E1E1 0%, #e1e1e1 50%, #FFFFFF 100%);
-    border-bottom-color: linear-gradient(to right, #E1E1E1 0%, #e1e1e1 50%, #FFFFFF 100%); */
-  }
-  
-  .radioButton {
-    margin-right: 10px;
-    margin-top: 2px;
-    border-radius: 15px;
-  }
+.planOptRow {
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  flex: 1;
+}
+
+.planOptContainer {
+  border: 2px solid #7ce1d9;
+  border-radius: 5px;
+  height: 200px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+.planOptContainerHighlighted {
+  border: 2px solid #f3f3f3;
+  border-radius: 5px;
+  height: 200px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0px;
+}
+
+.optTextGroup{
+}
+
+.optText {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: .5rem;
+  text-align: center;
+}
