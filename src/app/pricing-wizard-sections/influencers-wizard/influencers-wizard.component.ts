@@ -71,13 +71,14 @@ export class InfluencersWizardComponent implements OnInit {
     }
   ];
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
+    
+  }
   ngOnInit() {
     this.countryForm = this.fb.group({
       countryControl: ['Canada']
     });
   }
-
 
   onSelectMCart(val: number) {
     this.currMCartVal = val;

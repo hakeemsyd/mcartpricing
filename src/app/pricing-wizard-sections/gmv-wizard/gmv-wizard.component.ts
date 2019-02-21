@@ -9,12 +9,11 @@ import { Options, LabelType } from 'ng5-slider';
 })
 export class GmvWizardComponent implements OnInit {
 
-  captureValue: number = 56;
+  captureValue: Number = 56;
   captureOptions: Options = {
     floor: 0,
     ceil: 100,
     translate: (value: number, label: LabelType): string => {
-      console.log(label);
       switch (label) {
         case LabelType.Ceil:
           return '';

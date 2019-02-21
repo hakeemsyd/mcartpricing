@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn } from '@an
 })
 export class StoreWizardComponent implements OnInit {
 
+  @Input() parentForm: FormGroup;
+
   form: FormGroup;
   storeForm: FormGroup;
   orders = [
@@ -18,6 +20,7 @@ export class StoreWizardComponent implements OnInit {
     { id: 400, name: 'Betsey Johnson' },
     { id: 500, name: 'Bloomingdale\'s' },
   ];
+  ordersListWCheck = [];
 
   suggestedStores = [
     { id: 100, name: 'Lululemon' },
@@ -26,36 +29,22 @@ export class StoreWizardComponent implements OnInit {
   imageUrl = 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
 
   constructor(private formBuilder: FormBuilder) {
-    // Create a new array with a form control for each order
-    const controls = this.orders.map(c => new FormControl(false));
-    controls[0].setValue(true); // Set the first checkbox to true (checked)
 
-    this.form = this.formBuilder.group({
-      orders: new FormArray(controls)
-    });
-
-    // Create a new array with a form control for each order
-    const storeControl = this.suggestedStores.map(c => new FormControl(false));
-    storeControl[0].setValue(true); // Set the first checkbox to true (checked)
-
-    this.storeForm = this.formBuilder.group({
-      suggestedStores: new FormArray(storeControl)
+    this.orders.forEach(item => {
+      this.ordersListWCheck.push({ ...item, isChecked: false as boolean });
     });
   }
-
-  submit() {
-    const selectedOrderIds = this.form.value.orders
-      .map((v, i) => v ? this.orders[i].id : null)
-      .filter(v => v !== null);
-
-    console.log(selectedOrderIds);
-  }
-
   ngOnInit() {
   }
 
-  addStore() {
-    alert('store added');
+  submitStores() {
+    let checkedValues = [];
+    this.ordersListWCheck.forEach(item => {
+      if (item.isChecked === true) {
+        checkedValues.push(item);
+      }
+    });
+    this.parentForm.controls['selectedStores'].setValue(checkedValues);
   }
 
 }

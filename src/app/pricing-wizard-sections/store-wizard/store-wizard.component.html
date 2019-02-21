@@ -7,10 +7,10 @@
       <li class="list-group-item listHeader listItemContainer">
         <p class="list-item-title"><b>Store List</b></p>
       </li>
-      <li class="list-group-item listItemContainer" *ngFor="let order of orders; let i = index;"
+      <li class="list-group-item listItemContainer" *ngFor="let order of ordersListWCheck; let i = index;"
         [ngClass]="{oddListRow: (i % 2) === 1, evenListRow: (i % 2) === 0 }">
         <p class="list-item-title">{{order.name}}</p>
-        <input type="checkbox">
+        <input type="checkbox" class="radioButton" [(ngModel)]="ordersListWCheck[i].isChecked" />
       </li>
       <app-add-store-modal></app-add-store-modal>
     </ul>

@@ -73,23 +73,64 @@ h2 {
   justify-content: space-between;
   /* background: red; */
   align-items: center;
-  height: 60px;
+  /* height: 60px; */
   padding: 0px 5px;
+  margin: 0px 5px;
+}
+
+.navQuoteButtonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nextButton {
   background-color: #eb7b74;
-  align-self: center;
-  position: absolute;
-  right: 50px;
+  color: #515151;
+  min-width:70px;
+  max-width: 100px;
+  flex: 1;
   color: #fff;
-  width: 100px;
-  flex:1;
+  height: 40px;
+  font-size: 12px;
+  margin: 5px 0px;
+  margin-left: 10px;
 }
 
 .prevButton {
   border-color: #e1e1e1;
   color: #515151;
+  min-width:70px;
   max-width: 100px;
-  flex:1;
+  flex: 1;
+  height: 40px;
+  font-size: 12px;
+  margin: 5px 0px;
+}
+
+.quoteButton {
+  color: #fff;
+  min-width: 100px;
+  max-width: 130px;
+  flex: 1;
+  background: #7ce1d9;
+  height: 40px;
+  font-size: 12px;
+  margin: 5px 0px;
+  margin-left: 10px;
+}
+
+.scheduleButton {
+  border-color: #e1e1e1;
+  color: #fff;
+  min-width: 180px;
+  max-width: 220px;
+  flex: 1;
+  background: #ed5656;
+  height: 40px;
+  font-size: 12px;
+  margin: 5px 0px;
+  margin-left: 10px;
+
 }

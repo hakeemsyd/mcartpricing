@@ -1,21 +1,38 @@
 <div class="row pricingWizard col-xs-12">
-  <div class="wizardHeaderContainer col-xs-12">
-    <p id="wizardPageNumber">1/6</p>
-    <h2 class="wizardHeader">Plan Calculator</h2>
-  </div>
 
   <aw-wizard navBarLocation="bottom">
     <aw-wizard-step>
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">1/8</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
       <div class="wizardContainer">
-        <app-users-wizard></app-users-wizard>
+        <app-business-wizard [parentForm]="planCalculatorForm"></app-business-wizard>
       </div>
       <div class="navButtonContainer">
         <button type="button" class="btn nextButton" awNextStep>Next</button>
       </div>
     </aw-wizard-step>
     <aw-wizard-step>
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">2/8</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
       <div class="wizardContainer">
-        <app-objective-wizard></app-objective-wizard>
+        <app-objective-wizard [parentForm]="planCalculatorForm" ></app-objective-wizard>
+      </div>
+      <div class="navButtonContainer">
+        <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
+        <button type="button" class="btn nextButton" (click)="onSubmitObjectives()" awNextStep>Next</button>
+      </div>
+    </aw-wizard-step>
+    <aw-wizard-step>
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">3/8</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
+      <div class="wizardContainer">
+        <app-sales-wizard [parentForm]="planCalculatorForm"></app-sales-wizard>
       </div>
       <div class="navButtonContainer">
         <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
@@ -23,8 +40,12 @@
       </div>
     </aw-wizard-step>
     <aw-wizard-step>
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">4/8</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
       <div class="wizardContainer">
-        <app-sales-wizard></app-sales-wizard>
+        <app-gmv-wizard ></app-gmv-wizard>
       </div>
       <div class="navButtonContainer">
         <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
@@ -32,8 +53,38 @@
       </div>
     </aw-wizard-step>
     <aw-wizard-step>
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">5/8</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
       <div class="wizardContainer">
-        <app-gmv-wizard></app-gmv-wizard>
+        <app-store-wizard [parentForm]="planCalculatorForm"></app-store-wizard>
+      </div>
+      <div class="navButtonContainer">
+        <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
+        <button type="button" (click)="onSubmitStores()" class="btn nextButton" awNextStep>Next</button>
+      </div>
+    </aw-wizard-step>
+    <aw-wizard-step>
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">6/8</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
+      <div class="wizardContainer">
+        <app-categories-wizard [parentForm]="planCalculatorForm"></app-categories-wizard>
+      </div>
+      <div class="navButtonContainer">
+        <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
+        <button type="button" (click)="onSubmitCategories()" class="btn nextButton" awNextStep>Next</button>
+      </div>
+    </aw-wizard-step>
+    <aw-wizard-step>
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">7/8</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
+      <div class="wizardContainer">
+        <app-influencers-wizard ></app-influencers-wizard>
       </div>
       <div class="navButtonContainer">
         <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
@@ -41,8 +92,12 @@
       </div>
     </aw-wizard-step>
     <aw-wizard-step>
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">8/8</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
       <div class="wizardContainer">
-        <app-store-wizard></app-store-wizard>
+        <app-users-wizard ></app-users-wizard>
       </div>
       <div class="navButtonContainer">
         <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
@@ -50,41 +105,23 @@
       </div>
     </aw-wizard-step>
     <aw-wizard-step>
+      <div class="wizardHeaderContainer col-xs-12">
+        <h2 class="wizardHeader">Request a quote</h2>
+      </div>
       <div class="wizardContainer">
-        <app-categories-wizard></app-categories-wizard>
-        <div class="navButtonContainer">
+        <app-quote-personal-info ></app-quote-personal-info>
+      </div>
+      <div class="col-xs-12 navButtonContainer row">
+        <button type="button" class="btn btn-outline-dark prevButton col-sm-2 col-xs-12" awPreviousStep>Back</button>
+        <div class="row col-xs-12">
+          <button type="button" class="btn quoteButton col-sm-2 col-xs-12" awNextStep>Get a quote</button>
+          <button type="button" class="btn scheduleButton col-sm-3 col-xs-12" awNextStep>Schedule your kick-off
+            demo</button>
         </div>
-        <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
-        <button type="button" class="btn nextButton" awNextStep>Next</button>
-      </div>
-    </aw-wizard-step>
-    <aw-wizard-step>
-      <div class="wizardContainer">
-        <app-influencers-wizard></app-influencers-wizard>
-        <div class="navButtonContainer">
-        </div>
-        <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
-        <button type="button" class="btn nextButton" awNextStep>Next</button>
-      </div>
-    </aw-wizard-step>
-    <aw-wizard-step>
-      <div class="wizardContainer">
-        <app-users-wizard></app-users-wizard>
-        <div class="navButtonContainer">
-        </div>
-        <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
-        <button type="button" class="btn nextButton" awNextStep>Next</button>
-      </div>
-    </aw-wizard-step>
-    <aw-wizard-step>
-      <div class="wizardContainer">
-        <p>not done</p>
-        <div class="navButtonContainer">
-        </div>
-        <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
-        <button type="button" class="btn nextButton" awNextStep>Next</button>
       </div>
     </aw-wizard-step>
   </aw-wizard>
 
+  <pre>{{planCalculatorForm.value | json}}</pre>
 </div>
+

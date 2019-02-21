@@ -10,7 +10,7 @@
       <li class="list-group-item listItemContainer" *ngFor="let order of orders; let i = index;"
         [ngClass]="{oddListRow: (i % 2) === 1, evenListRow: (i % 2) === 0 }">
         <p class="list-item-title">{{order.name}}</p>
-        <input type="checkbox">
+        <input type="checkbox" class="radioButton" [(ngModel)]="ordersListWCheck[i].isChecked" />
       </li>
       <li class="list-group-item listItemContainer"> <b>
           <p class="list-item-title">Add new category</p>

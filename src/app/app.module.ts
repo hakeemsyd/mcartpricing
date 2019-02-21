@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArchwizardModule } from 'angular-archwizard';
 import { Ng5SliderModule } from 'ng5-slider';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -18,6 +18,7 @@ import { InfluencersWizardComponent } from './pricing-wizard-sections/influencer
 import { UsersWizardComponent } from './pricing-wizard-sections/users-wizard/users-wizard.component';
 import { QuoteWizardComponent } from './pricing-wizard-sections/quote-wizard/quote-wizard.component';
 import { AddStoreModalComponent } from './pricing-wizard-sections/store-wizard/add-store-modal/add-store-modal.component';
+import { QuotePersonalInfoComponent } from './pricing-wizard-sections//quote-personal-info/quote-personal-info.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { AddStoreModalComponent } from './pricing-wizard-sections/store-wizard/a
     UsersWizardComponent,
     QuoteWizardComponent,
     AddStoreModalComponent,
+    QuotePersonalInfoComponent,
   ],
   imports: [
     BrowserModule,
