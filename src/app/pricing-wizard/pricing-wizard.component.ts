@@ -6,6 +6,8 @@ import { Item } from '../mock_data/items';
 import { ObjectiveWizardComponent } from '../pricing-wizard-sections/objective-wizard/objective-wizard.component';
 import { StoreWizardComponent } from '../pricing-wizard-sections/store-wizard/store-wizard.component';
 import { CategoriesWizardComponent } from '../pricing-wizard-sections/categories-wizard/categories-wizard.component';
+import { InfluencersWizardComponent } from '../pricing-wizard-sections/influencers-wizard/influencers-wizard.component';
+import { UsersWizardComponent } from '../pricing-wizard-sections/users-wizard/users-wizard.component';
 
 interface Store {
   name: String;
@@ -30,6 +32,9 @@ export class PricingWizardComponent implements OnInit {
   @ViewChild(ObjectiveWizardComponent) objectivesWizardInstance: ObjectiveWizardComponent;
   @ViewChild(StoreWizardComponent) storeWizardInstance: StoreWizardComponent;
   @ViewChild(CategoriesWizardComponent) categoriesWizardInstance: CategoriesWizardComponent;
+  @ViewChild(InfluencersWizardComponent) influencersWizardInstance: InfluencersWizardComponent;
+  @ViewChild(UsersWizardComponent) usersWizardInstance: UsersWizardComponent;
+  @ViewChild(QuotePersonalInfoComponent) quoteWizardInstance: QuotePersonalInfoComponent;
 
   planCalculatorForm: FormGroup;
 
@@ -77,5 +82,17 @@ export class PricingWizardComponent implements OnInit {
 
   onSubmitCategories() {
     this.categoriesWizardInstance.submitStores();
+  }
+
+  onSubmitInfluencers() {
+    this.influencersWizardInstance.submitInfluencers();
+  }
+
+  onSubmitUsers() {
+    this.usersWizardInstance.onSubmitUsers();
+  }
+
+  onSubmitQuote() {
+    this.quoteWizardInstance.onSubmitPersnalInfo();
   }
 }

@@ -13,46 +13,42 @@
     <div class="form-group row">
       <label class="col-sm-2 col-form-label inputTitle">Company Name</label>
       <div class="col-sm-6 col-xs-12">
-        <input type="text" formControlName="companyName" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }" />
+        <input type="text" formControlName="companyName" class="form-control" />
       </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label inputTitle">Telephone Number</label>
       <div class="col-sm-6 col-xs-12">
         <!-- <div class="row input-group"> -->
-          <img class="teleFlag" src="http://e-oturumizni.net/statics/images/Eft-oto-expertiz-amerika-vizesi-967.png" />
-          <input type="text" formControlName="teleNum" class="form-control teleInput"
-            [ngClass]="{ 'is-invalid': submitted && f.teleNum.errors }" />
+        <img class="teleFlag" src="http://e-oturumizni.net/statics/images/Eft-oto-expertiz-amerika-vizesi-967.png" />
+        <input type="text" formControlName="teleNum" class="form-control teleInput"
+          [ngClass]="{ 'is-invalid': submitted && f.teleNum.errors }" />
         <!-- </div> -->
       </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label inputTitle">Email</label>
       <div class="col-sm-6 col-xs-12">
-        <input type="text" formControlName="email" class="form-control"
+        <input type="email" formControlName="email" class="form-control" id="email"
           [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
       </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label inputTitle">Referred By</label>
       <div class="col-sm-6 col-xs-12">
-        <input type="password" formControlName="referredBy" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f.referredBy.errors }" />
+        <input type="text" formControlName="referredBy" class="form-control" />
       </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label inputTitle">Website URL</label>
       <div class="col-sm-6 col-xs-12">
-        <input type="password" formControlName="referredBy" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f.website.errors }" />
+        <input type="text" formControlName="referredBy" class="form-control" />
       </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label inputTitle">Comments</label>
       <div class="col-sm-6 col-xs-12">
-        <input type="password" formControlName="Comments" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f.Comments.errors }" />
+        <input type="text" formControlName="Comments" class="form-control" />
       </div>
     </div>
   </form>

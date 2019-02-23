@@ -32,10 +32,10 @@
       <p class="dropdownTitle">Influencers interests</p>
       <div class="col">
         <div ngbDropdown class="dropdownContainer">
-          <button class="dropdownButton" id="dropdownBasic1" ngbDropdownToggle>{{interests[0].name}}</button>
+          <button class="dropdownButton" id="dropdownBasic1" ngbDropdownToggle>{{currInterest.name}}</button>
           <ul ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdownContainer">
-            <li *ngFor="let region of interests; let i = index">
-              <button class="dropdown-item" (click)="onSelectInterest(region)">{{region.name}}</button>
+            <li *ngFor="let interest of interests; let i = index">
+              <button class="dropdown-item" (click)="onSelectInterest(interest)">{{interest.name}}</button>
             </li>
           </ul>
         </div>
@@ -45,14 +45,16 @@
 
   <div class="row rowContainer">
     <div *ngFor="let influencer of influencersList; let i = index">
-      <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12">
         <div class="profileContainer">
-          <h4 class="nameHeader">{{influencer.name}}</h4>
+          <div class="nameHeader">
+            <p class="headerText">{{influencer.name}}</p>
+          </div>
           <div class="profileImageContainer">
             <img class="rounded profileImage" src={{influencer.img}}>
           </div>
-
-          <input type="checkbox" [checked]="influencersList[i].checked" class="imgChkBox" id="tag{{influencer.id}}" />
+          <input type="checkbox" [(ngModel)]="influencersList[i].isChecked" class="imgChkBox"
+            id="tag{{influencer.id}}" />
         </div>
       </div>
     </div>

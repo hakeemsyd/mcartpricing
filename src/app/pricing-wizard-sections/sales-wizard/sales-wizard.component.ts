@@ -17,11 +17,7 @@ export class SalesWizardComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  onSubmitSalesAnswer() {
-    const control = this.parentForm.controls['sales'];
-
-  }
+  
 
   onSalesChannelChange(value) {
     (<FormGroup>this.parentForm.controls['sales']).controls['salesChannel'].patchValue(value);

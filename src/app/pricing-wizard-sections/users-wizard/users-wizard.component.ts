@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
     '../../pricing-wizard/pricing-wizard.component.css']
 })
 export class UsersWizardComponent implements OnInit {
+
+  @Input() parentForm: FormGroup;
 
   form: FormGroup;
 
@@ -51,5 +53,8 @@ export class UsersWizardComponent implements OnInit {
     } else {
       return false;
     }
+  }
+  onSubmitUsers() {
+    this.parentForm.controls['usersPlan'].setValue(this.form.value.usersPlan);
   }
 }
