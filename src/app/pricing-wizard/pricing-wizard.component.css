@@ -71,9 +71,8 @@ h2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* background: red; */
   align-items: center;
-  /* height: 60px; */
+  min-height: 60px;
   padding: 0px 5px;
   margin: 0px 5px;
 }
@@ -88,20 +87,21 @@ h2 {
 .nextButton {
   background-color: #eb7b74;
   color: #515151;
-  min-width:70px;
-  max-width: 100px;
+  /* min-width: 70px; */
+  width: 100px;
   flex: 1;
   color: #fff;
   height: 40px;
   font-size: 12px;
-  margin: 5px 0px;
-  margin-left: 10px;
+  align-self: center;
+  position: absolute;
+  right: 50px;
 }
 
 .prevButton {
   border-color: #e1e1e1;
   color: #515151;
-  min-width:70px;
+  min-width: 70px;
   max-width: 100px;
   flex: 1;
   height: 40px;
@@ -132,5 +132,4 @@ h2 {
   font-size: 12px;
   margin: 5px 0px;
   margin-left: 10px;
-
 }

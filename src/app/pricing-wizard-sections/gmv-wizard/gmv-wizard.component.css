@@ -5,6 +5,12 @@
 .gmv {
     border-left: 2px solid #e1e1e1;
     padding-left: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .6px;
+    margin-bottom: 0px;
+    color: #444444;
+    margin-right: 10px;
 }
 
 .row {
@@ -22,7 +28,6 @@
 
 .wizardSubtitle {
     align-self: center;
-    /* background: rgb(216, 49, 49); */
     margin-top: 15px;
 }
 
@@ -30,4 +35,8 @@
     font-size: 14px;
     color: #515151;
     margin-bottom: 15px;
+}
+
+.mat-slider-horizontal {
+    width: 100%;
 }

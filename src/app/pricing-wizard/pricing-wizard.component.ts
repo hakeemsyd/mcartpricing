@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { QuotePersonalInfoComponent } from '../pricing-wizard-sections/quote-personal-info/quote-personal-info.component';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { NumberSymbol } from '@angular/common';
 import { Item } from '../mock_data/items';
 import { ObjectiveWizardComponent } from '../pricing-wizard-sections/objective-wizard/objective-wizard.component';
 import { StoreWizardComponent } from '../pricing-wizard-sections/store-wizard/store-wizard.component';
 import { CategoriesWizardComponent } from '../pricing-wizard-sections/categories-wizard/categories-wizard.component';
 import { InfluencersWizardComponent } from '../pricing-wizard-sections/influencers-wizard/influencers-wizard.component';
 import { UsersWizardComponent } from '../pricing-wizard-sections/users-wizard/users-wizard.component';
+import { GmvWizardComponent } from '../pricing-wizard-sections/gmv-wizard/gmv-wizard.component';
 
 interface Store {
   name: String;
@@ -35,6 +35,7 @@ export class PricingWizardComponent implements OnInit {
   @ViewChild(InfluencersWizardComponent) influencersWizardInstance: InfluencersWizardComponent;
   @ViewChild(UsersWizardComponent) usersWizardInstance: UsersWizardComponent;
   @ViewChild(QuotePersonalInfoComponent) quoteWizardInstance: QuotePersonalInfoComponent;
+  @ViewChild(GmvWizardComponent) gmvWizardInstance: GmvWizardComponent;
 
   planCalculatorForm: FormGroup;
 
@@ -94,5 +95,9 @@ export class PricingWizardComponent implements OnInit {
 
   onSubmitQuote() {
     this.quoteWizardInstance.onSubmitPersnalInfo();
+  }
+
+  onSubmitGMV() {
+    this.gmvWizardInstance.submitGMV();
   }
 }

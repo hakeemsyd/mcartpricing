@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Options, LabelType } from 'ng5-slider';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-gmv-wizard',
@@ -9,76 +9,84 @@ import { Options, LabelType } from 'ng5-slider';
 })
 export class GmvWizardComponent implements OnInit {
 
-  captureValue: Number = 56;
-  captureOptions: Options = {
-    floor: 0,
-    ceil: 100,
-    translate: (value: number, label: LabelType): string => {
-      switch (label) {
-        case LabelType.Ceil:
-          return '';
-        case LabelType.Floor:
-          return '';
-        default:
-          return value.toString();
-      }
-    }
-  };
-  platformValue: number = 32;
-  platformOptions: Options = {
-    floor: 0,
-    ceil: 40,
-    translate: (value: number, label: LabelType): string => {
-      console.log(label);
-      switch (label) {
-        case LabelType.Ceil:
-          return '';
-        case LabelType.Floor:
-          return '';
-        default:
-          return value.toString();
-      }
-    }
-  };
-  influencerValue: number = 37;
-  influencerOptions: Options = {
-    floor: 30,
-    ceil: 50,
-    translate: (value: number, label: LabelType): string => {
-      console.log(label);
-      switch (label) {
-        case LabelType.Ceil:
-          return '';
-        case LabelType.Floor:
-          return '';
-        default:
-          return value.toString();
-      }
-    }
+  @Input() parentForm: FormGroup;
+
+  mCart = {
+    min: 0,
+    max: 200,
+    value: 200
   };
 
-  rebateValue: number = 9;
-  rebateOptions: Options = {
-    floor: 5,
-    ceil: 20,
-    translate: (value: number, label: LabelType): string => {
-      console.log(label);
-      switch (label) {
-        case LabelType.Ceil:
-          return '';
-        case LabelType.Floor:
-          return '';
-        default:
-          return value.toString();
-      }
-    }
+  platformCommission = {
+    min: 0,
+    max: 40,
+    value: 0
   };
 
-  gmv$: number = 70000;
+  influencerPayout = {
+    min: 0,
+    max: 50,
+    value: 0
+  };
+
+  shopperRebate = {
+    min: 0,
+    max: 20,
+    value: 0
+  };
+
+  gmv: number = 0;
+  currPlan = 1;
+
+  getmCartPercentage(): number {
+    let percentage: number = 200;
+
+    if (this.gmv >= 50000000000) {
+      percentage = 0.78;
+    } else if (this.gmv >= 5000000000) {
+      percentage = 1.56;
+    } else if (this.gmv >= 500000000) {
+      percentage = 3.13;
+    } else if (this.gmv >= 50000000) {
+      percentage = 6.25;
+    } else if (this.gmv >= 10000000) {
+      percentage = 12.5;
+    } else if (this.gmv >= 5000000) {
+      percentage = 20;
+    } else if (this.gmv >= 3000000) {
+      percentage = 40;
+    } else if (this.gmv >= 1500000) {
+      percentage = 100;
+    }
+
+    return percentage;
+  }
+
+  getPlatformPercentage(): number {
+    return 10;
+  }
+
+  getInfluencerPayout(): number {
+    return 50;
+  }
+
+  getShopperRebate(): number {
+    return 10;
+  }
+
+  calculateGMVValues() {
+    this.mCart.value = this.getmCartPercentage();
+    this.platformCommission.value = this.getPlatformPercentage();
+    this.influencerPayout.value = this.getInfluencerPayout();
+    this.shopperRebate.value = this.getShopperRebate();
+  }
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  submitGMV() {
+    this.parentForm.controls['gmv'].setValue(this.gmv);
+  }
 }

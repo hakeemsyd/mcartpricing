@@ -6,42 +6,51 @@
   <div>
     <div class="row">
       <h2 class="wizardSubtitleDark">Captured by the mCart platform</h2>
-      <h4 class="wizardSubtitle gmv">GMV: {{gmv$}}</h4>
+      <h4 class="gmv">GMV:</h4>
+      <input matInput type="number" (keyup)="calculateGMVValues()" placeholder="Enter GMV" value={{gmv}} [(ngModel)]="gmv">
+
     </div>
-    <ng5-slider [(value)]="captureValue" [options]="captureOptions"></ng5-slider>
+    <mat-slider [max]="mCart.max" [min]="mCart.min" [value]="mCart.value" [step]="0.01" [thumbLabel]="mCart.value">
+    </mat-slider>
     <div class="rowSlider">
-      <p class="percentage">{{captureOptions.floor}}%</p>
-      <p class="percentage">{{captureOptions.ceil}}%</p>
+      <p class="percentage">{{mCart.min}}%</p>
+      <p class="percentage">{{mCart.max}}%</p>
     </div>
   </div>
   <div>
     <div>
       <h2 class="wizardSubtitleDark">Platform Commission</h2>
     </div>
-    <ng5-slider [(value)]="platformValue" [options]="platformOptions"></ng5-slider>
+    <mat-slider [max]="platformCommission.max" [min]="platformCommission.min" [value]="platformCommission.value"
+      [step]="1" [thumbLabel]="platformCommission.value">
+    </mat-slider>
     <div class="rowSlider">
-      <p class="percentage">{{platformOptions.floor}}%</p>
-      <p class="percentage">{{platformOptions.ceil}}%</p>
+      <p class="percentage">{{platformCommission.min}}%</p>
+      <p class="percentage">{{platformCommission.max}}%</p>
     </div>
   </div>
   <div>
     <div>
       <h2 class="wizardSubtitleDark">Influencer Payout</h2>
     </div>
-    <ng5-slider [(value)]="influencerValue" [options]="influencerOptions"></ng5-slider>
+    <mat-slider [max]="influencerPayout.max" [min]="influencerPayout.min" [value]="influencerPayout.value" [step]="1"
+      [thumbLabel]="influencerPayout.value">
+    </mat-slider>
     <div class="rowSlider">
-      <p class="percentage">{{influencerOptions.floor}}%</p>
-      <p class="percentage">{{influencerOptions.ceil}}%</p>
+      <p class="percentage">{{influencerPayout.min}}%</p>
+      <p class="percentage">{{influencerPayout.max}}%</p>
     </div>
   </div>
   <div>
     <div>
       <h2 class="wizardSubtitleDark">Shopper's Rebate</h2>
     </div>
-    <ng5-slider [(value)]="rebateValue" [options]="rebateOptions"></ng5-slider>
+    <mat-slider [max]="shopperRebate.max" [min]="shopperRebate.min" [value]="shopperRebate.value" [step]="1"
+      [thumbLabel]="shopperRebate.value">
+    </mat-slider>
     <div class="rowSlider">
-        <p class="percentage">{{rebateOptions.floor}}%</p>
-        <p class="percentage">{{rebateOptions.ceil}}%</p>
-      </div>
+      <p class="percentage">{{shopperRebate.min}}%</p>
+      <p class="percentage">{{shopperRebate.max}}%</p>
+    </div>
   </div>
 </div>

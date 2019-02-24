@@ -3,8 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArchwizardModule } from 'angular-archwizard';
 import { Ng5SliderModule } from 'ng5-slider';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {MatRadioModule} from '@angular/material/radio';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSliderModule } from '@angular/material/slider';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { PricingWizardComponent } from './pricing-wizard/pricing-wizard.component';
@@ -45,6 +48,8 @@ import { QuotePersonalInfoComponent } from './pricing-wizard-sections//quote-per
     Ng5SliderModule,
     NgbModule,
     MatRadioModule,
+    MatSliderModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

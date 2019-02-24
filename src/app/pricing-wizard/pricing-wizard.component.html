@@ -1,7 +1,7 @@
 <div class="row pricingWizard col-xs-12">
 
   <aw-wizard navBarLocation="bottom">
-    <!-- <aw-wizard-step>
+    <aw-wizard-step>
       <div class="wizardHeaderContainer col-xs-12">
         <p id="wizardPageNumber">1/8</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
@@ -45,13 +45,13 @@
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">
-        <app-gmv-wizard ></app-gmv-wizard>
+        <app-gmv-wizard (click)="onSubmitGMV()"  [parentForm]="planCalculatorForm"></app-gmv-wizard>
       </div>
       <div class="navButtonContainer">
         <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
         <button type="button" class="btn nextButton" awNextStep>Next</button>
       </div>
-    </aw-wizard-step> -->
+    </aw-wizard-step>
     <aw-wizard-step>
       <div class="wizardHeaderContainer col-xs-12">
         <p id="wizardPageNumber">5/8</p>
@@ -122,7 +122,4 @@
       </div>
     </aw-wizard-step>
   </aw-wizard>
-  <div style="max-width: 80%">
-    <pre>{{planCalculatorForm.value | json}}</pre>
-  </div>
 </div>
