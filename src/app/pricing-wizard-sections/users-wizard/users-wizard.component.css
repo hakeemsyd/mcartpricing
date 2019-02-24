@@ -31,11 +31,14 @@
   margin: 10px 0px;
 }
 
-.optTextGroup {}
+.optTextGroup {
+  width: 80%;
+}
 
 .optText {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   margin-bottom: .5rem;
   text-align: center;
+  color: #444444;
 }

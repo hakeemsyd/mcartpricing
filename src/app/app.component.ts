@@ -29,10 +29,13 @@ export class AppComponent {
       this.monthlyStyle = { 'background-color': '#94ded8', 'color': '#fff' };
     }
   }
-  ngAfterViewInit() {
-    var s = document.createElement("script");
-    s.type = "text/javascript";
-    s.innerText = "VK.Widgets.Comments('vk_comments');";
-    this.elementRef.nativeElement.appendChild(s);
+
+  getTotalProfit(){
+    return 'TBD';
   }
+
+  getPriceRange(){
+    return 'TBD';
+  }
+  
 }

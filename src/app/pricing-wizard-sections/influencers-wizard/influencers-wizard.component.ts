@@ -4,7 +4,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-influencers-wizard',
   templateUrl: './influencers-wizard.component.html',
-  styleUrls: ['./influencers-wizard.component.css']
+  styleUrls: ['./influencers-wizard.component.css',
+  '../../pricing-wizard/pricing-wizard.component.css']
 })
 export class InfluencersWizardComponent implements OnInit {
 
