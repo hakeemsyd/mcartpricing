@@ -35,7 +35,7 @@ export class InfluencersWizardComponent implements OnInit {
       isChecked: false,
     },
     {
-      name: 'Binali Yıldarım',
+      name: 'David Michael',
       img: 'https://www.dogrulukpayi.com/image/actor/binali-yildirim/orig.png',
       id: 3,
       isChecked: true,
@@ -69,7 +69,20 @@ export class InfluencersWizardComponent implements OnInit {
       img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM6uciOQmx2kowfFaYviOr8Ploj7GJGH1EIZsHdpWk_AUEImWn',
       id: 8,
       isChecked: false,
-    }
+    },
+    {
+      name: 'Jacqueline Persons',
+      img: 'https://www.icmp.int/wp-content/uploads/2012/02/icmp-commissioner-hm-queen-noor-of-jordan.jpg',
+      id: 9,
+      isChecked: false,
+    },
+    {
+      name: 'Gordon Persons',
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTUukX06jIx-u-bqqeQp712tm10YWo6d9azj5vvyXEQgzKqmYR',
+      id: 10,
+      isChecked: false,
+    },
+
   ];
 
   constructor(private fb: FormBuilder) {

@@ -43,3 +43,19 @@
 .mat-slider-thumb-label-text {
   opacity: 1 !important;
 }
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: #93d0CC !important;
+  border-color: 1px solid #93d0CC;
+  /* border-radius: 20px; */
+}
+
+.mat-ripple-element {
+  background: #93d0CC !important;
+  border-color: 1px solid #93d0CC;
+}
+
+.mat-checkbox .mat-checkbox-frame {
+  border-color: 1px solid #93d0CC;
+  background: white;
+}

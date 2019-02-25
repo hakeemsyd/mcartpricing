@@ -6,6 +6,7 @@ import { Ng5SliderModule } from 'ng5-slider';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 
@@ -22,6 +23,7 @@ import { UsersWizardComponent } from './pricing-wizard-sections/users-wizard/use
 import { QuoteWizardComponent } from './pricing-wizard-sections/quote-wizard/quote-wizard.component';
 import { AddStoreModalComponent } from './pricing-wizard-sections/store-wizard/add-store-modal/add-store-modal.component';
 import { QuotePersonalInfoComponent } from './pricing-wizard-sections//quote-personal-info/quote-personal-info.component';
+import { PlanInfoWizardComponent } from './plan-info-wizard/plan-info-wizard.component';
 
 
 @NgModule({
@@ -39,6 +41,7 @@ import { QuotePersonalInfoComponent } from './pricing-wizard-sections//quote-per
     QuoteWizardComponent,
     AddStoreModalComponent,
     QuotePersonalInfoComponent,
+    PlanInfoWizardComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { QuotePersonalInfoComponent } from './pricing-wizard-sections//quote-per
     NgbModule,
     MatRadioModule,
     MatSliderModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

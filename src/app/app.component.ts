@@ -17,6 +17,7 @@ export class AppComponent {
   selectedPlan: Plan = Plan.Annual;
   annualStyle = { 'background-color': '#94ded8', 'color': '#fff' };
   monthlyStyle = { 'background-color': '#f6f6f6', 'color': '#515151' };
+  currPriceWizardStep: number = 1;
 
   onClickPlan(val: number) {
     if (val === Plan.Annual) {
@@ -30,12 +31,16 @@ export class AppComponent {
     }
   }
 
-  getTotalProfit(){
+  getTotalProfit() {
     return 'TBD';
   }
 
-  getPriceRange(){
+  getPriceRange() {
     return 'TBD';
   }
-  
+
+  stepChangedHandler(event: number) {
+    this.currPriceWizardStep = event;
+  }
+
 }

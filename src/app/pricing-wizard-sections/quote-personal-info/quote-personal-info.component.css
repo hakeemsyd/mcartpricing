@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-bottom:0;
+  margin: 10px 0px;
 }
 
 .form-control {
@@ -37,10 +37,11 @@
   border: 1px solid #ddd;
   width: 100%;
   max-width: 450px;
-  flex: 1
+  flex: 1;
+  background: red
 }
 
-.teleFlag{
+.teleFlag {
   height: 30px;
   width: 40px;
   padding: 0px 3px;
@@ -51,6 +52,6 @@
    */
 }
 
-.teleInput{
+.teleInput {
   padding-left: 45px;
 }

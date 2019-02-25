@@ -23,14 +23,16 @@
       </div>
     </div>
     <div class="wizard col-xs-12">
-      <app-pricing-wizard class="col-xs-12"></app-pricing-wizard>
+      <app-pricing-wizard (stepChanged)="stepChangedHandler($event)" class="col-xs-12"></app-pricing-wizard>
     </div>
 
   </div>
-  <div class="col-lg-3 col-md-12 adsContainer"></div>
+  <div class="col-lg-3 col-md-12 adsContainer">
+    <app-plan-info-wizard [currPriceWizardStep]="currPriceWizardStep"></app-plan-info-wizard>
+  </div>
 </div>
 
-<div>
+<!-- <div>
     <div class="d-none d-xl-block" style="background: #007bff; color: #fff; padding: 5px; text-align: center;">XL</div>
     <div class="d-none d-lg-block d-xl-none" style="background: #27a745; color: #fff; padding: 5px; text-align: center;">
       LG</div>
@@ -41,4 +43,4 @@
     <div class="d-block d-sm-none" style="background: #dc3545; color: #fff; padding: 5px; text-align: center;">XS</div>
   
   </div>
-  
+   -->

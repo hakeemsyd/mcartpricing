@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Output } from '@angular/core';
 import { QuotePersonalInfoComponent } from '../pricing-wizard-sections/quote-personal-info/quote-personal-info.component';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Item } from '../mock_data/items';
@@ -8,6 +8,7 @@ import { CategoriesWizardComponent } from '../pricing-wizard-sections/categories
 import { InfluencersWizardComponent } from '../pricing-wizard-sections/influencers-wizard/influencers-wizard.component';
 import { UsersWizardComponent } from '../pricing-wizard-sections/users-wizard/users-wizard.component';
 import { GmvWizardComponent } from '../pricing-wizard-sections/gmv-wizard/gmv-wizard.component';
+import { EventEmitter } from '@angular/core';
 
 interface Store {
   name: String;
@@ -37,7 +38,11 @@ export class PricingWizardComponent implements OnInit {
   @ViewChild(QuotePersonalInfoComponent) quoteWizardInstance: QuotePersonalInfoComponent;
   @ViewChild(GmvWizardComponent) gmvWizardInstance: GmvWizardComponent;
 
+  @Output() stepChanged: EventEmitter<number> = new EventEmitter();
+
   planCalculatorForm: FormGroup;
+
+  wizardCurrStep = 1;
 
   constructor(private fb: FormBuilder) { }
 
@@ -100,4 +105,10 @@ export class PricingWizardComponent implements OnInit {
   onSubmitGMV() {
     this.gmvWizardInstance.submitGMV();
   }
+
+  enterStep(step: number) {
+    this.wizardCurrStep = step;
+    this.stepChanged.emit(step);
+  }
+
 }

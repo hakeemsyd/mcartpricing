@@ -33,8 +33,9 @@
       <div class="col">
         <div ngbDropdown class="dropdownContainer">
           <button class="dropdownButton" id="dropdownBasic1" ngbDropdownToggle>{{currInterest.name}}</button>
-          <ul >
-            <li ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdownContainer" *ngFor="let interest of interests; let i = index">
+          <ul>
+            <li ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdownContainer"
+              *ngFor="let interest of interests; let i = index">
               <button class="dropdown-item" (click)="onSelectInterest(interest)">{{interest.name}}</button>
             </li>
           </ul>
@@ -48,13 +49,16 @@
       <div class="influencerRow col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-12">
         <div class="profileContainer">
           <div class="nameHeader" [ngStyle]="{'background-color':influencersList[i].isChecked ? '#93d0cc' : 'white' }">
-            <p class="headerText" [ngStyle]="{'color':influencersList[i].isChecked ? 'white' : '#444444' }">{{influencer.name}}</p>
+            <p class="headerText" [ngStyle]="{'color':influencersList[i].isChecked ? 'white' : '#444444' }">
+              {{influencer.name}}</p>
           </div>
           <div class="profileImageContainer">
             <img class="rounded profileImage" src={{influencer.img}}>
           </div>
-          <input type="checkbox" [(ngModel)]="influencersList[i].isChecked" class="imgChkBox"
-            id="tag{{influencer.id}}" />
+          <mat-checkbox [(ngModel)]="influencersList[i].isChecked" class="imgChkBox" id="tag{{influencer.id}}">
+          </mat-checkbox>
+          <!-- <input type="checkbox" [(ngModel)]="influencersList[i].isChecked" class="imgChkBox"
+            id="tag{{influencer.id}}" /> -->
         </div>
       </div>
     </div>

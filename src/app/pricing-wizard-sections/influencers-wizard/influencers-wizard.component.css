@@ -100,6 +100,8 @@ body {
   justify-content: space-around;
   align-items: center;
   margin: 0px;
+  max-height: 350px;
+  overflow-x: scroll;
 }
 
 .influencerRow{
@@ -161,5 +163,5 @@ body {
 .imgChkBox {
   position: absolute;
   z-index: 3;
-  bottom: 40px;
+  bottom: 20px;
 }
