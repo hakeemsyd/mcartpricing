@@ -30,20 +30,6 @@
 .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
   background-color: #80BAB1;
 }
-
-.mat-slider-thumb-label {
-  transform: rotate(45deg) !important;
-  border-radius: 50% 50% 0 !important;
-}
-
-.mat-slider-thumb {
-  transform: scale(0) !important;
-}
-
-.mat-slider-thumb-label-text {
-  opacity: 1 !important;
-}
-
 .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
   background-color: #93d0CC !important;
   border-color: 1px solid #93d0CC;

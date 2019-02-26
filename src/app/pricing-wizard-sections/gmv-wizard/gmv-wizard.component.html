@@ -6,8 +6,11 @@
   <div>
     <div class="row">
       <h2 class="wizardSubtitleDark">Captured by the mCart platform</h2>
-      <h4 class="gmv">GMV:</h4>
-      <input matInput type="number" (keyup)="calculateGMVValues()" placeholder="Enter GMV" value={{gmv}} [(ngModel)]="gmv">
+      <div class="row col-xs-12 col-sm-6 gmvRow">
+        <h4 class="gmv">GMV:</h4>
+        <input class="gmvInput" matInput type="number" (keyup)="calculateGMVValues()" placeholder="Enter GMV" value={{gmv}}
+          [(ngModel)]="gmv">
+      </div>
 
     </div>
     <mat-slider [max]="mCart.max" [min]="mCart.min" [value]="mCart.value" [step]="0.01" [thumbLabel]="mCart.value">
