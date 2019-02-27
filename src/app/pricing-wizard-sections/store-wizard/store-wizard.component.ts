@@ -21,7 +21,7 @@ export class StoreWizardComponent implements OnInit {
     { id: 500, name: 'Bloomingdale\'s' },
   ];
   ordersListWCheck = [];
-
+  selectAllChecked: boolean = false;
   suggestedStores = [
     { id: 100, name: 'Lululemon' },
   ];
@@ -47,4 +47,26 @@ export class StoreWizardComponent implements OnInit {
     this.parentForm.controls['selectedStores'].setValue(checkedValues);
   }
 
+  deselectAllStores() {
+
+  }
+
+  selectAllStores() {
+
+  }
+
+  onTriggerSelectAll() {
+    this.selectAllChecked = this.ordersListWCheck.every(function (item: any) {
+      return item.isChecked === true;
+    });
+
+    // this.selectAllChecked = !this.selectAllChecked;
+
+    // const shouldPerformSelectAll: boolean = (selectedAll.length === this.ordersListWCheck.length);
+
+    for (let i = 0; i < this.ordersListWCheck.length; i++) {
+      this.ordersListWCheck[i].isChecked = !this.selectAllChecked;
+    }
+
+  }
 }

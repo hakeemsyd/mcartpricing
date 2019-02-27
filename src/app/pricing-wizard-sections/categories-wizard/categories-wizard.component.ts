@@ -18,6 +18,7 @@ export class CategoriesWizardComponent implements OnInit {
     { id: 400, name: 'Betsey Johnson' },
     { id: 500, name: 'Bloomingdale\'s' },
   ];
+  selectAllChecked: boolean = false;
 
   suggestedStores = [
     { id: 100, name: 'Kids' },
@@ -52,4 +53,16 @@ export class CategoriesWizardComponent implements OnInit {
     this.parentForm.controls['category'].setValue(checkedValues);
   }
 
+  onTriggerSelectAll() {
+    this.selectAllChecked = this.ordersListWCheck.every(function (item: any) {
+      return item.isChecked === true;
+    });
+
+    // this.selectAllChecked = !this.selectAllChecked;
+
+    // const shouldPerformSelectAll: boolean = (selectedAll.length === this.ordersListWCheck.length);
+
+    for (let i = 0; i < this.ordersListWCheck.length; i++) {
+      this.ordersListWCheck[i].isChecked = !this.selectAllChecked;
+    }
 }

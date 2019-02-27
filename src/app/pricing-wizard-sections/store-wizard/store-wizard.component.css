@@ -3,9 +3,16 @@
   flex-direction: column;
 }
 
-.list-container {
+.listContainer {
   border-width: 3px;
   border-color: red;
+}
+
+.list-container {}
+
+.scrollableContainer {
+  overflow-y: scroll;
+  max-height: 150px;
 }
 
 .listItemContainer {
@@ -40,6 +47,6 @@
   background: #fdfdfd;
 }
 
-.suggested-stores{
+.suggested-stores {
   margin-top: 22px;
 }
