@@ -13,7 +13,7 @@
       </div>
 
     </div>
-    <mat-slider [max]="mCart.max" [min]="mCart.min" [value]="mCart.value" [step]="0.01" [thumbLabel]="mCart.value">
+    <mat-slider [max]="mCart.max" [min]="mCart.min" (change)="calculateGMVValues()" [(ngModel)]="mCart.value" [step]="0.01" [thumbLabel]="mCart.value">
     </mat-slider>
     <div class="rowSlider">
       <p class="percentage">{{mCart.min}}%</p>
@@ -24,7 +24,7 @@
     <div>
       <h2 class="wizardSubtitleDark">Platform Commission</h2>
     </div>
-    <mat-slider [max]="platformCommission.max" [min]="platformCommission.min" [value]="platformCommission.value"
+    <mat-slider [max]="platformCommission.max" (change)="calculateGMVValues()" [min]="platformCommission.min" [(ngModel)]="platformCommission.value"
       [step]="1" [thumbLabel]="platformCommission.value">
     </mat-slider>
     <div class="rowSlider">
@@ -36,7 +36,7 @@
     <div>
       <h2 class="wizardSubtitleDark">Influencer Payout</h2>
     </div>
-    <mat-slider [max]="influencerPayout.max" [min]="influencerPayout.min" [value]="influencerPayout.value" [step]="1"
+    <mat-slider [max]="influencerPayout.max" (change)="calculateGMVValues()" [min]="influencerPayout.min" [(ngModel)]="influencerPayout.value" [step]="1"
       [thumbLabel]="influencerPayout.value">
     </mat-slider>
     <div class="rowSlider">
@@ -48,7 +48,7 @@
     <div>
       <h2 class="wizardSubtitleDark">Shopper's Rebate</h2>
     </div>
-    <mat-slider [max]="shopperRebate.max" [min]="shopperRebate.min" [value]="shopperRebate.value" [step]="1"
+    <mat-slider [max]="shopperRebate.max" (change)="calculateGMVValues()" [min]="shopperRebate.min" [(ngModel)]="shopperRebate.value" [step]="1"
       [thumbLabel]="shopperRebate.value">
     </mat-slider>
     <div class="rowSlider">
