@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Output } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, ElementRef } from '@angular/core';
 import { QuotePersonalInfoComponent } from '../pricing-wizard-sections/quote-personal-info/quote-personal-info.component';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Item } from '../mock_data/items';
@@ -9,6 +9,8 @@ import { InfluencersWizardComponent } from '../pricing-wizard-sections/influence
 import { UsersWizardComponent } from '../pricing-wizard-sections/users-wizard/users-wizard.component';
 import { GmvWizardComponent } from '../pricing-wizard-sections/gmv-wizard/gmv-wizard.component';
 import { EventEmitter } from '@angular/core';
+import { WizardComponent } from '../../../modules/angular-archwizard';
+import { BusinessWizardComponent } from '../pricing-wizard-sections/business-wizard/business-wizard.component';
 
 interface Store {
   name: String;
@@ -29,7 +31,8 @@ interface Influencers {
 })
 export class PricingWizardComponent implements OnInit {
 
-  @ViewChild(QuotePersonalInfoComponent) quoteChildWizard: QuotePersonalInfoComponent;
+  @ViewChild(BusinessWizardComponent) businessChildWizardInstance: BusinessWizardComponent;
+  @ViewChild(QuotePersonalInfoComponent) quoteChildWizardInstance: QuotePersonalInfoComponent;
   @ViewChild(ObjectiveWizardComponent) objectivesWizardInstance: ObjectiveWizardComponent;
   @ViewChild(StoreWizardComponent) storeWizardInstance: StoreWizardComponent;
   @ViewChild(CategoriesWizardComponent) categoriesWizardInstance: CategoriesWizardComponent;
@@ -39,10 +42,17 @@ export class PricingWizardComponent implements OnInit {
   @ViewChild(GmvWizardComponent) gmvWizardInstance: GmvWizardComponent;
 
   @Output() stepChanged: EventEmitter<number> = new EventEmitter();
+  @ViewChild('archWiz') public wizard: WizardComponent;
 
   planCalculatorForm: FormGroup;
 
-  wizardCurrStep = 1;
+  wizardCurrStep = 0;
+  wizardSelectedPathIndex = 0;
+  wizardPathArray: Array<Array<number>> = [
+    [0, 1, 3, 4, 5, 6, 7, 8, 9], // Media
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], // CPG
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 9] // Malls, step 10 is extra step in malls category
+  ];
 
   constructor(private fb: FormBuilder) { }
 
@@ -58,6 +68,7 @@ export class PricingWizardComponent implements OnInit {
       selectedStores: [{}] as Array<Store>,
       category: [{}] as Array<Item>,
       influencers: [{}] as Array<Influencers>,
+      usersPlan: {},
       personalInfo: this.fb.group({
         fullName: '' as String,
         companyName: '' as String,
@@ -75,7 +86,7 @@ export class PricingWizardComponent implements OnInit {
   }
 
   onRequestQuote() {
-    this.quoteChildWizard.onSubmit();
+    this.quoteChildWizardInstance.onSubmit();
   }
 
   onSubmitObjectives() {
@@ -107,8 +118,40 @@ export class PricingWizardComponent implements OnInit {
   }
 
   enterStep(step: number) {
-    this.wizardCurrStep = step;
-    this.stepChanged.emit(step);
+    // this.wizardCurrStep = step;
+    // this.stepChanged.emit(step);
   }
 
+  selectPath(): void {
+    const selectedPath: Item = this.planCalculatorForm.controls['businessType'].value;
+
+    switch (selectedPath.value) {
+      case 'media':
+        this.wizardSelectedPathIndex = 0;
+        break;
+      case 'cpg':
+        this.wizardSelectedPathIndex = 1;
+        break;
+      case 'malls':
+        this.wizardSelectedPathIndex = 2;
+        break;
+      default:
+        this.wizardSelectedPathIndex = 0;
+        break;
+    }
+  }
+
+  goToNextStep() {
+    const currArr = this.wizardPathArray[this.wizardSelectedPathIndex];
+    const nextStep = currArr[this.wizardCurrStep + 1];
+    this.wizardCurrStep = this.wizardCurrStep + 1;
+    this.wizard.navigation.goToStep(nextStep);
+  }
+
+  goToPrevStep() {
+    const currArr = this.wizardPathArray[this.wizardSelectedPathIndex];
+    const nextStep = currArr[this.wizardCurrStep - 1];
+    this.wizardCurrStep = this.wizardCurrStep - 1;
+    this.wizard.navigation.goToStep(nextStep);
+  }
 }

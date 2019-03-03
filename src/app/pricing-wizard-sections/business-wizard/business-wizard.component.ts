@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, AfterViewInit } from '@angular/core';
 import { Item, BusinessOptions } from '../../mock_data/items';
 import { FormGroup } from '@angular/forms';
 @Component({
@@ -7,7 +7,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./business-wizard.component.css', '../../pricing-wizard/pricing-wizard.component.css'],
 })
 
-export class BusinessWizardComponent implements OnInit {
+export class BusinessWizardComponent implements OnInit, AfterViewInit {
 
   @Input() parentForm: FormGroup;
   itemsList: Item[] = BusinessOptions;
@@ -15,9 +15,14 @@ export class BusinessWizardComponent implements OnInit {
 
   constructor() {
     this.itemsList = BusinessOptions;
+    this.radioSelected = this.itemsList[0].value;
     // Selecting Default Radio item here
   }
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    this.parentForm.controls['businessType'].setValue(this.itemsList[0]);
   }
 
   onRadioSelect(item: Item) {

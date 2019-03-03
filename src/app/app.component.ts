@@ -1,6 +1,7 @@
 import { Component, ViewChild, QueryList, AfterViewInit, OnInit } from '@angular/core';
 import { GmvWizardComponent } from './pricing-wizard-sections/gmv-wizard/gmv-wizard.component';
 import { PricingWizardComponent } from './pricing-wizard/pricing-wizard.component';
+import { PlanInfoWizardComponent } from './plan-info-wizard/plan-info-wizard.component';
 
 enum Plan {
   Annual = 0,
@@ -19,10 +20,10 @@ export class AppComponent implements OnInit {
   selectedPlan: Plan = Plan.Annual;
   annualStyle = { 'background-color': '#94ded8', 'color': '#fff' };
   monthlyStyle = { 'background-color': '#f6f6f6', 'color': '#515151' };
-  currPriceWizardStep: number = 4;
-
-  @ViewChild (PricingWizardComponent) priceInstance: PricingWizardComponent;
-
+  currPriceWizardStep: number = 0;
+  showBenefit = false;
+  @ViewChild(PricingWizardComponent) priceWizardInstance: PricingWizardComponent;
+  @ViewChild(PlanInfoWizardComponent) planInfoWizardInstance: PlanInfoWizardComponent;
   gmvInstance: GmvWizardComponent;
 
   onClickPlan(val: number) {
@@ -31,20 +32,20 @@ export class AppComponent implements OnInit {
         'background-color': '#94ded8', 'color': '#fff'
       };
       this.monthlyStyle = { 'background-color': '#f6f6f6', 'color': '#515151' };
-      if (this.priceInstance) {
-        this.priceInstance.gmvWizardInstance.switchBillingPlan();
+      if (this.priceWizardInstance) {
+        this.priceWizardInstance.gmvWizardInstance.switchBillingPlan();
       }
     } else if (val === Plan.Monthly) {
       this.annualStyle = { 'background-color': '#f6f6f6', 'color': '#515151' };
       this.monthlyStyle = { 'background-color': '#94ded8', 'color': '#fff' };
-      if (this.priceInstance) {
-        this.priceInstance.gmvWizardInstance.switchBillingPlan();
+      if (this.priceWizardInstance) {
+        this.priceWizardInstance.gmvWizardInstance.switchBillingPlan();
       }
     }
   }
 
   getTotalProfit() {
-    return this.priceInstance.gmvWizardInstance.profitString;
+    return this.priceWizardInstance.gmvWizardInstance.profitString;
   }
 
   getPriceRange() {
@@ -53,6 +54,10 @@ export class AppComponent implements OnInit {
 
   stepChangedHandler(event: number) {
     this.currPriceWizardStep = event;
+  }
+
+  getShowHideBenefitPanel(){
+    return this.planInfoWizardInstance.showBenefit;
   }
 
   ngOnInit() { }

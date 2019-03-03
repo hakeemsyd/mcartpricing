@@ -1,7 +1,7 @@
 <div class="row pricingWizard col-xs-12">
 
-  <aw-wizard navBarLocation="bottom">
-    <!-- <aw-wizard-step (stepEnter)="enterStep(1)">
+  <aw-wizard #archWiz navBarLocation="bottom" navigationMode="free">
+    <aw-wizard-step (stepEnter)="enterStep(1)" stepId="selectBusiness">
       <div class="wizardHeaderContainer col-xs-12">
         <p id="wizardPageNumber">1/8</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
@@ -10,10 +10,10 @@
         <app-business-wizard [parentForm]="planCalculatorForm"></app-business-wizard>
       </div>
       <div class="navButtonContainer">
-        <button type="button" class="btn nextButton" awNextStep>Next</button>
+        <button type="button" class="btn nextButton" (click)="goToNextStep()" (click)="selectPath()">Next</button>
       </div>
     </aw-wizard-step>
-    <aw-wizard-step  (stepEnter)="enterStep(2)">
+    <aw-wizard-step  (stepEnter)="enterStep(2)" stepId="selectObjective">
       <div class="wizardHeaderContainer col-xs-12">
         <p id="wizardPageNumber">2/8</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
@@ -22,11 +22,11 @@
         <app-objective-wizard [parentForm]="planCalculatorForm" ></app-objective-wizard>
       </div>
       <div class="navButtonContainer">
-        <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
-        <button type="button" class="btn nextButton" (click)="onSubmitObjectives()" awNextStep>Next</button>
+        <button type="button" class="btn btn-outline-dark prevButton" (click)="goToPrevStep()">Back</button>
+        <button type="button" class="btn nextButton" (click)="onSubmitObjectives()" (click)="goToNextStep()">Next</button>
       </div>
     </aw-wizard-step>
-    <aw-wizard-step (stepEnter)="enterStep(3)">
+    <aw-wizard-step (stepEnter)="enterStep(3)" stepId="saleInfo">
       <div class="wizardHeaderContainer col-xs-12">
         <p id="wizardPageNumber">3/8</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
@@ -35,11 +35,11 @@
         <app-sales-wizard [parentForm]="planCalculatorForm"></app-sales-wizard>
       </div>
       <div class="navButtonContainer">
-        <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
-        <button type="button" class="btn nextButton" awNextStep>Next</button>
+        <button type="button" class="btn btn-outline-dark prevButton"  (click)="goToPrevStep()">Back</button>
+        <button type="button" class="btn nextButton"  (click)="goToNextStep()">Next</button>
       </div>
-    </aw-wizard-step> -->
-    <aw-wizard-step (stepEnter)="enterStep(4)">
+    </aw-wizard-step>
+    <aw-wizard-step (stepEnter)="enterStep(4)" stepId="gmv">
       <div class="wizardHeaderContainer col-xs-12">
         <p id="wizardPageNumber">4/8</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
@@ -48,11 +48,11 @@
         <app-gmv-wizard #gmvComponent (click)="onSubmitGMV()" [parentForm]="planCalculatorForm"></app-gmv-wizard>
       </div>
       <div class="navButtonContainer">
-        <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
-        <button type="button" class="btn nextButton" awNextStep>Next</button>
+        <button type="button" class="btn btn-outline-dark prevButton"  (click)="goToPrevStep()">Back</button>
+        <button type="button" class="btn nextButton" (click)="goToNextStep()">Next</button>
       </div>
     </aw-wizard-step>
-    <aw-wizard-step (stepEnter)="enterStep(5)">
+    <aw-wizard-step (stepEnter)="enterStep(5)" stepId="selectStores">
       <div class="wizardHeaderContainer col-xs-12">
         <p id="wizardPageNumber">5/8</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
@@ -61,11 +61,11 @@
         <app-store-wizard [parentForm]="planCalculatorForm"></app-store-wizard>
       </div>
       <div class="navButtonContainer">
-        <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
-        <button type="button" (click)="onSubmitStores()" class="btn nextButton" awNextStep>Next</button>
+        <button type="button" class="btn btn-outline-dark prevButton"  (click)="goToPrevStep()">Back</button>
+        <button type="button" (click)="onSubmitStores()" class="btn nextButton"  (click)="goToNextStep()">Next</button>
       </div>
     </aw-wizard-step>
-    <aw-wizard-step (stepEnter)="enterStep(6)">
+    <aw-wizard-step (stepEnter)="enterStep(6)" stepId="selectCategories">
       <div class="wizardHeaderContainer col-xs-12">
         <p id="wizardPageNumber">6/8</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
@@ -74,11 +74,11 @@
         <app-categories-wizard [parentForm]="planCalculatorForm"></app-categories-wizard>
       </div>
       <div class="navButtonContainer">
-        <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
-        <button type="button" (click)="onSubmitCategories()" class="btn nextButton" awNextStep>Next</button>
+        <button type="button" class="btn btn-outline-dark prevButton"  (click)="goToPrevStep()">Back</button>
+        <button type="button" (click)="onSubmitCategories()" (click)="goToNextStep()" class="btn nextButton">Next</button>
       </div>
     </aw-wizard-step>
-    <aw-wizard-step (stepEnter)="enterStep(7)">
+    <aw-wizard-step (stepEnter)="enterStep(7)" stepId="selectInfluencers">
       <div class="wizardHeaderContainer col-xs-12">
         <p id="wizardPageNumber">7/8</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
@@ -87,28 +87,11 @@
         <app-influencers-wizard [parentForm]="planCalculatorForm"></app-influencers-wizard>
       </div>
       <div class="navButtonContainer">
-        <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
-        <button type="button" (click)="onSubmitInfluencers()" class="btn nextButton" awNextStep>Next</button>
+        <button type="button" class="btn btn-outline-dark prevButton"  (click)="goToPrevStep()">Back</button>
+        <button type="button" (click)="onSubmitInfluencers()" class="btn nextButton"  (click)="goToNextStep()">Next</button>
       </div>
     </aw-wizard-step>
-    <aw-wizard-step (stepEnter)="enterStep(9)">
-        <div class="wizardHeaderContainer col-xs-12">
-          <h2 class="wizardHeader">Request a quote</h2>
-        </div>
-        <div class="wizardContainer">
-          <app-quote-personal-info [parentForm]="planCalculatorForm"></app-quote-personal-info>
-        </div>
-        <div class="col-xs-12 navButtonContainer row">
-          <button type="button" class="btn btn-outline-dark prevButton col-sm-2 col-xs-12" awPreviousStep>Back</button>
-          <div class="row col-xs-12">
-            <button type="button" (click)="onSubmitQuote()" class="btn quoteButton col-sm-2 col-xs-12" awNextStep>Get a
-              quote</button>
-            <button type="button" class="btn scheduleButton col-sm-3 col-xs-12" awNextStep>Schedule your kick-off
-              demo</button>
-          </div>
-        </div>
-      </aw-wizard-step>
-      <aw-wizard-step (stepEnter)="enterStep(8)">
+    <aw-wizard-step (stepEnter)="enterStep(8)" stepId="getUsersPlan">
       <div class="wizardHeaderContainer col-xs-12">
         <p id="wizardPageNumber">8/8</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
@@ -117,8 +100,26 @@
         <app-users-wizard [parentForm]="planCalculatorForm"></app-users-wizard>
       </div>
       <div class="navButtonContainer">
-        <button type="button" class="btn btn-outline-dark prevButton" awPreviousStep>Back</button>
-        <button type="button" (click)="onSubmitUsers()" class="btn nextButton" awNextStep>Next</button>
+        <button type="button" class="btn btn-outline-dark prevButton"  (click)="goToPrevStep()">Back</button>
+        <button type="button" (click)="onSubmitUsers()" class="btn nextButton"  (click)="goToNextStep()">Next</button>
+      </div>
+    </aw-wizard-step>
+
+    <aw-wizard-step (stepEnter)="enterStep(9)" stepId="getQuote">
+      <div class="wizardHeaderContainer col-xs-12">
+        <h2 class="wizardHeader">Request a quote</h2>
+      </div>
+      <div class="wizardContainer">
+        <app-quote-personal-info [parentForm]="planCalculatorForm"></app-quote-personal-info>
+      </div>
+      <div class="col-xs-12 navButtonContainer row">
+        <button type="button" class="btn btn-outline-dark prevButton col-sm-2 col-xs-12"  (click)="goToPrevStep()">Back</button>
+        <div class="row col-xs-12">
+          <button type="button" (click)="onSubmitQuote()" class="btn quoteButton col-sm-2 col-xs-12"  (click)="goToNextStep()">Get a
+            quote</button>
+          <button type="button" class="btn scheduleButton col-sm-3 col-xs-12"  (click)="goToNextStep()">Schedule your kick-off
+            demo</button>
+        </div>
       </div>
     </aw-wizard-step>
   </aw-wizard>

@@ -6,27 +6,27 @@ export interface Item {
 export const BusinessOptions: Item[] = [
     {
         name: 'Media',
-        value: 'item_1'
+        value: 'media'
     },
     {
         name: 'CPG',
-        value: 'item_2'
+        value: 'cpg'
     },
     {
         name: 'Malls',
-        value: 'item_3'
+        value: 'malls'
     },
     {
         name: 'Procurement',
-        value: 'item_4'
+        value: 'procurement'
     },
     {
         name: 'Agency',
-        value: 'item_5'
+        value: 'agency'
     },
     {
         name: 'Other',
-        value: 'item_6'
+        value: 'other'
     }
 ];
 
