@@ -8,10 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PlanInfoWizardComponent implements OnInit {
 
   @Input() currPriceWizardStep: number;
+  showBenefit = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  showBenefitPanel() {
+    this.showBenefit = !this.showBenefit;
   }
 
 }

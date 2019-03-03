@@ -13,14 +13,14 @@
     margin-right: 10px;
 }
 
-.gmvInput{
+.gmvInput {
     padding: 0px 5px;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: .6px;
     margin-bottom: 0px;
     color: #444444;
-    border: 
+    border:
 }
 
 .col-xs-12 .gmv {
@@ -64,4 +64,30 @@
 
 .mat-slider-horizontal {
     width: 100%;
+}
+
+::ng-deep .mat-slider .mat-slider-thumb-label-text {
+    opacity: 1 !important;
+    transform: rotate(0deg) !important;
+    font-size: 10px !important;
+}
+
+::ng-deep .mat-slider-thumb-label {
+    transform: rotate(0deg) !important;
+    border-radius: 5px !important;
+    width: auto !important;
+    height: auto !important;
+    background: #f3f3f3 !important;
+    padding: 2px 5px;
+    min-width: 30px !important;
+    right: -20px !important;
+    top: -30px !important;
+}
+
+::ng-deep .mat-slider.mat-slider-horizontal .mat-slider-track-background, .mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+    background: #f3f3f3;
+}
+
+.matSliders{
+    margin-top: 15px;
 }

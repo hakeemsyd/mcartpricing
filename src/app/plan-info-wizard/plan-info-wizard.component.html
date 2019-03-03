@@ -56,8 +56,8 @@
       </div>
     </div>
 
-    <div class="viewFullContainer">
-      <h4 class="viewFullText">View Full Benefits</h4>
+    <div class="viewFullContainer showPanelButton">
+      <a (click)="showBenefitPanel()"><h4 class="viewFullText">View Full Benefits</h4></a>
     </div>
   </ng-template>
   <ng-template [ngIf]="currPriceWizardStep >= 4">

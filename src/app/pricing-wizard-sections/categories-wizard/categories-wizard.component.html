@@ -28,7 +28,7 @@
       <li class="list-group-item listItemContainer" *ngFor="let order of suggestedStores; let i = index;"
         [ngClass]="{oddListRow: (i % 2) === 1, evenListRow: (i % 2) === 0 }">
         <p class="list-item-title">{{order.name}}</p>
-        <input type="checkbox">
+        <mat-checkbox type="checkbox"></mat-checkbox>
       </li>
     </ul>
   </div>
