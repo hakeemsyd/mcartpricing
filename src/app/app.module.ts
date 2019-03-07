@@ -8,6 +8,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
@@ -53,7 +54,8 @@ import { PlanInfoWizardComponent } from './plan-info-wizard/plan-info-wizard.com
     MatRadioModule,
     MatSliderModule,
     BrowserAnimationsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

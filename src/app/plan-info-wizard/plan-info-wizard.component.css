@@ -112,7 +112,7 @@
   margin: 10px 0px;
 }
 
-.storeContainer{
+.storeContainer {
   margin: 10px 0px;
   width: 90%;
 }
@@ -129,7 +129,6 @@
   align-self: flex-start;
   justify-content: flex-start;
   align-items: center;
-  
 }
 
 .storeRow {
@@ -159,6 +158,128 @@
   margin-top: 5px;
 }
 
-.showPanelButton{
+.showPanelButton {
   cursor: pointer;
+}
+
+.example-card {
+  margin: 10px;
+  /* width: 400px; */
+  max-width: 400px;
+  position: absolute;
+  float: right;
+  margin-right: 60px;
+  z-index: 10;
+}
+
+.cardContainer {
+  position: absolute;
+  z-index: 20;
+  background: white;
+  border: .7px solid #7CE1D9;
+  -webkit-box-shadow: 0px 0px 30px -7px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 30px -7px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 30px -7px rgba(0, 0, 0, 0.75);
+}
+
+.cardImage {
+  height: 100%;
+  width: 100%;
+  margin-top: -30px;
+}
+
+.imageTitle {
+  position: relative;
+  width: 100%;
+  background: #7CE1D990;
+  top: 0;
+  z-index: 21;
+  margin: 0;
+  padding: 0;
+  height: 30px;
+  font-size: 12px;
+  text-align: center;
+  vertical-align: center;
+  padding-top: 5px;
+}
+
+.cardInfoContainer {
+  padding: 3% 10%;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: bold;
+  color: #444444;
+}
+
+.cardDescription {
+  font-size: 10px;
+  color: #a0a0a0;
+}
+
+.cardAction {
+  font-size: 14px;
+  color: #7CE1D9;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width:320px) {
+  /* smartphones, iPhone, portrait 480x320 phones */
+  .cardContainer {
+    width: 250px;
+    margin-left: -230px;
+  }
+  .cardImageContainer {
+    /* background: purple; */
+    display: flex;
+    flex-direction: column;
+    padding: 2% 5%;
+  }
+  .imageContainer {
+    height: 210px;
+    width: 210px;
+    align-self: center;
+    /* background: yellow; */
+    margin-top: 10px;
+  }
+}
+
+@media (min-width:641px) {
+  .cardContainer {
+    width: 600px;
+    margin-left: -400px;
+  }
+  .cardImageContainer {
+    /* background: purple; */
+    display: flex;
+    flex-direction: row;
+    padding: 2% 5%;
+    justify-content: space-between;
+  }
+  .imageContainer {
+    height: 250px;
+    width: 250px;
+    align-self: center;
+    /* background: yellow; */
+    margin-top: 10px;
+  }
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+}
+
+@media (min-width:961px) {
+  .cardContainer {
+    width: 600px;
+    margin-left: -560px;
+  }
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (min-width:1025px) {
+  /* big landscape tablets, laptops, and desktops */
+}
+
+@media (min-width:1281px) {
+  /* hi-res laptops and desktops */
 }

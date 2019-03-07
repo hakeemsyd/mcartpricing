@@ -21,10 +21,13 @@ export class GmvWizardComponent implements OnInit {
 
   priceRange: String = 'TBD';
   profitString: String = 'TBD';
+  isGreateThan100B = true;
+  // isGMVSliderDisabled = false;
+
   mCart = {
     min: 0,
     max: 200,
-    value: 200
+    value: 100
   };
 
   platformCommission = {
@@ -145,4 +148,21 @@ export class GmvWizardComponent implements OnInit {
     this.isAnnualBilling = !this.isAnnualBilling;
     this.calculateGMVValues();
   }
+
+  getSelectedGMV(gmvID: number) {
+    if (gmvID === 1) {
+      return true;
+    }
+    return false;
+  }
+
+  toggleGreaterThan100B(e) {
+    this.isGreateThan100B = e.target.checked;
+    this.isGMVSliderDisabled = e.target.checked;
+  }
+
+  isGMVSliderDisabled(){
+    return this.isGreateThan100B;
+  }
+
 }

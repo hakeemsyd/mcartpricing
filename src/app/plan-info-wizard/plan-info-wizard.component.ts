@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-plan-info-wizard',
@@ -7,9 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PlanInfoWizardComponent implements OnInit {
 
+  @Output() public showBenefitDetailTable: EventEmitter<boolean> = new EventEmitter();
   @Input() currPriceWizardStep: number;
   showBenefit = false;
-
+  currentActiveInforCard = 0;
   constructor() { }
 
   ngOnInit() {
@@ -17,6 +18,20 @@ export class PlanInfoWizardComponent implements OnInit {
 
   showBenefitPanel() {
     this.showBenefit = !this.showBenefit;
+    this.showBenefitDetailTable.emit(true);
+  }
+  onPressInfo(cardNum) {
+    this.currentActiveInforCard = cardNum;
   }
 
+  onCloseCardRequest() {
+    this.currentActiveInforCard = 0;
+  }
+
+  showInfoPanel(num) {
+    if (this.currentActiveInforCard === num) {
+      return true;
+    }
+    return false;
+  }
 }

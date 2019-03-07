@@ -4,16 +4,50 @@
     your approximate profit
     and platform cost. You can fine-tune these numbers in the next steps</p>
   <div>
-    <div class="row">
+    <div class="row" *ngIf="getSelectedGMV(0)">
       <h2 class="wizardSubtitleDark">Captured by the mCart platform</h2>
       <div class="row col-xs-12 col-sm-6 gmvRow">
-        <h4 class="gmv">GMV:</h4>
-        <input class="gmvInput" matInput type="number" (keyup)="calculateGMVValues()" placeholder="Enter GMV"
-          value={{gmv}} [(ngModel)]="gmv">
+        <div class="titleContainer">
+          <h4 class="gmv">GMV:</h4>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Info_icon-72a7cf.svg/768px-Info_icon-72a7cf.svg.png"
+            class="infoIcon" />
+        </div>
+
+        <mat-checkbox class="gmvInput" matInput type="number" (keyup)="calculateGMVValues()" placeholder="Enter GMV"
+          value={{gmv}} [(ngModel)]="gmv"></mat-checkbox>
       </div>
 
     </div>
-    <mat-slider class="matSliders" md-discrete [max]="mCart.max" [min]="mCart.min" (change)="calculateGMVValues()"
+    <div class="row" *ngIf="getSelectedGMV(1)">
+      <div class="titleContainer">
+        <h2 class="wizardSubtitleDark">GMV</h2>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Info_icon-72a7cf.svg/768px-Info_icon-72a7cf.svg.png"
+          class="infoIcon" />
+      </div>
+
+      <div class="row col-xs-12 col-sm-6">
+        <input class="gmvInput" matInput type="number" (keyup)="calculateGMVValues()" placeholder="Enter GMV"
+          value={{gmv}} [(ngModel)]="gmv">
+        <div class="gmvRowWithCheckbox">
+          <h4 class="gmv">Greate than $100b</h4>
+          <mat-checkbox type="checkbox" [(ngModel)]="isGreateThan100B" (change)="toggleGreaterThan100B($event)"></mat-checkbox>
+        </div>
+      </div>
+
+    </div>
+    <div class="row" *ngIf="getSelectedGMV(2)">
+      <h2 class="wizardSubtitleDark">Captured by the mCart platform</h2>
+      <div class="row col-xs-12 col-sm-6 gmvRow">
+        <h4 class="gmv">GMV:</h4>
+        <mat-checkbox class="gmvInput" matInput type="number" (keyup)="calculateGMVValues()" placeholder="Enter GMV"
+          value={{gmv}} [(ngModel)]="gmv"></mat-checkbox>
+      </div>
+
+    </div>
+
+    <mat-slider [disabled]="isGMVSliderDisabled()" class="matSliders" md-discrete [max]="mCart.max" [min]="mCart.min" (change)="calculateGMVValues()"
       [(ngModel)]="mCart.value" [step]="0.01" [thumbLabel]="mCart.value">
     </mat-slider>
 
@@ -23,11 +57,16 @@
     </div>
   </div>
   <div>
-    <div>
+    <div class="titleContainer">
       <h2 class="wizardSubtitleDark">Platform Commission</h2>
+
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Info_icon-72a7cf.svg/768px-Info_icon-72a7cf.svg.png"
+        class="infoIcon" />
     </div>
-    <mat-slider class="matSliders" [max]="platformCommission.max" (change)="calculateGMVValues()" [min]="platformCommission.min"
-      [(ngModel)]="platformCommission.value" [step]="1" [thumbLabel]="platformCommission.value">
+    <mat-slider class="matSliders" [max]="platformCommission.max" (change)="calculateGMVValues()"
+      [min]="platformCommission.min" [(ngModel)]="platformCommission.value" [step]="1"
+      [thumbLabel]="platformCommission.value">
     </mat-slider>
     <div class="rowSlider">
       <p class="percentage">{{platformCommission.min}}%</p>
@@ -35,11 +74,15 @@
     </div>
   </div>
   <div>
-    <div>
+    <div class="titleContainer">
       <h2 class="wizardSubtitleDark">Influencer Payout</h2>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Info_icon-72a7cf.svg/768px-Info_icon-72a7cf.svg.png"
+        class="infoIcon" />
     </div>
-    <mat-slider class="matSliders" [max]="influencerPayout.max" (change)="calculateGMVValues()" [min]="influencerPayout.min"
-      [(ngModel)]="influencerPayout.value" [step]="1" [thumbLabel]="influencerPayout.value">
+    <mat-slider class="matSliders" [max]="influencerPayout.max" (change)="calculateGMVValues()"
+      [min]="influencerPayout.min" [(ngModel)]="influencerPayout.value" [step]="1"
+      [thumbLabel]="influencerPayout.value">
     </mat-slider>
     <div class="rowSlider">
       <p class="percentage">{{influencerPayout.min}}%</p>
@@ -47,8 +90,12 @@
     </div>
   </div>
   <div>
-    <div>
+    <div class="titleContainer">
       <h2 class="wizardSubtitleDark">Shopper's Rebate</h2>
+
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Info_icon-72a7cf.svg/768px-Info_icon-72a7cf.svg.png"
+        class="infoIcon" />
     </div>
     <mat-slider class="matSliders" [max]="shopperRebate.max" (change)="calculateGMVValues()" [min]="shopperRebate.min"
       [(ngModel)]="shopperRebate.value" [step]="1" [thumbLabel]="shopperRebate.value">

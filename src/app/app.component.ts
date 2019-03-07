@@ -1,4 +1,4 @@
-import { Component, ViewChild, QueryList, AfterViewInit, OnInit } from '@angular/core';
+import { Component, ViewChild, QueryList, AfterViewInit, OnInit, AfterViewChecked } from '@angular/core';
 import { GmvWizardComponent } from './pricing-wizard-sections/gmv-wizard/gmv-wizard.component';
 import { PricingWizardComponent } from './pricing-wizard/pricing-wizard.component';
 import { PlanInfoWizardComponent } from './plan-info-wizard/plan-info-wizard.component';
@@ -14,17 +14,26 @@ enum Plan {
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewChecked {
 
   title = 'mcartpricing';
   selectedPlan: Plan = Plan.Annual;
   annualStyle = { 'background-color': '#94ded8', 'color': '#fff' };
   monthlyStyle = { 'background-color': '#f6f6f6', 'color': '#515151' };
   currPriceWizardStep: number = 0;
-  showBenefit = false;
   @ViewChild(PricingWizardComponent) priceWizardInstance: PricingWizardComponent;
   @ViewChild(PlanInfoWizardComponent) planInfoWizardInstance: PlanInfoWizardComponent;
   gmvInstance: GmvWizardComponent;
+  benefitUpdated = false;
+
+  @ViewChild('benefitTable') public benefitTable: Element;
+
+
+  ngAfterViewChecked() {
+    if (this.benefitTable) {
+      this.scrollBenefitTable();
+    }
+  }
 
   onClickPlan(val: number) {
     if (val === Plan.Annual) {
@@ -56,10 +65,25 @@ export class AppComponent implements OnInit {
     this.currPriceWizardStep = event;
   }
 
-  getShowHideBenefitPanel(){
+  getShowHideBenefitPanel() {
     return this.planInfoWizardInstance.showBenefit;
   }
 
   ngOnInit() { }
 
+  onBenefitEventChange($event: boolean) {
+    if ($event === true) {
+      this.benefitUpdated = true;
+      if (this.benefitTable) {
+        this.benefitTable.nativeElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }
+
+  scrollBenefitTable() {
+    if (this.benefitTable && this.benefitUpdated) {
+      this.benefitTable.nativeElement.scrollIntoView({ behavior: 'smooth' });
+      this.benefitUpdated = false;
+    }
+  }
 }

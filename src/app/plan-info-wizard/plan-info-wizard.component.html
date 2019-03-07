@@ -6,25 +6,66 @@
     <div class="benefitItemContainer">
       <div class="benefitItemInnerContainer">
         <div class="tooltipContainer">
-          <button class="tooltipButton" matTooltip="Info about the action"
+          <button class="tooltipButton" matTooltip="Info about the action"  (click)="onPressInfo(1)"
             aria-label="Button that displays a tooltip when focused or hovered over">
             <img src="../../assets/images/info.png" class="tooltipButton" />
           </button>
+        <div class="cardContainer" *ngIf="showInfoPanel(1)">
+            <div class="cardImageContainer">
+              <div class="imageContainer">
+                <p class="imageTitle">Clothes</p>
+                <img class="cardImage" src="https://www.trendstarclothing.co.uk/image-resize.php?w=614&src=/brand_img/featured/supreme.png">
+              </div>
+              <div class="imageContainer">
+                <p class="imageTitle">Shoes</p>
+                <img class="cardImage" src="https://i.pinimg.com/236x/de/ee/81/deee8140f767232c43f0d81fd6d189e7.jpg">
+              </div>
+            </div>
+            <div class="cardInfoContainer">
+              <h4 class="cardTitle">Description Title</h4>
+              <p class="cardDescription">Pick your desired revenue, influencer payout, and commission that you want to
+                pay
+                to see your approximate</p>
+              <a>
+                <i class="cardAction" (click)="onCloseCardRequest()">Ok, Got it</i>
+              </a>
+            </div>
+          </div>
         </div>
-
         <h4 class="benefitTitle">Benefit #1</h4>
         <img src="../../assets/images/radio.png" class="benefitIcon" />
+
       </div>
     </div>
     <div class="benefitItemContainer">
       <div class="benefitItemInnerContainer">
         <div class="tooltipContainer">
-          <button class="tooltipButton" matTooltip="Info about the action"
+          <button class="tooltipButton" matTooltip="Info about the action" (click)="onPressInfo(2)"
             aria-label="Button that displays a tooltip when focused or hovered over">
             <img src="../../assets/images/info.png" class="tooltipButton" />
           </button>
+        <div class="cardContainer" *ngIf="showInfoPanel(2)">
+            <div class="cardImageContainer">
+              <div class="imageContainer">
+                <p class="imageTitle">Clothes</p>
+                <img class="cardImage" src="https://www.trendstarclothing.co.uk/image-resize.php?w=614&src=/brand_img/featured/supreme.png">
+              </div>
+              <div class="imageContainer">
+                <p class="imageTitle">Shoes</p>
+                <img class="cardImage" src="https://i.pinimg.com/236x/de/ee/81/deee8140f767232c43f0d81fd6d189e7.jpg">
+              </div>
+            </div>
+            <div class="cardInfoContainer">
+              <h4 class="cardTitle">Description Title</h4>
+              <p class="cardDescription">Pick your desired revenue, influencer payout, and commission that you want to
+                pay
+                to see your approximate</p>
+              <a>
+                <i class="cardAction" (click)="onCloseCardRequest()">Ok, Got it</i>
+              </a>
+            </div>
+          </div>
         </div>
-
         <h4 class="benefitTitle">Benefit #2</h4>
         <img src="../../assets/images/music.png" class="benefitIcon" />
       </div>
@@ -33,11 +74,31 @@
       <div class="benefitItemInnerContainer">
         <div class="tooltipContainer">
           <button class="tooltipButton" matTooltip="Info about the action"
-            aria-label="Button that displays a tooltip when focused or hovered over">
+            aria-label="Button that displays a tooltip when focused or hovered over" (click)="onPressInfo(3)">
             <img src="../../assets/images/info.png" class="tooltipButton" />
           </button>
+        <div class="cardContainer" *ngIf="showInfoPanel(3)">
+            <div class="cardImageContainer">
+              <div class="imageContainer">
+                <p class="imageTitle">Clothes</p>
+                <img class="cardImage" src="https://www.trendstarclothing.co.uk/image-resize.php?w=614&src=/brand_img/featured/supreme.png">
+              </div>
+              <div class="imageContainer">
+                <p class="imageTitle">Shoes</p>
+                <img class="cardImage" src="https://i.pinimg.com/236x/de/ee/81/deee8140f767232c43f0d81fd6d189e7.jpg">
+              </div>
+            </div>
+            <div class="cardInfoContainer">
+              <h4 class="cardTitle">Description Title</h4>
+              <p class="cardDescription">Pick your desired revenue, influencer payout, and commission that you want to
+                pay
+                to see your approximate</p>
+              <a>
+                <i class="cardAction" (click)="onCloseCardRequest()">Ok, Got it</i>
+              </a>
+            </div>
+          </div>
         </div>
-
         <h4 class="benefitTitle">Benefit #3</h4>
         <img src="../../assets/images/multiple.png" class="benefitIcon" />
       </div>
@@ -45,10 +106,31 @@
     <div class="benefitItemContainer">
       <div class="benefitItemInnerContainer">
         <div class="tooltipContainer">
-          <button class="tooltipButton" matTooltip="Info about the action"
+          <button class="tooltipButton" matTooltip="Info about the action"  (click)="onPressInfo(4)"
             aria-label="Button that displays a tooltip when focused or hovered over">
             <img src="../../assets/images/info.png" class="tooltipButton" />
           </button>
+          <div class="cardContainer" *ngIf="showInfoPanel(4)">
+            <div class="cardImageContainer">
+              <div class="imageContainer">
+                <p class="imageTitle">Clothes</p>
+                <img class="cardImage" src="https://www.trendstarclothing.co.uk/image-resize.php?w=614&src=/brand_img/featured/supreme.png">
+              </div>
+              <div class="imageContainer">
+                <p class="imageTitle">Shoes</p>
+                <img class="cardImage" src="https://i.pinimg.com/236x/de/ee/81/deee8140f767232c43f0d81fd6d189e7.jpg">
+              </div>
+            </div>
+            <div class="cardInfoContainer">
+              <h4 class="cardTitle">Description Title</h4>
+              <p class="cardDescription">Pick your desired revenue, influencer payout, and commission that you want to
+                pay
+                to see your approximate</p>
+              <a>
+                <i class="cardAction" (click)="onCloseCardRequest()">Ok, Got it</i>
+              </a>
+            </div>
+          </div>
         </div>
 
         <h4 class="benefitTitle">Benefit #4</h4>
@@ -57,7 +139,9 @@
     </div>
 
     <div class="viewFullContainer showPanelButton">
-      <a (click)="showBenefitPanel()"><h4 class="viewFullText">View Full Benefits</h4></a>
+      <a (click)="showBenefitPanel()">
+        <h4 class="viewFullText">View Full Benefits</h4>
+      </a>
     </div>
   </ng-template>
   <ng-template [ngIf]="currPriceWizardStep >= 4">
