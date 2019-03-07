@@ -47,7 +47,7 @@
 
     </div>
 
-    <mat-slider [disabled]="isGMVSliderDisabled()" class="matSliders" md-discrete [max]="mCart.max" [min]="mCart.min" (change)="calculateGMVValues()"
+    <mat-slider class="matSliders" md-discrete [max]="mCart.max" [min]="mCart.min" (change)="calculateGMVValues()"
       [(ngModel)]="mCart.value" [step]="0.01" [thumbLabel]="mCart.value">
     </mat-slider>
 

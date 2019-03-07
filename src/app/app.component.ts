@@ -1,4 +1,4 @@
-import { Component, ViewChild, QueryList, AfterViewInit, OnInit, AfterViewChecked } from '@angular/core';
+import { Component, ViewChild, QueryList, AfterViewInit, OnInit, AfterViewChecked, ElementRef } from '@angular/core';
 import { GmvWizardComponent } from './pricing-wizard-sections/gmv-wizard/gmv-wizard.component';
 import { PricingWizardComponent } from './pricing-wizard/pricing-wizard.component';
 import { PlanInfoWizardComponent } from './plan-info-wizard/plan-info-wizard.component';
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
   gmvInstance: GmvWizardComponent;
   benefitUpdated = false;
 
-  @ViewChild('benefitTable') public benefitTable: Element;
+  @ViewChild('benefitTable') public benefitTable: ElementRef;
 
 
   ngAfterViewChecked() {
