@@ -6,15 +6,16 @@
     <div class="benefitItemContainer">
       <div class="benefitItemInnerContainer">
         <div class="tooltipContainer">
-          <button class="tooltipButton" matTooltip="Info about the action"  (click)="onPressInfo(1)"
+          <button class="tooltipButton" matTooltip="Info about the action" (click)="onPressInfo(1)"
             aria-label="Button that displays a tooltip when focused or hovered over">
             <img src="../../assets/images/info.png" class="tooltipButton" />
           </button>
-        <div class="cardContainer" *ngIf="showInfoPanel(1)">
+          <div class="cardContainer" *ngIf="showInfoPanel(1)">
             <div class="cardImageContainer">
               <div class="imageContainer">
                 <p class="imageTitle">Clothes</p>
-                <img class="cardImage" src="https://www.trendstarclothing.co.uk/image-resize.php?w=614&src=/brand_img/featured/supreme.png">
+                <img class="cardImage"
+                  src="https://www.trendstarclothing.co.uk/image-resize.php?w=614&src=/brand_img/featured/supreme.png">
               </div>
               <div class="imageContainer">
                 <p class="imageTitle">Shoes</p>
@@ -44,11 +45,12 @@
             aria-label="Button that displays a tooltip when focused or hovered over">
             <img src="../../assets/images/info.png" class="tooltipButton" />
           </button>
-        <div class="cardContainer" *ngIf="showInfoPanel(2)">
+          <div class="cardContainer" *ngIf="showInfoPanel(2)">
             <div class="cardImageContainer">
               <div class="imageContainer">
                 <p class="imageTitle">Clothes</p>
-                <img class="cardImage" src="https://www.trendstarclothing.co.uk/image-resize.php?w=614&src=/brand_img/featured/supreme.png">
+                <img class="cardImage"
+                  src="https://www.trendstarclothing.co.uk/image-resize.php?w=614&src=/brand_img/featured/supreme.png">
               </div>
               <div class="imageContainer">
                 <p class="imageTitle">Shoes</p>
@@ -77,11 +79,12 @@
             aria-label="Button that displays a tooltip when focused or hovered over" (click)="onPressInfo(3)">
             <img src="../../assets/images/info.png" class="tooltipButton" />
           </button>
-        <div class="cardContainer" *ngIf="showInfoPanel(3)">
+          <div class="cardContainer" *ngIf="showInfoPanel(3)">
             <div class="cardImageContainer">
               <div class="imageContainer">
                 <p class="imageTitle">Clothes</p>
-                <img class="cardImage" src="https://www.trendstarclothing.co.uk/image-resize.php?w=614&src=/brand_img/featured/supreme.png">
+                <img class="cardImage"
+                  src="https://www.trendstarclothing.co.uk/image-resize.php?w=614&src=/brand_img/featured/supreme.png">
               </div>
               <div class="imageContainer">
                 <p class="imageTitle">Shoes</p>
@@ -106,7 +109,7 @@
     <div class="benefitItemContainer">
       <div class="benefitItemInnerContainer">
         <div class="tooltipContainer">
-          <button class="tooltipButton" matTooltip="Info about the action"  (click)="onPressInfo(4)"
+          <button class="tooltipButton" matTooltip="Info about the action" (click)="onPressInfo(4)"
             aria-label="Button that displays a tooltip when focused or hovered over">
             <img src="../../assets/images/info.png" class="tooltipButton" />
           </button>
@@ -114,7 +117,8 @@
             <div class="cardImageContainer">
               <div class="imageContainer">
                 <p class="imageTitle">Clothes</p>
-                <img class="cardImage" src="https://www.trendstarclothing.co.uk/image-resize.php?w=614&src=/brand_img/featured/supreme.png">
+                <img class="cardImage"
+                  src="https://www.trendstarclothing.co.uk/image-resize.php?w=614&src=/brand_img/featured/supreme.png">
               </div>
               <div class="imageContainer">
                 <p class="imageTitle">Shoes</p>
@@ -137,12 +141,11 @@
         <img src="../../assets/images/addOptions.png" class="benefitIcon" />
       </div>
     </div>
-
-    <div class="viewFullContainer showPanelButton">
-      <a (click)="showBenefitPanel()">
+    <a (click)="showBenefitPanel()">
+      <div class="viewFullContainer showPanelButton">
         <h4 class="viewFullText">View Full Benefits</h4>
-      </a>
-    </div>
+      </div>
+    </a>
   </ng-template>
   <ng-template [ngIf]="currPriceWizardStep >= 4">
     <div class="planContainer">

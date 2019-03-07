@@ -17,7 +17,7 @@ export class PlanInfoWizardComponent implements OnInit {
   }
 
   showBenefitPanel() {
-    this.showBenefit = !this.showBenefit;
+    this.showBenefit = true;
     this.showBenefitDetailTable.emit(true);
   }
   onPressInfo(cardNum) {

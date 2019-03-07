@@ -23,13 +23,14 @@
         </button>
       </div>
     </div>
-    <div class="wizard col-xs-12">
+    <div #pricingWizardDiv class="wizard col-xs-12">
       <app-pricing-wizard (stepChanged)="stepChangedHandler($event)" class="col-xs-12"></app-pricing-wizard>
     </div>
 
   </div>
   <div class="col-lg-2 col-md-12 adsContainer">
-    <app-plan-info-wizard (showBenefitDetailTable)="onBenefitEventChange($event)" [currPriceWizardStep]="currPriceWizardStep"></app-plan-info-wizard>
+    <app-plan-info-wizard (showBenefitDetailTable)="onBenefitEventChange($event)"
+      [currPriceWizardStep]="currPriceWizardStep"></app-plan-info-wizard>
   </div>
 </div>
 
@@ -98,7 +99,9 @@
         src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/9ncuAJ0/cheerful-young-man-sitting-at-table-studying-and-drinking-juice_e1vqhlvhx__F0000.png">
     </div>
   </div>
-
+  <div class="col-xs-12 completeFormButtonContainer">
+    <button class="completeFormButton" (click)="scrollToForm()">Complete the form</button>
+  </div>
 </div>
 
 <!-- <div>

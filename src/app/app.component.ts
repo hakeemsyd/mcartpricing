@@ -27,7 +27,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
   benefitUpdated = false;
 
   @ViewChild('benefitTable') public benefitTable: ElementRef;
-
+  @ViewChild('pricingWizardDiv') public pricingWizardDiv: ElementRef;
 
   ngAfterViewChecked() {
     if (this.benefitTable) {
@@ -72,11 +72,9 @@ export class AppComponent implements OnInit, AfterViewChecked {
   ngOnInit() { }
 
   onBenefitEventChange($event: boolean) {
-    if ($event === true) {
-      this.benefitUpdated = true;
-      if (this.benefitTable) {
-        this.benefitTable.nativeElement.scrollIntoView({ behavior: 'smooth' });
-      }
+    this.benefitUpdated = true;
+    if (this.benefitTable) {
+      this.benefitTable.nativeElement.scrollIntoView({ behavior: 'smooth' });
     }
   }
 
@@ -85,5 +83,9 @@ export class AppComponent implements OnInit, AfterViewChecked {
       this.benefitTable.nativeElement.scrollIntoView({ behavior: 'smooth' });
       this.benefitUpdated = false;
     }
+  }
+
+  scrollToForm() {
+    this.pricingWizardDiv.nativeElement.scrollIntoView({ behavior: 'smooth' });
   }
 }

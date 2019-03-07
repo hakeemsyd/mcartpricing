@@ -69,16 +69,16 @@
  }
 
  .billingHeader {
-   font-weight: bold;
-   color: #515151;
-   font-size: 14px;
+   font-weight: bolder;
+   color: #444444;
+   font-size: 15px;
    margin-right: 20px;
    margin-top: 16px;
  }
 
  .billingSubHeader {
    font-weight: lighter;
-   color: #515151;
+   color: #444444;
    font-size: 14px;
    margin-top: 16px;
  }
@@ -208,4 +208,22 @@
 
  .col-xs-12 .benefitDetailText {
    text-align: center;
+ }
+
+ .completeFormButtonContainer {
+   background: ghostwhite;
+   justify-content: center;
+   align-items: center;
+   display: flex;
+   margin-top: 100px;
+ }
+
+ .completeFormButton {
+   background: #ED5656;
+   width: 230px;
+   height: 40px;
+   border-radius: 5px;
+   align-self: center;
+   color: white;
+   font-weight: 400;
  }
