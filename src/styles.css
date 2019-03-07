@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body, html {
+  font-family: 'Roboto';
+}
 
 .mat-slider.mat-slider-horizontal .mat-slider-wrapper {
   top: 18px;
@@ -93,7 +98,7 @@
   transform: scale(.65) !important;
   /* background:  */
 }
-/* 
+/*
 ::ng-deep .mat-slider-thumb-label {
   background: blue;
 } */
