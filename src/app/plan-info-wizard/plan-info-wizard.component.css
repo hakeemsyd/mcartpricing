@@ -162,16 +162,6 @@
   cursor: pointer;
 }
 
-.example-card {
-  margin: 10px;
-  /* width: 400px; */
-  max-width: 400px;
-  position: absolute;
-  float: right;
-  margin-right: 60px;
-  z-index: 10;
-}
-
 .cardContainer {
   position: absolute;
   z-index: 20;
@@ -223,6 +213,7 @@
   color: #7CE1D9;
   padding: 0;
   margin: 0;
+  cursor: pointer;
 }
 
 @media (min-width:320px) {

@@ -11,6 +11,7 @@ import { GmvWizardComponent } from '../pricing-wizard-sections/gmv-wizard/gmv-wi
 import { EventEmitter } from '@angular/core';
 import { WizardComponent } from '../../../modules/angular-archwizard';
 import { BusinessWizardComponent } from '../pricing-wizard-sections/business-wizard/business-wizard.component';
+import { SalesWizardComponent } from '../pricing-wizard-sections/sales-wizard/sales-wizard.component';
 
 interface Store {
   name: String;
@@ -32,14 +33,15 @@ interface Influencers {
 export class PricingWizardComponent implements OnInit {
 
   @ViewChild(BusinessWizardComponent) businessChildWizardInstance: BusinessWizardComponent;
-  @ViewChild(QuotePersonalInfoComponent) quoteChildWizardInstance: QuotePersonalInfoComponent;
   @ViewChild(ObjectiveWizardComponent) objectivesWizardInstance: ObjectiveWizardComponent;
   @ViewChild(StoreWizardComponent) storeWizardInstance: StoreWizardComponent;
   @ViewChild(CategoriesWizardComponent) categoriesWizardInstance: CategoriesWizardComponent;
   @ViewChild(InfluencersWizardComponent) influencersWizardInstance: InfluencersWizardComponent;
   @ViewChild(UsersWizardComponent) usersWizardInstance: UsersWizardComponent;
+  @ViewChild(QuotePersonalInfoComponent) quoteChildWizardInstance: QuotePersonalInfoComponent;
   @ViewChild(QuotePersonalInfoComponent) quoteWizardInstance: QuotePersonalInfoComponent;
   @ViewChild(GmvWizardComponent) gmvWizardInstance: GmvWizardComponent;
+  @ViewChild(SalesWizardComponent) salesWizardInstance: SalesWizardComponent;
 
   @Output() stepChanged: EventEmitter<number> = new EventEmitter();
   @ViewChild('archWiz') public wizard: WizardComponent;
@@ -58,11 +60,11 @@ export class PricingWizardComponent implements OnInit {
 
   ngOnInit() {
     this.planCalculatorForm = this.fb.group({
-      businessType: {} as Item,
+      businessType: { name: '', value: '' } as Item,
       objectives: [{}] as Array<Item>,
       sales: this.fb.group({
-        salesChannel: '' as String,
-        globalChannel: '' as String,
+        salesChannel: 0 as number,
+        globalChannel: 0 as number,
       }),
       gmv: 0 as Number,
       selectedStores: [{}] as Array<Store>,
@@ -85,12 +87,18 @@ export class PricingWizardComponent implements OnInit {
     console.log('Wizard ended');
   }
 
-  onRequestQuote() {
-    this.quoteChildWizardInstance.onSubmit();
-  }
-
   onSubmitObjectives() {
     this.objectivesWizardInstance.submitObjectives();
+    this.gmvWizardInstance.loadGMVVariables();
+  }
+
+  onSubmitSales() {
+    this.salesWizardInstance.submitSales();
+    this.gmvWizardInstance.loadGMVVariables();
+  }
+
+  onSubmitGMV() {
+    this.gmvWizardInstance.submitGMV();
   }
 
   onSubmitStores() {
@@ -113,8 +121,8 @@ export class PricingWizardComponent implements OnInit {
     this.quoteWizardInstance.onSubmitPersnalInfo();
   }
 
-  onSubmitGMV() {
-    this.gmvWizardInstance.submitGMV();
+  onRequestQuote() {
+    this.quoteWizardInstance.onSubmit();
   }
 
   enterStep(step: number) {

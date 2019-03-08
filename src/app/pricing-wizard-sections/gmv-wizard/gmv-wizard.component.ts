@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import numeral from 'numeral';
+import { Item } from 'src/app/mock_data/items';
 
 @Component({
   selector: 'app-gmv-wizard',
@@ -22,18 +23,20 @@ export class GmvWizardComponent implements OnInit {
   priceRange: String = 'TBD';
   profitString: String = 'TBD';
   isGreateThan100B = true;
+
+  businessTypeValue = "media";
   // isGMVSliderDisabled = false;
 
   mCart = {
     min: 0,
-    max: 200,
-    value: 100
+    max: 100,
+    value: 40
   };
 
   platformCommission = {
     min: 5,
     max: 40,
-    value: 5
+    value: 40,
   };
 
   influencerPayout = {
@@ -48,110 +51,150 @@ export class GmvWizardComponent implements OnInit {
     value: 5
   };
 
+  gmvSlider = {
+    min: 10000,
+    max: 1000000000,
+    value: 10000,
+  };
+
   gmv: number = 0;
   currPlan = 1;
+  salesChanneValue = 0;
+  globalChannelValues = 0;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  loadGMVVariables() {
+    let businessType: Item = this.parentForm.controls['businessType'].value;
+    this.businessTypeValue = businessType.value;
+
+    let _gmv = 10000;
+    if (this.businessTypeValue !== 'media') {
+      this.salesChanneValue = (<FormGroup>this.parentForm.controls['sales']).controls['salesChannel'].value;
+      this.globalChannelValues = (<FormGroup>this.parentForm.controls['sales']).controls['globalChannel'].value;
+      _gmv = this.salesChanneValue * this.globalChannelValues * (this.mCart.value / 100);
+    }
+    this.gmvSlider.value = Math.ceil(_gmv);
+    this.calculateGMVProfile();
   }
 
   submitGMV() {
     this.parentForm.controls['gmv'].setValue(this.gmv);
   }
 
-  getVraiableFeeForMAvatar(): number {
-    let percentage: number = 200;
+  // remove this function
+  calculateGMVmCartValues(mCartValue) {
+    let _gmv = 0;
+    _gmv = this.salesChanneValue * this.globalChannelValues * (mCartValue / 100);
+    return _gmv;
+  }
 
-    if (this.gmv >= 50000000000) {
-      percentage = 0.78;
-      this.priceRange = '';
-    } else if (this.gmv >= 5000000000) {
-      percentage = 1.56;
-    } else if (this.gmv >= 500000000) {
-      percentage = 3.13;
-    } else if (this.gmv >= 50000000) {
-      percentage = 6.25;
-    } else if (this.gmv >= 10000000) {
-      percentage = 12.5;
-    } else if (this.gmv >= 5000000) {
-      percentage = 20;
-    } else if (this.gmv >= 3000000) {
-      percentage = 40;
-    } else if (this.gmv >= 1500000) {
-      percentage = 100;
+  onChangeGMV(value) {
+    console.log(value);
+  }
+
+  calculateGMVProfile(callingSource) {
+
+    let gmvValue = this.gmvSlider.value;
+    let mCartValue = this.mCart.value;
+    let platformCommissionValue = this.platformCommission.value;
+    let influencerPayoutValue = this.influencerPayout.value;
+    let shopperRebateValue = this.shopperRebate.value;
+
+    if (callingSource !== undefined) {
+      if (callingSource.source._elementRef.nativeElement.id === 'gmvSlider') {
+        gmvValue = callingSource.value;
+      } else if (callingSource.source._elementRef.nativeElement.id === 'mCartSlider') {
+        mCartValue = callingSource.value;
+      } else if (callingSource.source._elementRef.nativeElement.id === 'commissionSlider') {
+        platformCommissionValue = callingSource.value;
+      } else if (callingSource.source._elementRef.nativeElement.id === 'influencerSlider') {
+        influencerPayoutValue = callingSource.value;
+      } else if (callingSource.source._elementRef.nativeElement.id === 'shopperSlider') {
+        shopperRebateValue = callingSource.value;
+      }
     }
 
-    return percentage;
-  }
+    // Sales(GMV) = $G(this is annual sales done on all products by FXG)
+    // Commission = (C % * GMV)(this is what FXG gets from the sales)
+    // Influencer payout = I % * Commission(Influencer payout I % is cut from commission of fxg in that they got in step 2)
+    // Shopper Rebate = R % * Commission(Shopper rebate is R % of commission of fxg that they got)
+    // Variable Fee = 40 % of Commission
+
+    // Note: Commission is what FXG makes, then they pay following cuts in the order
+    // i.Influencer(I %) + shoppers rebate(R %)
+    // iii.Mavatar gets 40 % of what is left from i & ii.
+    //   Outputs:
+    // 1. Software fee
+    // 2. Profit
 
 
-  getVraiableFee(): number {
-    let percentage = 20;
+    // FORMULA FOR CPG:
 
-    if (this.gmv >= 50000000000) {
-      percentage = 5;
-      this.priceRange = '';
-    } else if (this.gmv >= 5000000000) {
-      percentage = 5;
-    } else if (this.gmv >= 500000000) {
-      percentage = 10;
-    } else if (this.gmv >= 50000000) {
-      percentage = 20;
-    } else if (this.gmv >= 10000000) {
-      percentage = 20;
-    } else if (this.gmv >= 5000000) {
-      percentage = 20;
-    } else if (this.gmv >= 3000000) {
-      percentage = 30;
-    } else if (this.gmv >= 1500000) {
-      percentage = 30;
+    // Software Fee = mavatar's 40% of Intermediate profit + Annual $10K fixed
+
+    // Revenue = (Comission % * GMV)
+    // Intermediate profit = Revenue - [(Influencer payout + Shopper rebate ) % * Revenue]
+    // Final Profit = Intermediate Profit - (40 % * Intermediate Profit) - $10K
+
+    // FORMULA FOR REST(MEDIA, MALLS, PROCUREMENT & AGENENCY):
+
+    // GMV = captured by macart * GMV entered in step before
+
+    // Software Fee = mavatar's 40% of Intermediate profit + Annual $10K fixed
+
+    // Revenue = (Comission % * GMV)
+    // Intermediate profit = Revenue - [(Influencer payout + Shopper rebate ) % * Revenue]
+    // Final Profit = Intermediate Profit - (40 % * Intermediate Profit) - $10K
+
+    if (this.businessTypeValue !== 'media') {
+      gmvValue = this.calculateGMVmCartValues(mCartValue);
     }
 
-    return percentage / 100;
-  }
+    let revenue = 0;
+    let variableFee = 0.4;
 
-  getPlatformPercentage(): number {
-    return 10;
-  }
+    revenue = (platformCommissionValue / 100) * gmvValue;
+    let intermediateProfit = revenue - ((influencerPayoutValue + shopperRebateValue) / 100) * revenue;
+    let softwareFee = (variableFee * intermediateProfit) - 10000;
 
-  getInfluencerPayout(): number {
-    return 50;
-  }
+    if (softwareFee < 0) {
+      softwareFee *= -1;
+    }
 
-  getShopperRebate(): number {
-    return 10;
-  }
+    softwareFee = Math.ceil(softwareFee);
 
-  calculateGMVValues() {
-    let softwareFee = 0;
-    let platformRevenue = 0;
-    let rebateEquation = 0;
-    let mCartLicenseFee = 0; //fee2
-    this.variableFee = this.getVraiableFee();
-
-    platformRevenue = this.gmv * (this.platformCommission.value / 100);
-    mCartLicenseFee = platformRevenue * this.variableFee;
-
-    rebateEquation = platformRevenue * ((this.platformCommission.value + this.shopperRebate.value) / 100);
-    softwareFee = 100000 + mCartLicenseFee;
-
+    // Verify this part
     if (this.isAnnualBilling === false) {
       softwareFee /= 12;
     }
-    this.approxProfit = Math.ceil(platformRevenue - softwareFee - rebateEquation);
+
+    let finalProfile = Math.ceil(intermediateProfit - softwareFee);
+    this.approxProfit = finalProfile;
     this.profitString = numeral(this.approxProfit).format('$0a');
     this.priceRangeEmitter.emit(this.approxProfit);
+    this.gmv = gmvValue;
   }
 
   switchBillingPlan() {
     this.isAnnualBilling = !this.isAnnualBilling;
-    this.calculateGMVValues();
+    this.calculateGMVProfile();
   }
 
   getSelectedGMV(gmvID: number) {
-    if (gmvID === 1) {
-      return true;
+    if (gmvID === 0) {
+      if (this.businessTypeValue === "media") {
+        return true;
+      } else return false;
+    } else {
+      if (this.businessTypeValue === "media") {
+        return false;
+      } else return true;
+
     }
     return false;
   }
@@ -161,8 +204,19 @@ export class GmvWizardComponent implements OnInit {
     this.isGMVSliderDisabled = e.target.checked;
   }
 
-  isGMVSliderDisabled(){
+  isGMVSliderDisabled() {
     return this.isGreateThan100B;
+  }
+  getGMVSliderMin() {
+    let str: String = (numeral(this.gmvSlider.min).format('$0a'));
+    str = str.toUpperCase();
+    return str;
+  }
+
+  getGMVSliderMax() {
+    let str: String = (numeral(this.gmvSlider.max).format('$0a'));
+    str = str.toUpperCase();
+    return str;
   }
 
 }

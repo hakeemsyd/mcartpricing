@@ -9,7 +9,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class QuotePersonalInfoComponent implements OnInit {
 
-
   @Input() parentForm: FormGroup;
   registerForm: FormGroup;
   submitted = false;

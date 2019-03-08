@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sales-wizard',
@@ -10,20 +10,34 @@ import { FormGroup } from '@angular/forms';
 export class SalesWizardComponent implements OnInit {
 
   @Input() parentForm: FormGroup;
-  salesChannel: String = '';
-  globalChannel: String = '';
+  salesChannel: number = 0;
+  globalChannel: number = 0;
+  submitted = false;
 
-  constructor() { }
+  salesCalculator: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+  }
+
+  // convenience getter for easy access to form fields
+  get f() { return this.salesCalculator.controls; }
 
   ngOnInit() {
+    this.salesCalculator = this.formBuilder.group({
+      salesChannel: [0 as number, Validators.required],
+      globalChannel: [0 as number, Validators.required],
+    });
   }
-  
 
-  onSalesChannelChange(value) {
-    (<FormGroup>this.parentForm.controls['sales']).controls['salesChannel'].patchValue(value);
-  }
+  submitSales() {
+    this.submitted = true;
 
-  onGlobalChannelChange(value: String) {
-    (<FormGroup>this.parentForm.controls['sales']).controls['globalChannel'].patchValue(value);
+    // stop here if form is invalid
+    if (this.salesCalculator.invalid) {
+      return;
+    }
+
+    (<FormGroup>this.parentForm.controls['sales']).controls['salesChannel'].patchValue(this.salesCalculator.controls['salesChannel'].value);
+    (<FormGroup>this.parentForm.controls['sales']).controls['globalChannel'].patchValue(this.salesCalculator.controls['globalChannel'].value);
   }
 }

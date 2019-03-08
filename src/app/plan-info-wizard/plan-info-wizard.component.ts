@@ -46,17 +46,24 @@ export class PlanInfoWizardComponent implements OnInit {
   }
 
   isClickedAreaBelongToThisWizard(e: Event) {
-    if ((e.target !== this.infoButton1.nativeElement && this.card1 && !this.card1.nativeElement.contains(e.target))) {
-      return true;
+    if (this.currentActiveInforCard === 0) {
+      return;
     }
-    if (e.target !== this.infoButton2.nativeElement && this.card2 && !this.card2.nativeElement.contains(e.target)) {
-      return true;
+    if (this.currentActiveInforCard === 1 && e.target !== this.infoButton1.nativeElement
+      && this.card1 && !this.card1.nativeElement.contains(e.target)) {
+      this.currentActiveInforCard = 0;
     }
-    if (e.target !== this.infoButton3.nativeElement && this.card3 && !this.card3.nativeElement.contains(e.target)) {
-      return true;
+    if (this.currentActiveInforCard === 2 && e.target !== this.infoButton2.nativeElement
+      && this.card2 && !this.card2.nativeElement.contains(e.target)) {
+      this.currentActiveInforCard = 0;
     }
-    if (e.target !== this.infoButton4.nativeElement && this.card4 && !this.card4.nativeElement.contains(e.target)) {
-      return true;
+    if (this.currentActiveInforCard === 3 && e.target !== this.infoButton3.nativeElement
+      && this.card3 && !this.card3.nativeElement.contains(e.target)) {
+      this.currentActiveInforCard = 0;
+    }
+    if (this.currentActiveInforCard === 4 && e.target !== this.infoButton4.nativeElement
+      && this.card4 && !this.card4.nativeElement.contains(e.target)) {
+      this.currentActiveInforCard = 0;
     }
 
     return false;

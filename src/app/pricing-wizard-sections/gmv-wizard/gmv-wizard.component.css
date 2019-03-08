@@ -15,6 +15,7 @@
 }
 
 .gmvInput {
+  min-width: 100px;
   padding: 5px 5px;
   font-size: 12px;
   font-weight: 500;
@@ -22,7 +23,6 @@
   margin-bottom: 0px;
   color: #444444;
   border: 1px solid #f3f3f3;
-  margin-right: 40px;
 }
 
 .col-xs-12 .gmv {
@@ -42,6 +42,10 @@
 
 .gmvRowWithCheckbox {
   display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 20px;
 }
 
 .row {
@@ -66,6 +70,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+  width: 100%;
 }
 
 .wizardSubtitle {
@@ -140,20 +145,21 @@
   right: -20px;
 }
 
-
 /* //thumb */
-::ng-deep .mat-slider-disabled .mat-slider-thumb, .mat-slider-disabled .mat-slider-track-background, .mat-slider-disabled .mat-slider-track-fill{
+
+::ng-deep .mat-slider-disabled .mat-slider-thumb, .mat-slider-disabled .mat-slider-track-background, .mat-slider-disabled .mat-slider-track-fill {
   background: #7CE1D9;
   border: 1px solid #7CE1D9;
 }
 
-:ng-deep .mat-slider-disabled .mat-slider-horizontal .mat-slider-track-fill{
+:ng-deep .mat-slider-disabled .mat-slider-horizontal .mat-slider-track-fill {
   background: red !important;
 }
 
 :ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
   background-color: red !important;
 }
+
 :ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
   background-color: red !important;
 }
