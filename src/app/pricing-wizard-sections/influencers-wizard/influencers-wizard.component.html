@@ -53,7 +53,9 @@
               {{influencer.name}}</p>
           </div>
           <div class="profileImageContainer">
-            <img class="rounded profileImage" src={{influencer.img}}>
+            <img class="rounded profileImage" src={{influencer.image_url}}
+            onError="this.src='https://i.redd.it/s8lk86v3r2m11.png';"
+            >
           </div>
           <mat-checkbox [(ngModel)]="influencersList[i].isChecked" class="imgChkBox" id="tag{{influencer.id}}">
           </mat-checkbox>
