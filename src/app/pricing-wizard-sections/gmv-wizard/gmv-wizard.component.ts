@@ -30,11 +30,11 @@ export class GmvWizardComponent implements OnInit {
   mCart = {
     min: 0,
     max: 100,
-    value: 40
+    value: 100
   };
 
   platformCommission = {
-    min: 5,
+    min: 40,
     max: 40,
     value: 40,
   };

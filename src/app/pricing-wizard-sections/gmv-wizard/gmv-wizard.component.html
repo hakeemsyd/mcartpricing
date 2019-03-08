@@ -12,7 +12,7 @@
           class="infoIcon" />
       </div>
 
-      <div class="row col-xs-12 col-sm-4">
+      <div class="row col-xs-12 col-sm-7">
         <p class="gmvInput">{{gmvSlider.value}}</p>
         <div class="gmvRowWithCheckbox">
           <h4 class="gmv">Greate than $100b</h4>
@@ -20,8 +20,8 @@
           </mat-checkbox>
         </div>
       </div>
-      <mat-slider id='gmvSlider' class="matSliders" md-discrete [max]="gmvSlider.max" [min]="gmvSlider.min" (input)="calculateGMVProfile($event)"
-        [(ngModel)]="gmvSlider.value" [step]="1" [thumbLabel]="gmvSlider.value">
+      <mat-slider id='gmvSlider' class="matSliders" md-discrete [max]="gmvSlider.max" [min]="gmvSlider.min"
+        (input)="calculateGMVProfile($event)" [(ngModel)]="gmvSlider.value" [step]="1" [thumbLabel]="gmvSlider.value">
       </mat-slider>
       <div class="row rowSlider">
         <p class="percentage">{{getGMVSliderMin()}}</p>
@@ -31,12 +31,12 @@
     </div>
     <div class="row" *ngIf="getSelectedGMV(1)">
       <h2 class="wizardSubtitleDark">Captured by the mCart platform</h2>
-      <div class="row col-xs-12 col-sm-4 gmvRow">
-        <div class="titleContainer">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Info_icon-72a7cf.svg/768px-Info_icon-72a7cf.svg.png"
+        class="infoIcon" />
+      <div class="row col-xs-12 col-sm-7 gmvRow">
+        <div>
           <h4 class="gmv">GMV:</h4>
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Info_icon-72a7cf.svg/768px-Info_icon-72a7cf.svg.png"
-            class="infoIcon" />
         </div>
 
         <p class="gmvInput">{{gmvSlider.value}}</p>
@@ -44,14 +44,14 @@
           value={{gmv}} [(ngModel)]="gmv"></mat-checkbox> -->
       </div>
 
-      <mat-slider id='mCartSlider' class="matSliders" md-discrete [max]="mCart.max" [min]="mCart.min" (input)="calculateGMVProfile($event)"
-        [(ngModel)]="mCart.value" [step]="0.01" [thumbLabel]="mCart.value">
+      <mat-slider id='mCartSlider' class="matSliders" md-discrete [max]="mCart.max" [min]="mCart.min"
+        (input)="calculateGMVProfile($event)" [(ngModel)]="mCart.value" [step]="0.01" [thumbLabel]="mCart.value">
       </mat-slider>
       <div class="rowSlider">
         <p class="percentage">{{mCart.min}}%</p>
         <p class="percentage">{{mCart.max}}%</p>
       </div>
-  
+
     </div>
 
   </div>
@@ -63,9 +63,9 @@
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Info_icon-72a7cf.svg/768px-Info_icon-72a7cf.svg.png"
         class="infoIcon" />
     </div>
-    <mat-slider id="commissionSlider" class="matSliders" [max]="platformCommission.max" (input)="calculateGMVProfile($event)"
-      [min]="platformCommission.min" [(ngModel)]="platformCommission.value" [step]="1"
-      [thumbLabel]="platformCommission.value">
+    <mat-slider id="commissionSlider" class="matSliders" [max]="platformCommission.max"
+      (input)="calculateGMVProfile($event)" [min]="platformCommission.min" [(ngModel)]="platformCommission.value"
+      [step]="1" [thumbLabel]="platformCommission.value">
     </mat-slider>
     <div class="rowSlider">
       <p class="percentage">{{platformCommission.min}}%</p>
@@ -79,8 +79,8 @@
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Info_icon-72a7cf.svg/768px-Info_icon-72a7cf.svg.png"
         class="infoIcon" />
     </div>
-    <mat-slider id='influencerSlider' class="matSliders" [max]="influencerPayout.max" (input)="calculateGMVProfile($event)"
-      [min]="influencerPayout.min" [(ngModel)]="influencerPayout.value" [step]="1"
+    <mat-slider id='influencerSlider' class="matSliders" [max]="influencerPayout.max"
+      (input)="calculateGMVProfile($event)" [min]="influencerPayout.min" [(ngModel)]="influencerPayout.value" [step]="1"
       [thumbLabel]="influencerPayout.value">
     </mat-slider>
     <div class="rowSlider">
@@ -96,8 +96,8 @@
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Info_icon-72a7cf.svg/768px-Info_icon-72a7cf.svg.png"
         class="infoIcon" />
     </div>
-    <mat-slider id='shopperSlider' class="matSliders" [max]="shopperRebate.max" (input)="calculateGMVProfile($event)" [min]="shopperRebate.min"
-      [(ngModel)]="shopperRebate.value" [step]="1" [thumbLabel]="shopperRebate.value">
+    <mat-slider id='shopperSlider' class="matSliders" [max]="shopperRebate.max" (input)="calculateGMVProfile($event)"
+      [min]="shopperRebate.min" [(ngModel)]="shopperRebate.value" [step]="1" [thumbLabel]="shopperRebate.value">
     </mat-slider>
     <div class="rowSlider">
       <p class="percentage">{{shopperRebate.min}}%</p>
