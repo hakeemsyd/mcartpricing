@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import InfluencersJSON from '../../mock_data/influencers.json';
+import { influencersListJSON } from 'src/app/mock_data/influencers';
 
 @Component({
   selector: 'app-influencers-wizard',
@@ -22,7 +22,8 @@ export class InfluencersWizardComponent implements OnInit {
   followersArr = [500, 1000, 5000, 10000];
   currFollowersVal = this.followersArr[0];
 
-  influencersList = InfluencersJSON;
+  tempInfluencers = influencersListJSON;
+  influencersListWChecks = [];
   // [
   //   {
   //     name: 'Blake Benson',
@@ -88,8 +89,11 @@ export class InfluencersWizardComponent implements OnInit {
   // ];
 
   constructor(private fb: FormBuilder) {
-
+    this.tempInfluencers.forEach(item => {
+      this.influencersListWChecks.push({ ...item, isChecked: false as boolean });
+    });
   }
+
   ngOnInit() {
     this.countryForm = this.fb.group({
       countryControl: ['Canada']
@@ -109,7 +113,7 @@ export class InfluencersWizardComponent implements OnInit {
 
   submitInfluencers() {
     let checkedValues = [];
-    this.influencersList.forEach(item => {
+    this.influencersListWChecks.forEach(item => {
       if (item.isChecked === true) {
         checkedValues.push(item);
       }

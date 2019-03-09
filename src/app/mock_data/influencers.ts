@@ -1,4 +1,4 @@
-[
+export const influencersListJSON = [
     {"id": 171, "name": "Susana M", "image_url": "https://backend.mavatar.com/uploaded_images/users.1520836692228_susanmcartprotocle.jpg", "mcarts": 109, "followers": 14},
     {"id": 399, "name": "Sam Cabrera", "image_url": "https://backend.mavatar.com/uploaded_images/users.1402441069663_Cabrera-photo-1.jpg", "mcarts": 150, "followers": 1},
     {"id": 898, "name": "Dena aalaei", "image_url": "https://backend.mavatar.com/uploaded_images/users.1433866545279_ScreenShot2015-06-09at9.15.26AM.png", "mcarts": 32, "followers": 1},
@@ -133,4 +133,4 @@
     {"id": 66461, "name": "Melissa", "image_url": "https://backend.mavatar.com/uploaded_images/users.1453753636273_melina.jpg", "mcarts": 20, "followers": 0},
     {"id": 66462, "name": "Tabi", "image_url": "https://backend.mavatar.com/uploaded_images/users.1453753844706_tabi.jpg", "mcarts": 19, "followers": 1},
     {"id": 70342, "name": "Gloria Abiodun", "image_url": "https://backend.mavatar.com/uploaded_images/users.1517941287917_Gloria.jpg", "mcarts": 3, "followers": 1}
-]
+];

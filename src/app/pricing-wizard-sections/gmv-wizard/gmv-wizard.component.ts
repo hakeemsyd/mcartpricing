@@ -79,7 +79,7 @@ export class GmvWizardComponent implements OnInit {
       _gmv = this.salesChanneValue * this.globalChannelValues * (this.mCart.value / 100);
     }
     this.gmvSlider.value = Math.ceil(_gmv);
-    this.calculateGMVProfile();
+    this.calculateGMVProfile(null);
   }
 
   submitGMV() {
@@ -105,7 +105,7 @@ export class GmvWizardComponent implements OnInit {
     let influencerPayoutValue = this.influencerPayout.value;
     let shopperRebateValue = this.shopperRebate.value;
 
-    if (callingSource !== undefined) {
+    if (callingSource !== null && callingSource !== undefined) {
       if (callingSource.source._elementRef.nativeElement.id === 'gmvSlider') {
         gmvValue = callingSource.value;
       } else if (callingSource.source._elementRef.nativeElement.id === 'mCartSlider') {
@@ -182,7 +182,7 @@ export class GmvWizardComponent implements OnInit {
 
   switchBillingPlan() {
     this.isAnnualBilling = !this.isAnnualBilling;
-    this.calculateGMVProfile();
+    this.calculateGMVProfile(null);
   }
 
   getSelectedGMV(gmvID: number) {
