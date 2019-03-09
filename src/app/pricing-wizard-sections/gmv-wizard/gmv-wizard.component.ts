@@ -196,7 +196,7 @@ export class GmvWizardComponent implements OnInit {
     }
 
     this.priceRange = numeral(softwareFee).format('$0a');
-    this.priceRangeEmitter.emit(this.priceRange);
+    this.priceRangeEmitter.emit(parseInt(this.priceRange.toString()));
 
     let finalProfile = Math.ceil(intermediateProfit - softwareFee);
     this.approxProfit = finalProfile;
