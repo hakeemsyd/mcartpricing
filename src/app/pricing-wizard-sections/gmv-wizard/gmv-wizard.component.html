@@ -13,14 +13,16 @@
       </div>
 
       <div class="row col-xs-12 col-sm-7">
-        <p class="gmvInput">{{gmvSlider.value}}</p>
+          <input id="gmvInput" [disabled]="checkIfGreateThan100B()" class="gmvInput" matInput type="number" (input)="onGMVValueInput($event)" placeholder="Enter GMV"
+           [(ngModel)]="gmvSlider.value" >
+        <!-- <p class="gmvInput">{{gmvSlider.value}}</p> -->
         <div class="gmvRowWithCheckbox">
           <h4 class="gmv">Greate than $100b</h4>
-          <mat-checkbox type="checkbox" [(ngModel)]="isGreateThan100B" (input)="toggleGreaterThan100B($event)">
+          <mat-checkbox type="checkbox" [(ngModel)]="greaterThan100B" (input)="toggleGreaterThan100B($event)">
           </mat-checkbox>
         </div>
       </div>
-      <mat-slider id='gmvSlider' class="matSliders" md-discrete [max]="gmvSlider.max" [min]="gmvSlider.min"
+      <mat-slider id='gmvSlider' [disabled]="checkIfGreateThan100B()" class="matSliders" md-discrete [max]="gmvSlider.max" [min]="gmvSlider.min"
         (input)="calculateGMVProfile($event)" [(ngModel)]="gmvSlider.value" [step]="1" [thumbLabel]="gmvSlider.value">
       </mat-slider>
       <div class="row rowSlider">

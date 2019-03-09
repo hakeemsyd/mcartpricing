@@ -22,7 +22,7 @@ export class GmvWizardComponent implements OnInit {
 
   priceRange: String = 'TBD';
   profitString: String = 'TBD';
-  isGreateThan100B = true;
+  greaterThan100B = false;
 
   businessTypeValue = "media";
   // isGMVSliderDisabled = false;
@@ -82,30 +82,51 @@ export class GmvWizardComponent implements OnInit {
     this.calculateGMVProfile(null);
   }
 
-  submitGMV() {
-    this.parentForm.controls['gmv'].setValue(this.gmv);
+  onGMVValueInput(event) {
+    let value = event.currentTarget.value;
+    if (value >= this.gmvSlider.min && value <= this.gmvSlider.max) {
+      this.gmvSlider.value = value;
+    } else if (value < this.gmvSlider.min) {
+      this.gmvSlider.value = this.gmvSlider.min;
+    } else if (value > this.gmvSlider.min) {
+      this.gmvSlider.value = this.gmvSlider.max;
+      this.greaterThan100B = true;
+    }
+    this.calculateGMVProfile(null);
   }
 
-  // remove this function
-  calculateGMVmCartValues(mCartValue) {
-    let _gmv = 0;
-    _gmv = this.salesChanneValue * this.globalChannelValues * (mCartValue / 100);
-    return _gmv;
-  }
 
-  onChangeGMV(value) {
-    console.log(value);
-  }
+submitGMV() {
+  this.parentForm.controls['gmv'].setValue(this.gmv);
+}
 
-  calculateGMVProfile(callingSource) {
+// remove this function
+calculateGMVmCartValues(mCartValue) {
+  let _gmv = 0;
+  _gmv = this.salesChanneValue * this.globalChannelValues * (mCartValue / 100);
+  return _gmv;
+}
 
-    let gmvValue = this.gmvSlider.value;
-    let mCartValue = this.mCart.value;
-    let platformCommissionValue = this.platformCommission.value;
-    let influencerPayoutValue = this.influencerPayout.value;
-    let shopperRebateValue = this.shopperRebate.value;
 
-    if (callingSource !== null && callingSource !== undefined) {
+
+onChangeGMV(value) {
+  console.log(value);
+}
+
+calculateGMVProfile(callingSource) {
+
+  let gmvValue = this.gmvSlider.value;
+  let mCartValue = this.mCart.value;
+  let platformCommissionValue = this.platformCommission.value;
+  let influencerPayoutValue = this.influencerPayout.value;
+  let shopperRebateValue = this.shopperRebate.value;
+
+  if (callingSource !== null && callingSource !== undefined) {
+    if (callingSource.currentTarget && callingSource.currentTarget.id === 'gmvInput') {
+      gmvValue = parseInt(callingSource.currentTarget.value);
+    }
+
+    if (callingSource.source) {
       if (callingSource.source._elementRef.nativeElement.id === 'gmvSlider') {
         gmvValue = callingSource.value;
       } else if (callingSource.source._elementRef.nativeElement.id === 'mCartSlider') {
@@ -118,105 +139,106 @@ export class GmvWizardComponent implements OnInit {
         shopperRebateValue = callingSource.value;
       }
     }
-
-    // Sales(GMV) = $G(this is annual sales done on all products by FXG)
-    // Commission = (C % * GMV)(this is what FXG gets from the sales)
-    // Influencer payout = I % * Commission(Influencer payout I % is cut from commission of fxg in that they got in step 2)
-    // Shopper Rebate = R % * Commission(Shopper rebate is R % of commission of fxg that they got)
-    // Variable Fee = 40 % of Commission
-
-    // Note: Commission is what FXG makes, then they pay following cuts in the order
-    // i.Influencer(I %) + shoppers rebate(R %)
-    // iii.Mavatar gets 40 % of what is left from i & ii.
-    //   Outputs:
-    // 1. Software fee
-    // 2. Profit
-
-
-    // FORMULA FOR CPG:
-
-    // Software Fee = mavatar's 40% of Intermediate profit + Annual $10K fixed
-
-    // Revenue = (Comission % * GMV)
-    // Intermediate profit = Revenue - [(Influencer payout + Shopper rebate ) % * Revenue]
-    // Final Profit = Intermediate Profit - (40 % * Intermediate Profit) - $10K
-
-    // FORMULA FOR REST(MEDIA, MALLS, PROCUREMENT & AGENENCY):
-
-    // GMV = captured by macart * GMV entered in step before
-
-    // Software Fee = mavatar's 40% of Intermediate profit + Annual $10K fixed
-
-    // Revenue = (Comission % * GMV)
-    // Intermediate profit = Revenue - [(Influencer payout + Shopper rebate ) % * Revenue]
-    // Final Profit = Intermediate Profit - (40 % * Intermediate Profit) - $10K
-
-    if (this.businessTypeValue !== 'media') {
-      gmvValue = this.calculateGMVmCartValues(mCartValue);
-    }
-
-    let revenue = 0;
-    let variableFee = 0.4;
-
-    revenue = (platformCommissionValue / 100) * gmvValue;
-    let intermediateProfit = revenue - ((influencerPayoutValue + shopperRebateValue) / 100) * revenue;
-    let softwareFee = (variableFee * intermediateProfit) - 10000;
-
-    if (softwareFee < 0) {
-      softwareFee *= -1;
-    }
-
-    softwareFee = Math.ceil(softwareFee);
-
-    // Verify this part
-    if (this.isAnnualBilling === false) {
-      softwareFee /= 12;
-    }
-
-    let finalProfile = Math.ceil(intermediateProfit - softwareFee);
-    this.approxProfit = finalProfile;
-    this.profitString = numeral(this.approxProfit).format('$0a');
-    this.priceRangeEmitter.emit(this.approxProfit);
-    this.gmv = gmvValue;
   }
 
-  switchBillingPlan() {
-    this.isAnnualBilling = !this.isAnnualBilling;
-    this.calculateGMVProfile(null);
+  // Sales(GMV) = $G(this is annual sales done on all products by FXG)
+  // Commission = (C % * GMV)(this is what FXG gets from the sales)
+  // Influencer payout = I % * Commission(Influencer payout I % is cut from commission of fxg in that they got in step 2)
+  // Shopper Rebate = R % * Commission(Shopper rebate is R % of commission of fxg that they got)
+  // Variable Fee = 40 % of Commission
+
+  // Note: Commission is what FXG makes, then they pay following cuts in the order
+  // i.Influencer(I %) + shoppers rebate(R %)
+  // iii.Mavatar gets 40 % of what is left from i & ii.
+  //   Outputs:
+  // 1. Software fee
+  // 2. Profit
+
+
+  // FORMULA FOR CPG:
+
+  // Software Fee = mavatar's 40% of Intermediate profit + Annual $10K fixed
+
+  // Revenue = (Comission % * GMV)
+  // Intermediate profit = Revenue - [(Influencer payout + Shopper rebate ) % * Revenue]
+  // Final Profit = Intermediate Profit - (40 % * Intermediate Profit) - $10K
+
+  // FORMULA FOR REST(MEDIA, MALLS, PROCUREMENT & AGENENCY):
+
+  // GMV = captured by macart * GMV entered in step before
+
+  // Software Fee = mavatar's 40% of Intermediate profit + Annual $10K fixed
+
+  // Revenue = (Comission % * GMV)
+  // Intermediate profit = Revenue - [(Influencer payout + Shopper rebate ) % * Revenue]
+  // Final Profit = Intermediate Profit - (40 % * Intermediate Profit) - $10K
+
+  if (this.businessTypeValue !== 'media') {
+    gmvValue = this.calculateGMVmCartValues(mCartValue);
   }
 
-  getSelectedGMV(gmvID: number) {
-    if (gmvID === 0) {
-      if (this.businessTypeValue === "media") {
-        return true;
-      } else return false;
-    } else {
-      if (this.businessTypeValue === "media") {
-        return false;
-      } else return true;
+  let revenue = 0;
+  let variableFee = 0.4;
 
-    }
-    return false;
+  revenue = (platformCommissionValue / 100) * gmvValue;
+  let intermediateProfit = revenue - ((influencerPayoutValue + shopperRebateValue) / 100) * revenue;
+  let softwareFee = (variableFee * intermediateProfit) - 10000;
+
+  if (softwareFee < 0) {
+    softwareFee *= -1;
   }
 
-  toggleGreaterThan100B(e) {
-    this.isGreateThan100B = e.target.checked;
-    this.isGMVSliderDisabled = e.target.checked;
+  softwareFee = Math.ceil(softwareFee);
+
+  // Verify this part
+  if (this.isAnnualBilling === false) {
+    softwareFee /= 12;
   }
 
-  isGMVSliderDisabled() {
-    return this.isGreateThan100B;
-  }
-  getGMVSliderMin() {
-    let str: String = (numeral(this.gmvSlider.min).format('$0a'));
-    str = str.toUpperCase();
-    return str;
-  }
+  let finalProfile = Math.ceil(intermediateProfit - softwareFee);
+  this.approxProfit = finalProfile;
+  this.profitString = numeral(this.approxProfit).format('$0a');
+  this.priceRangeEmitter.emit(this.approxProfit);
+  this.gmv = gmvValue;
+}
 
-  getGMVSliderMax() {
-    let str: String = (numeral(this.gmvSlider.max).format('$0a'));
-    str = str.toUpperCase();
-    return str;
+switchBillingPlan() {
+  this.isAnnualBilling = !this.isAnnualBilling;
+  this.calculateGMVProfile(null);
+}
+
+getSelectedGMV(gmvID: number) {
+  if (gmvID === 0) {
+    if (this.businessTypeValue === "media") {
+      return true;
+    } else return false;
+  } else {
+    if (this.businessTypeValue === "media") {
+      return false;
+    } else return true;
+
   }
+  return false;
+}
+
+toggleGreaterThan100B(e) {
+  this.greaterThan100B = e.target.checked;
+  this.isGMVSliderDisabled = e.target.checked;
+}
+
+checkIfGreateThan100B() {
+  return this.greaterThan100B;
+}
+getGMVSliderMin() {
+  let str: String = (numeral(this.gmvSlider.min).format('$0a'));
+  str = str.toUpperCase();
+  return str;
+}
+
+getGMVSliderMax() {
+  let str: String = (numeral(this.gmvSlider.max).format('$0a'));
+  str = str.toUpperCase();
+  return str;
+}
 
 }
