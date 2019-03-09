@@ -34,7 +34,7 @@ export class GmvWizardComponent implements OnInit {
   };
 
   platformCommission = {
-    min: 40,
+    min: 0,
     max: 40,
     value: 40,
   };
