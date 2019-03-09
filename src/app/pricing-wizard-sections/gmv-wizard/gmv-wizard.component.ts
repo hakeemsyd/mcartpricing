@@ -223,7 +223,6 @@ getSelectedGMV(gmvID: number) {
 
 toggleGreaterThan100B(e) {
   this.greaterThan100B = e.target.checked;
-  this.isGMVSliderDisabled = e.target.checked;
 }
 
 checkIfGreateThan100B() {

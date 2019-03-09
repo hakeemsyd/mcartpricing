@@ -10,9 +10,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SalesWizardComponent implements OnInit {
 
   @Input() parentForm: FormGroup;
-  salesChannel: number = 0;
-  globalChannel: number = 0;
+  salesChannel: number = 1;
+  globalChannel: number = 10000;
   submitted = false;
+
+  salesMin = 1;
+  globalMin = 10000;
 
   salesCalculator: FormGroup;
 
@@ -39,5 +42,22 @@ export class SalesWizardComponent implements OnInit {
 
     (<FormGroup>this.parentForm.controls['sales']).controls['salesChannel'].patchValue(this.salesCalculator.controls['salesChannel'].value);
     (<FormGroup>this.parentForm.controls['sales']).controls['globalChannel'].patchValue(this.salesCalculator.controls['globalChannel'].value);
+  }
+
+  onSalesChannelInput(event) {
+    const value = event.currentTarget.value;
+    if (value >= this.salesMin) {
+      this.salesChannel = value;
+    } else if (value < this.salesMin) {
+      this.salesChannel = this.salesMin;
+    }
+  }
+  onGlobalChannelInput(event) {
+    const value = event.currentTarget.value;
+    if (value >= this.globalMin) {
+      this.globalChannel = value;
+    } else if (value < this.globalMin) {
+      this.globalChannel = this.globalMin;
+    }
   }
 }

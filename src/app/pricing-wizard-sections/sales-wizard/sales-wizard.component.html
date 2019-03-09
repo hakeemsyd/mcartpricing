@@ -2,13 +2,13 @@
   <h2 class="wizardTitle">Step 3 - Sales</h2>
   <p class="wizardSubtitle">Tell us about your sales, so we can optimize your experience accordingly</p>
   <div>
-    <form [formGroup]="salesCalculator" class="inputGroup">
+    <form class="inputGroup">
       <h3 class="wizardSubtitleDark">1.How many sales channel do you have?</h3>
-      <input type="number" formControlName="salesChannel" class="textInput col-xs-12" placeholder="Type Answer in numbers"
-        required ng-trim="false">
+      <input type="number" [(ngModel)]="salesChannel" [ngModelOptions]="{standalone: true}" class="textInput col-xs-12" placeholder="Type Answer in numbers"
+        required ng-trim="false" (input)="onSalesChannelInput($event)">
       <h3 class="wizardSubtitleDark">2.How much is your global sales?</h3>
-      <input type="number" formControlName="globalChannel" class="textInput col-xs-12" placeholder="Type Answer in numbers"
-        required ng-trim="false">
+      <input type="number" [(ngModel)]="globalChannel" [ngModelOptions]="{standalone: true}" class="textInput col-xs-12" placeholder="Type Answer in numbers"
+        required ng-trim="false" (input)="onGlobalChannelInput($event)">
     </form>
   </div>
 </div>
