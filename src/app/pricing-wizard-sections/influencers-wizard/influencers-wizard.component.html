@@ -45,11 +45,11 @@
   </div>
 
   <div class="row rowContainer">
-    <div *ngFor="let influencer of influencersList; let i = index">
+    <div *ngFor="let influencer of influencersListWChecks; let i = index">
       <div class="influencerRow col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-12">
         <div class="profileContainer">
-          <div class="nameHeader" [ngStyle]="{'background-color':influencersList[i].isChecked ? '#93d0cc' : 'white' }">
-            <p class="headerText" [ngStyle]="{'color':influencersList[i].isChecked ? 'white' : '#444444' }">
+          <div class="nameHeader" [ngStyle]="{'background-color':influencersListWChecks[i].isChecked ? '#93d0cc' : 'white' }">
+            <p class="headerText" [ngStyle]="{'color':influencersListWChecks[i].isChecked ? 'white' : '#444444' }">
               {{influencer.name}}</p>
           </div>
           <div class="profileImageContainer">
@@ -57,9 +57,9 @@
             onError="this.src='https://i.redd.it/s8lk86v3r2m11.png';"
             >
           </div>
-          <mat-checkbox [(ngModel)]="influencersList[i].isChecked" class="imgChkBox" id="tag{{influencer.id}}">
+          <mat-checkbox [(ngModel)]="influencersListWChecks[i].isChecked" class="imgChkBox" id="tag{{influencer.id}}">
           </mat-checkbox>
-          <!-- <input type="checkbox" [(ngModel)]="influencersList[i].isChecked" class="imgChkBox"
+          <!-- <input type="checkbox" [(ngModel)]="influencersListWChecks[i].isChecked" class="imgChkBox"
             id="tag{{influencer.id}}" /> -->
         </div>
       </div>
