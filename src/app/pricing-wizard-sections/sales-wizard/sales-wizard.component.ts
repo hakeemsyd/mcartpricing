@@ -39,9 +39,11 @@ export class SalesWizardComponent implements OnInit {
     if (this.salesCalculator.invalid) {
       return;
     }
+    (<FormGroup>this.parentForm.controls['sales']).controls['salesChannel'].patchValue(this.salesChannel);
+    (<FormGroup>this.parentForm.controls['sales']).controls['globalChannel'].patchValue(this.globalChannel);
 
-    (<FormGroup>this.parentForm.controls['sales']).controls['salesChannel'].patchValue(this.salesCalculator.controls['salesChannel'].value);
-    (<FormGroup>this.parentForm.controls['sales']).controls['globalChannel'].patchValue(this.salesCalculator.controls['globalChannel'].value);
+    // (<FormGroup>this.parentForm.controls['sales']).controls['salesChannel'].patchValue(this.salesCalculator.controls['salesChannel'].value);
+    // (<FormGroup>this.parentForm.controls['sales']).controls['globalChannel'].patchValue(this.salesCalculator.controls['globalChannel'].value);
   }
 
   onSalesChannelInput(event) {

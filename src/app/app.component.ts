@@ -75,7 +75,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
   }
 
   getPriceRange() {
-    return 'TBD';
+    return this.priceWizardInstance.gmvWizardInstance.priceRange;
   }
 
   stepChangedHandler(event: number) {

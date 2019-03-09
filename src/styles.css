@@ -50,10 +50,12 @@ body, html {
 
 .mat-checkbox-checked .mat-checkbox-frame {
   background-color: #93d0CC !important;
+  color: #93d0CC !important;
 }
 
 .mat-checkbox-checked .mat-checkbox-background {
   background-color: #93d0CC !important;
+  color: #93d0CC !important;
 }
 
 .mat-slider.mat-slider-horizontal .mat-slider-wrapper {
