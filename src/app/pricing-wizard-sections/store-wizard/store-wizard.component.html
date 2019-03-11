@@ -6,7 +6,7 @@
     <ul class="list-group list-container">
       <li class="list-group-item listHeader listItemContainer">
         <p class="list-item-title"><b>Store List</b></p>
-        <mat-checkbox class="radioButton" (click)="onTriggerSelectAll()" [(ngModel)]="selectAllChecked"></mat-checkbox>
+        <mat-checkbox class="radioButton" (change)="onTriggerSelectAll()" [(ngModel)]="selectAllChecked"></mat-checkbox>
       </li>
       <div class="scrollableContainer">
       <li class="list-group-item listItemContainer" *ngFor="let order of ordersListWCheck; let i = index;"
