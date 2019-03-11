@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Item } from 'src/app/mock_data/items';
 
 @Component({
   selector: 'app-sales-wizard',
@@ -18,6 +19,9 @@ export class SalesWizardComponent implements OnInit {
   globalMin = 10000;
 
   salesCalculator: FormGroup;
+  businessType = 1;
+  heading1 = '';
+  heading2 = '';
 
   constructor(private formBuilder: FormBuilder) {
   }
@@ -60,6 +64,23 @@ export class SalesWizardComponent implements OnInit {
       this.globalChannel = value;
     } else if (value < this.globalMin) {
       this.globalChannel = this.globalMin;
+    }
+  }
+
+  loadSalesVariables() {
+    const businessType: Item = this.parentForm.controls['businessType'].value;
+    if (businessType.value === 'malls') {
+      this.businessType = 2;
+    } else {
+      this.businessType = 1;
+    }
+
+    if (this.businessType === 1) {
+      this.heading1 = '1.How many sales channel do you have?';
+      this.heading2 = '2.How much is your global sales?';
+    } else {
+      this.heading1 = '1.How much is your square footage?';
+      this.heading2 = '2.How much is your sales/square foot?';
     }
   }
 }

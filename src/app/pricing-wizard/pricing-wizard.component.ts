@@ -87,9 +87,13 @@ export class PricingWizardComponent implements OnInit {
     console.log('Wizard ended');
   }
 
+  onSubmitBusiness() {
+    this.gmvWizardInstance.loadGMVVariables();
+    this.salesWizardInstance.loadSalesVariables();
+  }
+
   onSubmitObjectives() {
     this.objectivesWizardInstance.submitObjectives();
-    this.gmvWizardInstance.loadGMVVariables();
   }
 
   onSubmitSales() {

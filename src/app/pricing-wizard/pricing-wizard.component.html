@@ -10,7 +10,7 @@
         <app-business-wizard [parentForm]="planCalculatorForm"></app-business-wizard>
       </div>
       <div class="navButtonContainer">
-        <button type="button" class="btn nextButton" (click)="goToNextStep()" (click)="selectPath()">Next</button>
+        <button type="button" class="btn nextButton" (click)="onSubmitBusiness()" (click)="goToNextStep()" (click)="selectPath()">Next</button>
       </div>
     </aw-wizard-step>
     <aw-wizard-step  (stepEnter)="enterStep(2)" stepId="selectObjective">
