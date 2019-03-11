@@ -113,6 +113,7 @@ export class GmvWizardComponent implements OnInit {
   calculateGMVmCartValues(mCartValue) {
     let _gmv = 0;
     _gmv = this.salesChanneValue * this.globalChannelValues * (mCartValue / 100);
+    _gmv = Math.ceil(_gmv);
     return _gmv;
   }
 

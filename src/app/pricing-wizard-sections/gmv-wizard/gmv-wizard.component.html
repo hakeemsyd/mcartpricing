@@ -47,7 +47,7 @@
       </div>
 
       <mat-slider id='mCartSlider' class="matSliders" md-discrete [max]="mCart.max" [min]="mCart.min"
-        (input)="calculateGMVProfile($event)" [(ngModel)]="mCart.value" [step]="0.01" [thumbLabel]="mCart.value">
+        (input)="calculateGMVProfile($event)" [(ngModel)]="mCart.value" [step]="1" [thumbLabel]="mCart.value">
       </mat-slider>
       <div class="rowSlider">
         <p class="percentage">{{mCart.min}}%</p>
