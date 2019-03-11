@@ -58,10 +58,12 @@ export class GmvWizardComponent implements OnInit {
     value: 10000,
   };
 
-  gmv: number = 0;
+  // gmv: number = 0;
   currPlan = 1;
   salesChanneValue = 0;
   globalChannelValues = 0;
+
+  gmvType = 1;
 
   constructor() {
   }
@@ -74,13 +76,16 @@ export class GmvWizardComponent implements OnInit {
     this.businessTypeValue = businessType.value;
 
     let _gmv = 10000;
-    if (this.businessTypeValue !== 'media') {
+
+    if (this.businessTypeValue === 'media' || this.businessTypeValue === 'procurement') {
+      this.gmvType = 1;
+      this.stepNo = 3;
+    } else {
+      this.gmvType = 2;
       this.salesChanneValue = (<FormGroup>this.parentForm.controls['sales']).controls['salesChannel'].value;
       this.globalChannelValues = (<FormGroup>this.parentForm.controls['sales']).controls['globalChannel'].value;
       _gmv = this.salesChanneValue * this.globalChannelValues * (this.mCart.value / 100);
       this.stepNo = 4;
-    } else {
-      this.stepNo = 3;
     }
     this.gmvSlider.value = Math.ceil(_gmv);
     this.calculateGMVProfile(null);
@@ -177,8 +182,9 @@ export class GmvWizardComponent implements OnInit {
     // Intermediate profit = Revenue - [(Influencer payout + Shopper rebate ) % * Revenue]
     // Final Profit = Intermediate Profit - (40 % * Intermediate Profit) - $10K
 
-    if (this.businessTypeValue !== 'media') {
+    if (this.gmvType === 2) {
       gmvValue = this.calculateGMVmCartValues(mCartValue);
+      this.gmvSlider.value = gmvValue;
     }
 
     let revenue = 0;
@@ -206,7 +212,7 @@ export class GmvWizardComponent implements OnInit {
     this.approxProfit = finalProfile;
     this.profitString = numeral(this.approxProfit).format('$0a');
     this.approxProfitEmitter.emit(this.approxProfit);
-    this.gmv = gmvValue;
+    // this.gmv = gmvValue;
   }
 
   switchBillingPlan() {
@@ -215,17 +221,11 @@ export class GmvWizardComponent implements OnInit {
   }
 
   getSelectedGMV(gmvID: number) {
-    if (gmvID === 0) {
-      if (this.businessTypeValue === "media") {
-        return true;
-      } else return false;
+    if (gmvID === this.gmvType) {
+      return true;
     } else {
-      if (this.businessTypeValue === "media") {
-        return false;
-      } else return true;
-
+      return false;
     }
-    return false;
   }
 
   toggleGreaterThan100B(e) {
