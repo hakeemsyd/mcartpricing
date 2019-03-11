@@ -16,6 +16,7 @@ export class GmvWizardComponent implements OnInit {
   @Output() approxProfitEmitter: EventEmitter<number> = new EventEmitter();
   @Output() priceRangeEmitter: EventEmitter<number> = new EventEmitter();
   public isAnnualBilling = true;
+  stepNo = 3;
 
   variableFee: number = 200;
   approxProfit: number = 0;
@@ -77,6 +78,9 @@ export class GmvWizardComponent implements OnInit {
       this.salesChanneValue = (<FormGroup>this.parentForm.controls['sales']).controls['salesChannel'].value;
       this.globalChannelValues = (<FormGroup>this.parentForm.controls['sales']).controls['globalChannel'].value;
       _gmv = this.salesChanneValue * this.globalChannelValues * (this.mCart.value / 100);
+      this.stepNo = 4;
+    } else {
+      this.stepNo = 3;
     }
     this.gmvSlider.value = Math.ceil(_gmv);
     this.calculateGMVProfile(null);
