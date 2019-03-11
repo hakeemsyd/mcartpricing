@@ -97,8 +97,11 @@ export class PricingWizardComponent implements OnInit {
   }
 
   onSubmitSales() {
-    this.salesWizardInstance.submitSales();
-    this.gmvWizardInstance.loadGMVVariables();
+    let isValid = this.salesWizardInstance.submitSales();
+    if (isValid) {
+      this.gmvWizardInstance.loadGMVVariables();
+      this.goToNextStep();
+    }
   }
 
   onSubmitGMV() {

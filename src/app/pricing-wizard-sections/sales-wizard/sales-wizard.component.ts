@@ -31,23 +31,25 @@ export class SalesWizardComponent implements OnInit {
 
   ngOnInit() {
     this.salesCalculator = this.formBuilder.group({
-      salesChannel: [0 as number, Validators.required],
-      globalChannel: [0 as number, Validators.required],
+      salesChannel: [0 as number, [Validators.required,  Validators.min(1000)]],
+      globalChannel: [0 as number, [Validators.required, Validators.min(1)]],
     });
   }
 
-  submitSales() {
+  submitSales(): boolean {
     this.submitted = true;
+
+    let error = this.salesCalculator.controls.globalChannel.errors;
 
     // stop here if form is invalid
     if (this.salesCalculator.invalid) {
-      return;
+      return false;
     }
-    (<FormGroup>this.parentForm.controls['sales']).controls['salesChannel'].patchValue(this.salesChannel);
-    (<FormGroup>this.parentForm.controls['sales']).controls['globalChannel'].patchValue(this.globalChannel);
-
-    // (<FormGroup>this.parentForm.controls['sales']).controls['salesChannel'].patchValue(this.salesCalculator.controls['salesChannel'].value);
-    // (<FormGroup>this.parentForm.controls['sales']).controls['globalChannel'].patchValue(this.salesCalculator.controls['globalChannel'].value);
+    (<FormGroup>this.parentForm.controls['sales']).controls['salesChannel'].patchValue(this.salesCalculator.controls['salesChannel'].value);
+    (<FormGroup>this.parentForm.controls['sales']).controls['globalChannel'].patchValue(this.salesCalculator.controls['globalChannel'].value);
+    // (<FormGroup>this.parentForm.controls['sales']).controls['salesChannel'].patchValue(this.salesChannel);
+    // (<FormGroup>this.parentForm.controls['sales']).controls['globalChannel'].patchValue(this.globalChannel);
+    return true;
   }
 
   onSalesChannelInput(event) {

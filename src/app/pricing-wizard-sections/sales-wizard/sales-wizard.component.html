@@ -2,13 +2,13 @@
   <h2 class="wizardTitle">Step 3 - Sales</h2>
   <p class="wizardSubtitle">Tell us about your sales, so we can optimize your experience accordingly</p>
   <div>
-    <form class="inputGroup">
+    <form [formGroup]="salesCalculator" class="inputGroup">
       <h3 class="wizardSubtitleDark">{{heading1}}</h3>
-      <input type="number" [(ngModel)]="salesChannel" [ngModelOptions]="{standalone: true}" class="textInput col-xs-12" placeholder="Type Answer in numbers"
-        required ng-trim="false" (input)="onSalesChannelInput($event)">
+      <input type="number" formControlName="salesChannel" class="textInput col-xs-12 form-control" placeholder="Type Answer in numbers"
+      [ngClass]="{ 'is-invalid': submitted && f.salesChannel.errors }" >
       <h3 class="wizardSubtitleDark">{{heading2}}</h3>
-      <input type="number" [(ngModel)]="globalChannel" [ngModelOptions]="{standalone: true}" class="textInput col-xs-12" placeholder="Type Answer in numbers"
-        required ng-trim="false" (input)="onGlobalChannelInput($event)">
+      <input type="number" formControlName="globalChannel" class="textInput col-xs-12 form-control" placeholder="Type Answer in numbers"
+      [ngClass]="{ 'is-invalid': submitted && f.globalChannel.errors }" >
     </form>
   </div>
 </div>
