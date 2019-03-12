@@ -88,6 +88,7 @@ export class PricingWizardComponent implements OnInit {
   }
 
   onSubmitBusiness() {
+    this.businessChildWizardInstance.onSubmitBusiness();
     this.gmvWizardInstance.loadGMVVariables();
     this.salesWizardInstance.loadSalesVariables();
   }
