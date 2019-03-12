@@ -6,12 +6,12 @@
     <ul class="list-group list-container">
       <li class="list-group-item listHeader listItemContainer">
         <p class="list-item-title"><b>Categories List</b></p>
-        <mat-checkbox class="radioButton" (change)="onTriggerSelectAll()" [(ngModel)]="selectAllChecked"></mat-checkbox>
+        <mat-checkbox class="radioButton" (change)="onTriggerSelectAllCategories()" [(ngModel)]="selectAllCategoriesChecked"></mat-checkbox>
       </li>
-      <li class="list-group-item listItemContainer" *ngFor="let order of orders; let i = index;"
+      <li class="list-group-item listItemContainer" *ngFor="let order of categoriesListWCheck; let i = index;"
         [ngClass]="{oddListRow: (i % 2) === 1, evenListRow: (i % 2) === 0 }">
         <p class="list-item-title">{{order.name}}</p>
-        <mat-checkbox class="radioButton" [(ngModel)]="ordersListWCheck[i].isChecked" ></mat-checkbox>
+        <mat-checkbox class="radioButton" [(ngModel)]="categoriesListWCheck[i].isChecked" ></mat-checkbox>
       </li>
       <li class="list-group-item listItemContainer"> <b>
           <p class="list-item-title">Add new category</p>
@@ -24,11 +24,12 @@
     <ul class="list-group list-container">
       <li class="list-group-item listHeader listItemContainer">
         <p class="list-item-title"><b>Suggested Categories</b></p>
+        <mat-checkbox class="radioButton" (change)="onTriggerSelectAllSuggestedCategories()" [(ngModel)]="selectAllSuggestedCategoriesChecked"></mat-checkbox>
       </li>
-      <li class="list-group-item listItemContainer" *ngFor="let order of suggestedStores; let i = index;"
+      <li class="list-group-item listItemContainer" *ngFor="let order of suggestedCategoriesListWCheck; let i = index;"
         [ngClass]="{oddListRow: (i % 2) === 1, evenListRow: (i % 2) === 0 }">
         <p class="list-item-title">{{order.name}}</p>
-        <mat-checkbox type="checkbox"></mat-checkbox>
+        <mat-checkbox class="radioButton" [(ngModel)]="suggestedCategoriesListWCheck[i].isChecked" ></mat-checkbox>
       </li>
     </ul>
   </div>

@@ -60,13 +60,10 @@ export class StoreWizardComponent implements OnInit {
       return item.isChecked === true;
     });
 
-    // this.selectAllChecked = !this.selectAllChecked;
-
-    // const shouldPerformSelectAll: boolean = (selectedAll.length === this.ordersListWCheck.length);
-
     for (let i = 0; i < this.ordersListWCheck.length; i++) {
       this.ordersListWCheck[i].isChecked = !this.selectAllChecked;
     }
+    this.selectAllChecked = !this.selectAllChecked;
 
   }
 }

@@ -11,30 +11,35 @@ export class CategoriesWizardComponent implements OnInit {
 
   @Input() parentForm: FormGroup;
 
-  orders = [
+  categories = [
     { id: 100, name: 'Athleta' },
     { id: 200, name: 'Banana Republic' },
     { id: 300, name: 'Bergdorf Goodman' },
     { id: 400, name: 'Betsey Johnson' },
     { id: 500, name: 'Bloomingdale\'s' },
   ];
-  selectAllChecked: boolean = false;
 
-  suggestedStores = [
+  selectAllCategoriesChecked: boolean = false;
+  selectAllSuggestedCategoriesChecked: boolean = false;
+
+  suggestedCategories = [
     { id: 100, name: 'Kids' },
     { id: 101, name: 'Women' },
 
   ];
 
-  ordersListWCheck = [];
-
+  categoriesListWCheck = [];
+  suggestedCategoriesListWCheck = [];
 
   imageUrl = 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
 
   constructor(private formBuilder: FormBuilder) {
 
-    this.orders.forEach(item => {
-      this.ordersListWCheck.push({ ...item, isChecked: false as boolean });
+    this.categories.forEach(item => {
+      this.categoriesListWCheck.push({ ...item, isChecked: false as boolean });
+    });
+    this.suggestedCategories.forEach(item => {
+      this.suggestedCategoriesListWCheck.push({ ...item, isChecked: false as boolean });
     });
   }
 
@@ -45,7 +50,12 @@ export class CategoriesWizardComponent implements OnInit {
 
   submitStores() {
     let checkedValues = [];
-    this.ordersListWCheck.forEach(item => {
+    this.categoriesListWCheck.forEach(item => {
+      if (item.isChecked === true) {
+        checkedValues.push(item);
+      }
+    });
+    this.suggestedCategoriesListWCheck.forEach(item => {
       if (item.isChecked === true) {
         checkedValues.push(item);
       }
@@ -53,13 +63,25 @@ export class CategoriesWizardComponent implements OnInit {
     this.parentForm.controls['category'].setValue(checkedValues);
   }
 
-  onTriggerSelectAll() {
-    this.selectAllChecked = this.ordersListWCheck.every(function (item: any) {
+  onTriggerSelectAllCategories() {
+    this.selectAllCategoriesChecked = this.categoriesListWCheck.every(function (item: any) {
       return item.isChecked === true;
     });
 
-    for (let i = 0; i < this.ordersListWCheck.length; i++) {
-      this.ordersListWCheck[i].isChecked = !this.selectAllChecked;
+    for (let i = 0; i < this.categoriesListWCheck.length; i++) {
+      this.categoriesListWCheck[i].isChecked = !this.selectAllCategoriesChecked;
     }
+
+    this.selectAllCategoriesChecked = !this.selectAllCategoriesChecked;
+  }
+  onTriggerSelectAllSuggestedCategories() {
+    this.selectAllSuggestedCategoriesChecked = this.suggestedCategoriesListWCheck.every(function (item: any) {
+      return item.isChecked === true;
+    });
+
+    for (let i = 0; i < this.suggestedCategoriesListWCheck.length; i++) {
+      this.suggestedCategoriesListWCheck[i].isChecked = !this.selectAllSuggestedCategoriesChecked;
+    }
+    this.selectAllSuggestedCategoriesChecked = !this.selectAllSuggestedCategoriesChecked;
   }
 }
