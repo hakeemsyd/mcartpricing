@@ -51,8 +51,8 @@ export class PricingWizardComponent implements OnInit {
   wizardCurrStep = 0;
   wizardSelectedPathIndex = 0;
   wizardPathArray: Array<Array<number>> = [
-    [0, 1, 3, 4, 5, 6, 7, 8, 9], // Media
-    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], // CPG
+    [0, 1, 3, 4, 5, 6, 7, 8, 9], // Media, Procurement, Agency
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], // CPG, others
     [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 9] // Malls, step 10 is extra step in malls category
   ];
 
@@ -140,6 +140,9 @@ export class PricingWizardComponent implements OnInit {
   selectPath(): void {
     const selectedPath: Item = this.planCalculatorForm.controls['businessType'].value;
 
+    // 0 - GMV Type 1
+    // 1 - GMV Type 2
+    // 2 - GMV Type 2 with extra option wizard
     switch (selectedPath.value) {
       case 'media':
         this.wizardSelectedPathIndex = 0;
@@ -150,8 +153,14 @@ export class PricingWizardComponent implements OnInit {
       case 'malls':
         this.wizardSelectedPathIndex = 2;
         break;
-      default:
+      case 'procurement':
         this.wizardSelectedPathIndex = 0;
+        break;
+      case 'agency':
+        this.wizardSelectedPathIndex = 0;
+        break;
+      default:
+        this.wizardSelectedPathIndex = 1;
         break;
     }
   }
@@ -174,4 +183,30 @@ export class PricingWizardComponent implements OnInit {
     const currArr = this.wizardPathArray[this.wizardSelectedPathIndex];
     return `${this.wizardCurrStep + 1}/${currArr.length - 2}`;
   }
+
+  isCurrStepBeforeGMV(): boolean {
+    const currArr = this.wizardPathArray[this.wizardSelectedPathIndex];
+
+    switch (this.wizardSelectedPathIndex) {
+      case 0:
+        if (this.wizardCurrStep < 2) {
+          return true;
+        } else { return false; }
+        break;
+      case 1:
+        if (this.wizardCurrStep < 3) {
+          return true;
+        } else { return false; }
+        break;
+      case 2:
+        if (this.wizardCurrStep < 3) {
+          return true;
+        } else { return false; }
+        break;
+      default:
+        return false;
+        break;
+    }
+  }
+
 }

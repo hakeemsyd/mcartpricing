@@ -45,7 +45,6 @@ export class AppComponent implements OnInit, AfterViewChecked {
     });
   }
 
-
   ngAfterViewChecked() {
     if (this.benefitTable) {
       this.scrollBenefitTable();
@@ -53,6 +52,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
   }
 
   onClickPlan(val: number) {
+
     if (val === Plan.Annual) {
       this.annualStyle = {
         'background-color': '#94ded8', 'color': '#fff'
@@ -71,11 +71,19 @@ export class AppComponent implements OnInit, AfterViewChecked {
   }
 
   getTotalProfit() {
-    return this.priceWizardInstance.gmvWizardInstance.profitString;
+    if (this.isCurrStepBeforeGMV()) {
+      return 'TBD';
+    } else {
+      return this.priceWizardInstance.gmvWizardInstance.profitString;
+    }
   }
 
   getPriceRange() {
-    return this.priceWizardInstance.gmvWizardInstance.priceRange;
+    if (this.isCurrStepBeforeGMV()) {
+      return 'TBD';
+    } else {
+      return this.priceWizardInstance.gmvWizardInstance.priceRange;
+    }
   }
 
   stepChangedHandler(event: number) {
@@ -104,5 +112,9 @@ export class AppComponent implements OnInit, AfterViewChecked {
 
   scrollToForm() {
     this.pricingWizardDiv.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  isCurrStepBeforeGMV() {
+    return this.priceWizardInstance.isCurrStepBeforeGMV();
   }
 }
