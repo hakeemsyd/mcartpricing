@@ -165,8 +165,13 @@ export class PricingWizardComponent implements OnInit {
 
   goToPrevStep() {
     const currArr = this.wizardPathArray[this.wizardSelectedPathIndex];
-    const nextStep = currArr[this.wizardCurrStep - 1];
+    const prevStep = currArr[this.wizardCurrStep - 1];
     this.wizardCurrStep = this.wizardCurrStep - 1;
-    this.wizard.navigation.goToStep(nextStep);
+    this.wizard.navigation.goToStep(prevStep);
+  }
+
+  getCurrentStep() {
+    const currArr = this.wizardPathArray[this.wizardSelectedPathIndex];
+    return `${this.wizardCurrStep + 1}/${currArr.length - 2}`;
   }
 }

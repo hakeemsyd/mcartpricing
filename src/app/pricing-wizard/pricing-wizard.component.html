@@ -3,7 +3,7 @@
   <aw-wizard #archWiz navBarLocation="bottom" navigationMode="free">
     <aw-wizard-step (stepEnter)="enterStep(1)" stepId="selectBusiness">
       <div class="wizardHeaderContainer col-xs-12">
-        <p id="wizardPageNumber">1/8</p>
+        <p id="wizardPageNumber">{{getCurrentStep()}}</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">
@@ -15,7 +15,7 @@
     </aw-wizard-step>
     <aw-wizard-step  (stepEnter)="enterStep(2)" stepId="selectObjective">
       <div class="wizardHeaderContainer col-xs-12">
-        <p id="wizardPageNumber">2/8</p>
+        <p id="wizardPageNumber">{{getCurrentStep()}}</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">
@@ -28,7 +28,7 @@
     </aw-wizard-step>
     <aw-wizard-step (stepEnter)="enterStep(3)" stepId="saleInfo">
       <div class="wizardHeaderContainer col-xs-12">
-        <p id="wizardPageNumber">3/8</p>
+        <p id="wizardPageNumber">{{getCurrentStep()}}</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">
@@ -41,7 +41,7 @@
     </aw-wizard-step>
     <aw-wizard-step (stepEnter)="enterStep(4)" stepId="gmv">
       <div class="wizardHeaderContainer col-xs-12">
-        <p id="wizardPageNumber">4/8</p>
+        <p id="wizardPageNumber">{{getCurrentStep()}}</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">
@@ -54,7 +54,7 @@
     </aw-wizard-step>
     <aw-wizard-step (stepEnter)="enterStep(5)" stepId="selectStores">
       <div class="wizardHeaderContainer col-xs-12">
-        <p id="wizardPageNumber">5/8</p>
+        <p id="wizardPageNumber">{{getCurrentStep()}}</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">
@@ -67,7 +67,7 @@
     </aw-wizard-step>
     <aw-wizard-step (stepEnter)="enterStep(6)" stepId="selectCategories">
       <div class="wizardHeaderContainer col-xs-12">
-        <p id="wizardPageNumber">6/8</p>
+        <p id="wizardPageNumber">{{getCurrentStep()}}</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">
@@ -80,7 +80,7 @@
     </aw-wizard-step>
     <aw-wizard-step (stepEnter)="enterStep(7)" stepId="selectInfluencers">
       <div class="wizardHeaderContainer col-xs-12">
-        <p id="wizardPageNumber">7/8</p>
+        <p id="wizardPageNumber">{{getCurrentStep()}}</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">
@@ -93,7 +93,7 @@
     </aw-wizard-step>
     <aw-wizard-step (stepEnter)="enterStep(8)" stepId="getUsersPlan">
       <div class="wizardHeaderContainer col-xs-12">
-        <p id="wizardPageNumber">8/8</p>
+        <p id="wizardPageNumber">{{getCurrentStep()}}</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">

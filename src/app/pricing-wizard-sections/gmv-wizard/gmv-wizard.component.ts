@@ -106,7 +106,7 @@ export class GmvWizardComponent implements OnInit {
 
 
   submitGMV() {
-    this.parentForm.controls['gmv'].setValue(this.gmv);
+    this.parentForm.controls['gmv'].setValue(this.gmvSlider.value);
   }
 
   // remove this function
