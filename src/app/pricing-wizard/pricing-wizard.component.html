@@ -3,19 +3,19 @@
   <aw-wizard #archWiz navBarLocation="bottom" navigationMode="free">
     <aw-wizard-step (stepEnter)="enterStep(1)" stepId="selectBusiness">
       <div class="wizardHeaderContainer col-xs-12">
-        <p id="wizardPageNumber">{{getCurrentStep()}}</p>
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">
         <app-business-wizard [parentForm]="planCalculatorForm"></app-business-wizard>
       </div>
       <div class="navButtonContainer">
-        <button type="button" class="btn nextButton" (click)="onSubmitBusiness()" (click)="goToNextStep()" (click)="selectPath()">Next</button>
+        <button type="button" class="btn nextButton" (click)="onSubmitBusiness()" (click)="selectPath()">Next</button>
       </div>
     </aw-wizard-step>
     <aw-wizard-step  (stepEnter)="enterStep(2)" stepId="selectObjective">
       <div class="wizardHeaderContainer col-xs-12">
-        <p id="wizardPageNumber">{{getCurrentStep()}}</p>
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">
@@ -28,7 +28,7 @@
     </aw-wizard-step>
     <aw-wizard-step (stepEnter)="enterStep(3)" stepId="saleInfo">
       <div class="wizardHeaderContainer col-xs-12">
-        <p id="wizardPageNumber">{{getCurrentStep()}}</p>
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">
@@ -41,7 +41,7 @@
     </aw-wizard-step>
     <aw-wizard-step (stepEnter)="enterStep(4)" stepId="gmv">
       <div class="wizardHeaderContainer col-xs-12">
-        <p id="wizardPageNumber">{{getCurrentStep()}}</p>
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">
@@ -54,7 +54,7 @@
     </aw-wizard-step>
     <aw-wizard-step (stepEnter)="enterStep(5)" stepId="selectStores">
       <div class="wizardHeaderContainer col-xs-12">
-        <p id="wizardPageNumber">{{getCurrentStep()}}</p>
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">
@@ -67,7 +67,7 @@
     </aw-wizard-step>
     <aw-wizard-step (stepEnter)="enterStep(6)" stepId="selectCategories">
       <div class="wizardHeaderContainer col-xs-12">
-        <p id="wizardPageNumber">{{getCurrentStep()}}</p>
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">
@@ -80,7 +80,7 @@
     </aw-wizard-step>
     <aw-wizard-step (stepEnter)="enterStep(7)" stepId="selectInfluencers">
       <div class="wizardHeaderContainer col-xs-12">
-        <p id="wizardPageNumber">{{getCurrentStep()}}</p>
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">
@@ -93,7 +93,7 @@
     </aw-wizard-step>
     <aw-wizard-step (stepEnter)="enterStep(8)" stepId="getUsersPlan">
       <div class="wizardHeaderContainer col-xs-12">
-        <p id="wizardPageNumber">{{getCurrentStep()}}</p>
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">
@@ -115,12 +115,27 @@
       <div class="col-xs-12 navButtonContainer row">
         <button type="button" class="btn btn-outline-dark prevButton col-sm-2 col-xs-12"  (click)="goToPrevStep()">Back</button>
         <div class="row col-xs-12">
-          <button type="button" (click)="onSubmitQuote()" class="btn quoteButton col-sm-2 col-xs-12"  (click)="goToNextStep()">Get a
+          <button type="button" (click)="onSubmitQuote()" class="btn quoteButton col-sm-2 col-xs-12">Get a
             quote</button>
-          <button type="button" class="btn scheduleButton col-sm-3 col-xs-12"  (click)="goToNextStep()">Schedule your kick-off
+          <button type="button" class="btn scheduleButton col-sm-3 col-xs-12">Schedule your kick-off
             demo</button>
         </div>
       </div>
     </aw-wizard-step>
+    <aw-wizard-step stepId="storeOptions">
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
+      <div class="wizardContainer">
+        <app-store-options-wizard [parentForm]="planCalculatorForm"></app-store-options-wizard>
+      </div>
+      <div class="navButtonContainer">
+        <button type="button" class="btn btn-outline-dark prevButton" (click)="goToPrevStep()">Back</button>
+        <button type="button" (click)="onSubmitStoreOptions()" class="btn nextButton">Next</button>
+      </div>
+    </aw-wizard-step>
   </aw-wizard>
 </div>
+
+<pre>{{planCalculatorForm.value | json}}</pre>

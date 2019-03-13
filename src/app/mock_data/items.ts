@@ -1,7 +1,7 @@
 export interface Item {
     name: string;
     value: string;
-    otherValue?: string;
+    otherValue?: any;
 }
 
 export const BusinessOptions: Item[] = [

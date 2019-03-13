@@ -4,11 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArchwizardModule } from '../../modules/angular-archwizard';
 import { Ng5SliderModule } from 'ng5-slider';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule } from '@angular/material/card';
+import { MatIconModule, MatCardModule, MatCheckboxModule, MatSliderModule, MatRadioModule, } from '@angular/material';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
@@ -21,11 +19,10 @@ import { StoreWizardComponent } from './pricing-wizard-sections/store-wizard/sto
 import { CategoriesWizardComponent } from './pricing-wizard-sections/categories-wizard/categories-wizard.component';
 import { InfluencersWizardComponent } from './pricing-wizard-sections/influencers-wizard/influencers-wizard.component';
 import { UsersWizardComponent } from './pricing-wizard-sections/users-wizard/users-wizard.component';
-import { QuoteWizardComponent } from './pricing-wizard-sections/quote-wizard/quote-wizard.component';
 import { AddStoreModalComponent } from './pricing-wizard-sections/store-wizard/add-store-modal/add-store-modal.component';
-import { QuotePersonalInfoComponent } from './pricing-wizard-sections//quote-personal-info/quote-personal-info.component';
+import { QuotePersonalInfoComponent } from './pricing-wizard-sections/quote-personal-info/quote-personal-info.component';
 import { PlanInfoWizardComponent } from './plan-info-wizard/plan-info-wizard.component';
-
+import { StoreOptionsWizardComponent } from './pricing-wizard-sections/store-options-wizard/store-options-wizard.component';
 
 @NgModule({
   declarations: [
@@ -39,10 +36,10 @@ import { PlanInfoWizardComponent } from './plan-info-wizard/plan-info-wizard.com
     CategoriesWizardComponent,
     InfluencersWizardComponent,
     UsersWizardComponent,
-    QuoteWizardComponent,
     AddStoreModalComponent,
     QuotePersonalInfoComponent,
     PlanInfoWizardComponent,
+    StoreOptionsWizardComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +53,8 @@ import { PlanInfoWizardComponent } from './plan-info-wizard/plan-info-wizard.com
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatCardModule,
+    MatIconModule,
+    MatButtonToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

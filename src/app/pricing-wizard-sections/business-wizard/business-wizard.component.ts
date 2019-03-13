@@ -41,10 +41,14 @@ export class BusinessWizardComponent implements OnInit, AfterViewInit {
     this.parentForm.controls['businessType'].setValue(item);
   }
 
-  onSubmitBusiness() {
-    let item = this.selectedItem;
-    item.otherValue = this.otherValue;
-    this.parentForm.controls['businessType'].setValue(item);
+  onSubmitBusiness(): boolean {
+    if (this.selectedItem) {
+      let item = this.selectedItem;
+      item.otherValue = this.otherValue;
+      this.parentForm.controls['businessType'].setValue(item);
+      return true;
+    }
+    return false;
   }
 
   checkIfItemIsOthers(item: Item): boolean {

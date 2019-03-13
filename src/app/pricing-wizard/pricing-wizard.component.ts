@@ -12,6 +12,7 @@ import { EventEmitter } from '@angular/core';
 import { WizardComponent } from '../../../modules/angular-archwizard';
 import { BusinessWizardComponent } from '../pricing-wizard-sections/business-wizard/business-wizard.component';
 import { SalesWizardComponent } from '../pricing-wizard-sections/sales-wizard/sales-wizard.component';
+import { StoreOptionsWizardComponent } from '../pricing-wizard-sections/store-options-wizard/store-options-wizard.component';
 
 interface Store {
   name: String;
@@ -42,7 +43,7 @@ export class PricingWizardComponent implements OnInit {
   @ViewChild(QuotePersonalInfoComponent) quoteWizardInstance: QuotePersonalInfoComponent;
   @ViewChild(GmvWizardComponent) gmvWizardInstance: GmvWizardComponent;
   @ViewChild(SalesWizardComponent) salesWizardInstance: SalesWizardComponent;
-
+  @ViewChild(StoreOptionsWizardComponent) storeOptionWizardInstance: StoreOptionsWizardComponent;
   @Output() stepChanged: EventEmitter<number> = new EventEmitter();
   @ViewChild('archWiz') public wizard: WizardComponent;
 
@@ -53,7 +54,7 @@ export class PricingWizardComponent implements OnInit {
   wizardPathArray: Array<Array<number>> = [
     [0, 1, 3, 4, 5, 6, 7, 8, 9], // Media, Procurement, Agency
     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], // CPG, others
-    [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 9] // Malls, step 10 is extra step in malls category
+    [0, 1, 2, 3, 4, 5, 6, 7, 9, 8] // Malls, step 10 is extra step in malls category
   ];
 
   constructor(private fb: FormBuilder) { }
@@ -79,7 +80,8 @@ export class PricingWizardComponent implements OnInit {
         website: '' as String,
         referredBy: '' as String,
         comments: '' as String
-      })
+      }),
+      storeOptions: [] as Item[],
     });
   }
 
@@ -88,9 +90,12 @@ export class PricingWizardComponent implements OnInit {
   }
 
   onSubmitBusiness() {
-    this.businessChildWizardInstance.onSubmitBusiness();
-    this.gmvWizardInstance.loadGMVVariables();
-    this.salesWizardInstance.loadSalesVariables();
+    const flag = this.businessChildWizardInstance.onSubmitBusiness();
+    if (flag) {
+      this.gmvWizardInstance.loadGMVVariables();
+      this.salesWizardInstance.loadSalesVariables();
+      this.goToNextStep();
+    }
   }
 
   onSubmitObjectives() {
@@ -98,7 +103,7 @@ export class PricingWizardComponent implements OnInit {
   }
 
   onSubmitSales() {
-    let isValid = this.salesWizardInstance.submitSales();
+    const isValid = this.salesWizardInstance.submitSales();
     if (isValid) {
       this.gmvWizardInstance.loadGMVVariables();
       this.goToNextStep();
@@ -131,6 +136,13 @@ export class PricingWizardComponent implements OnInit {
 
   onRequestQuote() {
     this.quoteWizardInstance.onSubmit();
+  }
+
+  onSubmitStoreOptions() {
+    let flag = this.storeOptionWizardInstance.onSubmitStoreOptions()
+    if (flag) {
+      this.goToNextStep();
+    }
   }
 
   enterStep(step: number) {
@@ -182,7 +194,12 @@ export class PricingWizardComponent implements OnInit {
 
   getCurrentStep() {
     const currArr = this.wizardPathArray[this.wizardSelectedPathIndex];
-    return `${this.wizardCurrStep + 1}/${currArr.length - 2}`;
+    return `${this.wizardCurrStep + 1}`;
+  }
+
+  getTotalSteps() {
+    const currArr = this.wizardPathArray[this.wizardSelectedPathIndex];
+    return `${currArr.length - 2}`;
   }
 
   isCurrStepBeforeGMV(): boolean {

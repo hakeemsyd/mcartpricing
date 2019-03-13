@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QuoteWizardComponent } from './quote-wizard.component';
+import { StoreOptionsWizardComponent } from './store-options-wizard.component';
 
-describe('QuoteWizardComponent', () => {
-  let component: QuoteWizardComponent;
-  let fixture: ComponentFixture<QuoteWizardComponent>;
+describe('StoreOptionsWizardComponent', () => {
+  let component: StoreOptionsWizardComponent;
+  let fixture: ComponentFixture<StoreOptionsWizardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuoteWizardComponent ]
+      declarations: [ StoreOptionsWizardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(QuoteWizardComponent);
+    fixture = TestBed.createComponent(StoreOptionsWizardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,88 @@
+.formClass {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-container {
+  border-width: 3px;
+  border-color: red;
+}
+
+.listItemContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  padding: .0rem 1.25rem;
+  border-width: 0px;
+  background: white;
+  width: 250px;
+  border-bottom: 1.5px solid #f3f3f3
+}
+
+.listHeader {
+  background: #f0f3fa;
+}
+
+.list-item-title {
+  font-size: 14px;
+  color: #363636;
+  margin-left: 20px;
+  margin-bottom: 6px;
+}
+
+.listAddStore {
+  color: #555555;
+}
+
+.oddListRow {
+  background: #f9f9f9;
+}
+
+.evenListRow {
+  background: #fdfdfd;
+}
+
+.suggested-stores {
+  margin-top: 22px;
+}
+
+.counterMainContainer {
+  display: flex;
+  flex-direction: column;
+  width: 30px;
+  justify-content: center;
+  margin-left: 25px;
+  margin-top: -10px;
+}
+
+.counterBody {
+  border: 1px #666666 solid;
+  height: 25px;
+  width: 30px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counterText {
+  font-size: 14px;
+  color: #444444;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.material-icons {
+  font-size: 15px;
+  text-align: center;
+}
+
+.iconContainer {
+  display: flex;
+  height: 15px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
