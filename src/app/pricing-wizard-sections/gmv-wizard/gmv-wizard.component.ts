@@ -50,7 +50,7 @@ export class GmvWizardComponent implements OnInit {
 
   shopperRebate = {
     min: 5,
-    max: 15,
+    max: 20,
     value: 5
   };
 
@@ -81,13 +81,13 @@ export class GmvWizardComponent implements OnInit {
 
     if (this.businessTypeValue === 'media' || this.businessTypeValue === 'procurement') {
       this.gmvType = 1;
-      this.stepNo = 3;
+      // this.stepNo = 3;
     } else {
       this.gmvType = 2;
       this.salesChanneValue = (<FormGroup>this.parentForm.controls['sales']).controls['salesChannel'].value;
       this.globalChannelValues = (<FormGroup>this.parentForm.controls['sales']).controls['globalChannel'].value;
       _gmv = this.salesChanneValue * this.globalChannelValues * (this.mCart.value / 100);
-      this.stepNo = 4;
+      // this.stepNo = 4;
     }
     this.gmvSlider.value = Math.ceil(_gmv);
     this.calculateGMVProfile(null);

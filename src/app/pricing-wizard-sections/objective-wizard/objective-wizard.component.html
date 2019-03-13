@@ -1,6 +1,6 @@
 <div>
   <h2 class="wizardTitle">Step {{currStepNumber + 1}} - Objective(s)</h2>
-  <p class="wizardSubtitle">What is/are your main objective(s)</p>
+  <p class="wizardSubtitle">What is/are your main objective(s)?</p>
   <div>
     <li class="list-group-item .col-xs-12" *ngFor="let item of itemsList; let i = index">
       <input type="checkbox" class="radioButton" [(ngModel)]="itemsList[i].isChecked" />

@@ -227,3 +227,13 @@
    color: white;
    font-weight: 400;
  }
+
+ ::ng-deep .valueChecked {
+   color: red;
+   font-size: 20px;
+ }
+
+ .valueDashed {
+   color: blue;
+   font-size: 20px;
+ }
