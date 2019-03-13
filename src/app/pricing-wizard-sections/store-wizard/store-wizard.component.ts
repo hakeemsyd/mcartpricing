@@ -27,6 +27,7 @@ export class StoreWizardComponent implements OnInit {
   ];
 
   imageUrl = 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
+  @Input() currStepNumber = 1;
 
   constructor(private formBuilder: FormBuilder) {
 

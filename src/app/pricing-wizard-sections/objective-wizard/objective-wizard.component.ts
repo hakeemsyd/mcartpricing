@@ -13,6 +13,7 @@ export class ObjectiveWizardComponent implements OnInit {
 
   @Input() parentForm: FormGroup;
   itemsList: Array<any> = [];
+  @Input() currStepNumber = 1;
 
   constructor() {
     const tempArr = ObjectivesOptions;

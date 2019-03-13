@@ -1,5 +1,5 @@
 <div>
-  <h2 class="wizardTitle">Step {{stepNo}} - GMV</h2>
+  <h2 class="wizardTitle">Step {{currStepNumber + 1}} - GMV</h2>
   <p class="wizardSubtitle">Pick your desired revenue and influencer payout and commission that you want to pay to see
     your approximate profit
     and platform cost. You can fine-tune these numbers in the next steps</p>
@@ -23,7 +23,8 @@
         </div>
       </div>
       <mat-slider id='gmvSlider' [disabled]="checkIfGreateThan100B()" class="matSliders" md-discrete [max]="gmvSlider.max" [min]="gmvSlider.min"
-        (input)="calculateGMVProfile($event)" [(ngModel)]="gmvSlider.value" [step]="1" [thumbLabel]="gmvSlider.value">
+        (input)="calculateGMVProfile($event)" [(ngModel)]="gmvSlider.value" [step]="1" 
+        thumbLabel [displayWith]="getGMVThumbValue">
       </mat-slider>
       <div class="row rowSlider">
         <p class="percentage">{{getGMVSliderMin()}}</p>
@@ -47,7 +48,7 @@
       </div>
 
       <mat-slider id='mCartSlider' class="matSliders" md-discrete [max]="mCart.max" [min]="mCart.min"
-        (input)="calculateGMVProfile($event)" [(ngModel)]="mCart.value" [step]="1" [thumbLabel]="mCart.value">
+        (input)="calculateGMVProfile($event)" [(ngModel)]="mCart.value" [step]="1" thumbLabel [displayWith]="getValueWithPercentage">
       </mat-slider>
       <div class="rowSlider">
         <p class="percentage">{{mCart.min}}%</p>
@@ -67,7 +68,7 @@
     </div>
     <mat-slider id="commissionSlider" class="matSliders" [max]="platformCommission.max"
       (input)="calculateGMVProfile($event)" [min]="platformCommission.min" [(ngModel)]="platformCommission.value"
-      [step]="1" [thumbLabel]="platformCommission.value">
+      [step]="1" thumbLabel [displayWith]="getValueWithPercentage">
     </mat-slider>
     <div class="rowSlider">
       <p class="percentage">{{platformCommission.min}}%</p>
@@ -83,7 +84,7 @@
     </div>
     <mat-slider id='influencerSlider' class="matSliders" [max]="influencerPayout.max"
       (input)="calculateGMVProfile($event)" [min]="influencerPayout.min" [(ngModel)]="influencerPayout.value" [step]="1"
-      [thumbLabel]="influencerPayout.value">
+      thumbLabel [displayWith]="getValueWithPercentage">
     </mat-slider>
     <div class="rowSlider">
       <p class="percentage">{{influencerPayout.min}}%</p>
@@ -99,7 +100,7 @@
         class="infoIcon" />
     </div>
     <mat-slider id='shopperSlider' class="matSliders" [max]="shopperRebate.max" (input)="calculateGMVProfile($event)"
-      [min]="shopperRebate.min" [(ngModel)]="shopperRebate.value" [step]="1" [thumbLabel]="shopperRebate.value">
+      [min]="shopperRebate.min" [(ngModel)]="shopperRebate.value" [step]="1" thumbLabel [displayWith]="getValueWithPercentage">
     </mat-slider>
     <div class="rowSlider">
       <p class="percentage">{{shopperRebate.min}}%</p>

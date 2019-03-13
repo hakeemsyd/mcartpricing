@@ -1,11 +1,11 @@
 <div class=".col-xs-12">
-  <h2 class="wizardTitle">Step 9 - Other Options</h2>
+  <h2 class="wizardTitle">Step {{currStepNumber + 1}} - Other Options</h2>
   <p class="wizardSubtitle">Tell us about your sales, so we can optimize your experience accordingly</p>
   <div>
     <form class="inputGroup">
       <ul class="list-group list-container">
         <li class="listItemContainer">
-          <mat-checkbox class="radioButton" (change)="markChecked(0)" [(ngModel)]="selectAllCategoriesChecked">
+          <mat-checkbox class="radioButton" (change)="markChecked(0)" [(ngModel)]="selectAllCategoriesChecked" [ngModelOptions]="{standalone: true}">
           </mat-checkbox>
           <p class="list-item-title"><b>Shoppable Wall</b></p>
           <div class="counterMainContainer">
@@ -26,12 +26,12 @@
           </div>
         </li>
         <li class="listItemContainer">
-          <mat-checkbox class="radioButton" (change)="markChecked(1)" [(ngModel)]="selectAllCategoriesChecked">
+          <mat-checkbox class="radioButton" (change)="markChecked(1)" [(ngModel)]="selectAllCategoriesChecked" [ngModelOptions]="{standalone: true}">
           </mat-checkbox>
           <p class="list-item-title"><b>Advanced Analytics</b></p>
         </li>
         <li class="listItemContainer">
-          <mat-checkbox class="radioButton" (change)="markChecked(2)" [(ngModel)]="selectAllCategoriesChecked">
+          <mat-checkbox class="radioButton" (change)="markChecked(2)" [(ngModel)]="selectAllCategoriesChecked" [ngModelOptions]="{standalone: true}">
           </mat-checkbox>
           <p class="list-item-title"><b>AI-based CRM</b></p>
         </li>

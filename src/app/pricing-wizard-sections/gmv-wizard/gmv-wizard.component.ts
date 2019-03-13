@@ -16,7 +16,8 @@ export class GmvWizardComponent implements OnInit {
   @Output() approxProfitEmitter: EventEmitter<number> = new EventEmitter();
   @Output() priceRangeEmitter: EventEmitter<number> = new EventEmitter();
   public isAnnualBilling = true;
-  stepNo = 3;
+
+  @Input() currStepNumber = 0;
 
   variableFee: number = 200;
   approxProfit: number = 0;
@@ -26,6 +27,7 @@ export class GmvWizardComponent implements OnInit {
   greaterThan100B = false;
 
   businessTypeValue = "media";
+
   // isGMVSliderDisabled = false;
 
   mCart = {
@@ -248,4 +250,23 @@ export class GmvWizardComponent implements OnInit {
     return str;
   }
 
+  getGMVThumbValue(value: number | null): String {
+    if (!value) {
+      return '$' + 0;
+    }
+    if (value) {
+      let str: String = (numeral(value).format('$0a'));
+      str = str.toUpperCase();
+      return str;
+    }
+  }
+
+  getValueWithPercentage(value: number | null): String {
+    if (!value) {
+      return 0 + '%';
+    }
+    if (value) {
+      return value + '%';
+    }
+  }
 }

@@ -24,6 +24,8 @@ export class InfluencersWizardComponent implements OnInit {
 
   tempInfluencers = influencersListJSON;
   influencersListWChecks = [];
+  @Input() currStepNumber = 1;
+
   // [
   //   {
   //     name: 'Blake Benson',

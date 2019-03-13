@@ -1,5 +1,5 @@
 <div>
-  <h2 class="wizardTitle">Step 7 - Pick your influencers</h2>
+  <h2 class="wizardTitle">Step {{currStepNumber+1}} - Pick your influencers</h2>
   <p class="wizardSubtitle">Pick from mCart Influencers or invite your own</p>
   <div class="optionMainContainer .col-xs-12 row">
     <div class="optionContainer .col-md-4 .col-sm-6 .col-xs-12">
@@ -48,14 +48,14 @@
     <div *ngFor="let influencer of influencersListWChecks; let i = index">
       <div class="influencerRow col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-12">
         <div class="profileContainer">
-          <div class="nameHeader" [ngStyle]="{'background-color':influencersListWChecks[i].isChecked ? '#93d0cc' : 'white' }">
+          <div class="nameHeader"
+            [ngStyle]="{'background-color':influencersListWChecks[i].isChecked ? '#93d0cc' : 'white' }">
             <p class="headerText" [ngStyle]="{'color':influencersListWChecks[i].isChecked ? 'white' : '#444444' }">
               {{influencer.name}}</p>
           </div>
           <div class="profileImageContainer">
             <img class="rounded profileImage" src={{influencer.image_url}}
-            onError="this.src='https://i.redd.it/s8lk86v3r2m11.png';"
-            >
+              onError="this.src='https://i.redd.it/s8lk86v3r2m11.png';">
           </div>
           <mat-checkbox [(ngModel)]="influencersListWChecks[i].isChecked" class="imgChkBox" id="tag{{influencer.id}}">
           </mat-checkbox>

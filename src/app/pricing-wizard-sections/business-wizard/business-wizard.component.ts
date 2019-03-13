@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, AfterViewInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Item, BusinessOptions } from '../../mock_data/items';
 import { FormGroup } from '@angular/forms';
 @Component({
@@ -15,6 +15,9 @@ export class BusinessWizardComponent implements OnInit, AfterViewInit {
   otherValue = '';
   selectedItem;
   @ViewChild('otherInputBox') otherInputBox;
+  @Output() valueChange = new EventEmitter();
+
+  @Input() currStepNumber = 1;
 
   constructor() {
     this.itemsList = BusinessOptions;
@@ -39,6 +42,7 @@ export class BusinessWizardComponent implements OnInit, AfterViewInit {
     }
     this.selectedItem = item;
     this.parentForm.controls['businessType'].setValue(item);
+    this.valueChange.emit();
   }
 
   onSubmitBusiness(): boolean {

@@ -22,6 +22,7 @@ export class SalesWizardComponent implements OnInit {
   businessType = 1;
   heading1 = '';
   heading2 = '';
+  @Input() currStepNumber = 0;
 
   constructor(private formBuilder: FormBuilder) {
   }

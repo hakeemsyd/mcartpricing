@@ -18,6 +18,7 @@ export class UsersWizardComponent implements OnInit {
       usersPlan: ['plan1', Validators.required]
     });
   }
+  @Input() currStepNumber = 1;
 
   // selected: 'please select';
   // items = [

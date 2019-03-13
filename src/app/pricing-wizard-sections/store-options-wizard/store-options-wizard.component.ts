@@ -29,6 +29,7 @@ export class StoreOptionsWizardComponent implements OnInit, AfterViewInit {
   ];
   optionsWCheck = [];
   isWallsCheckboxDisabled = true;
+  @Input() currStepNumber = 1;
 
   constructor() {
     this.options.forEach(item => {

@@ -91,14 +91,20 @@ export class PricingWizardComponent implements OnInit {
     console.log('Wizard ended');
   }
 
+  refreshPaths(event) {
+    this.selectPath();
+  }
+
   onSubmitBusiness() {
     const flag = this.businessChildWizardInstance.onSubmitBusiness();
     if (flag) {
       this.gmvWizardInstance.loadGMVVariables();
       this.salesWizardInstance.loadSalesVariables();
       this.goToNextStep();
+      this.selectPath();
     }
   }
+
 
   onSubmitObjectives() {
     this.objectivesWizardInstance.submitObjectives();
