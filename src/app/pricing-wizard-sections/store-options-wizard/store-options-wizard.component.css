@@ -84,5 +84,9 @@
   height: 15px;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  padding: 0 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  background: white;
 }

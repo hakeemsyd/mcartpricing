@@ -1,7 +1,7 @@
 <div class="row pricingWizard col-xs-12">
 
   <aw-wizard #archWiz navBarLocation="bottom" navigationMode="free">
-    <aw-wizard-step (stepEnter)="enterStep(1)" stepId="selectBusiness">
+    <!-- <aw-wizard-step (stepEnter)="enterStep(1)" stepId="selectBusiness">
       <div class="wizardHeaderContainer col-xs-12">
         <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
         <h2 class="wizardHeader">Plan Calculator</h2>
@@ -121,7 +121,7 @@
             demo</button>
         </div>
       </div>
-    </aw-wizard-step>
+    </aw-wizard-step> -->
     <aw-wizard-step stepId="storeOptions">
       <div class="wizardHeaderContainer col-xs-12">
         <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
@@ -137,5 +137,14 @@
     </aw-wizard-step>
   </aw-wizard>
 </div>
+<div class="container">
+  <input type="checkbox" [(ngModel)]="showWizardFormValues" />
+  <p>Show Price Wizard Values</p>
+</div>
+<div class="row pricingWizard col-xs-12">
 
-<pre>{{planCalculatorForm.value | json}}</pre>
+  <div *ngIf="showWizardFormValues">
+    <pre>{{planCalculatorForm.value | json}}</pre>
+  </div>
+
+</div>

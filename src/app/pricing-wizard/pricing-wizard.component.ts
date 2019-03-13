@@ -57,6 +57,8 @@ export class PricingWizardComponent implements OnInit {
     [0, 1, 2, 3, 4, 5, 6, 7, 9, 8] // Malls, step 10 is extra step in malls category
   ];
 
+  showWizardFormValues = true;
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
