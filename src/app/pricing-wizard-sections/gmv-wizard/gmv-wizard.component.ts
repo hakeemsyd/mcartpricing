@@ -79,7 +79,7 @@ export class GmvWizardComponent implements OnInit {
 
     let _gmv = 10000;
 
-    if (this.businessTypeValue === 'media' || this.businessTypeValue === 'procurement') {
+    if (this.businessTypeValue === 'media' || this.businessTypeValue === 'procurement' || this.businessTypeValue === 'agency') {
       this.gmvType = 1;
       // this.stepNo = 3;
     } else {

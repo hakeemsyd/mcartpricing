@@ -48,12 +48,12 @@
         <h2 class="wizardHeader">Plan Calculator</h2>
       </div>
       <div class="wizardContainer">
-        <app-gmv-wizard #gmvComponent (click)="onSubmitGMV()" [parentForm]="planCalculatorForm"
+        <app-gmv-wizard #gmvComponent [parentForm]="planCalculatorForm"
           [currStepNumber]="wizardCurrStep"></app-gmv-wizard>
       </div>
       <div class="navButtonContainer">
         <button type="button" class="btn btn-outline-dark prevButton" (click)="goToPrevStep()">Back</button>
-        <button type="button" class="btn nextButton" (click)="goToNextStep()">Next</button>
+        <button type="button" class="btn nextButton" (click)="onSubmitGMV()" (click)="goToNextStep()">Next</button>
       </div>
     </aw-wizard-step>
     <aw-wizard-step (stepEnter)="enterStep(5)" stepId="selectStores">
