@@ -69,7 +69,12 @@ export class PricingWizardComponent implements OnInit {
         salesChannel: 0 as number,
         globalChannel: 0 as number,
       }),
-      gmv: 0 as Number,
+      gmv: this.fb.group({
+        gmv: 0 as number,
+        platformCommissionPercentage: 0 as number,
+        influencerPayoutPercentage: 0 as number,
+        shopperRebatePercentage: 0 as number,
+      }),
       selectedStores: [{}] as Array<Store>,
       category: [{}] as Array<Item>,
       influencers: [{}] as Array<Influencers>,
@@ -119,7 +124,7 @@ export class PricingWizardComponent implements OnInit {
   }
 
   onSubmitGMV() {
-    this.gmvWizardInstance.submitGMV();
+    this.gmvWizardInstance.onSubmitGMV();
   }
 
   onSubmitStores() {

@@ -107,8 +107,11 @@ export class GmvWizardComponent implements OnInit {
   }
 
 
-  submitGMV() {
-    this.parentForm.controls['gmv'].setValue(this.gmvSlider.value);
+  onSubmitGMV() {
+    (<FormGroup>this.parentForm.controls['gmv']).controls['gmv'].patchValue(this.gmvSlider.value);
+    (<FormGroup>this.parentForm.controls['gmv']).controls['platformCommissionPercentage'].patchValue(this.platformCommission.value);
+    (<FormGroup>this.parentForm.controls['gmv']).controls['influencerPayoutPercentage'].patchValue(this.influencerPayout.value);
+    (<FormGroup>this.parentForm.controls['gmv']).controls['shopperRebatePercentage'].patchValue(this.shopperRebate.value);
   }
 
   // remove this function
