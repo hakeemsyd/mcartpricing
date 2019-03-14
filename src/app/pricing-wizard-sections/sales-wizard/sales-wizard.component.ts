@@ -32,7 +32,7 @@ export class SalesWizardComponent implements OnInit {
 
   ngOnInit() {
     this.salesCalculator = this.formBuilder.group({
-      salesChannel: [0 as number, [Validators.required,  Validators.min(1000)]],
+      salesChannel: [0 as number, [Validators.required,  Validators.min(1)]],
       globalChannel: [0 as number, [Validators.required, Validators.min(1)]],
     });
   }
@@ -48,8 +48,6 @@ export class SalesWizardComponent implements OnInit {
     }
     (<FormGroup>this.parentForm.controls['sales']).controls['salesChannel'].patchValue(this.salesCalculator.controls['salesChannel'].value);
     (<FormGroup>this.parentForm.controls['sales']).controls['globalChannel'].patchValue(this.salesCalculator.controls['globalChannel'].value);
-    // (<FormGroup>this.parentForm.controls['sales']).controls['salesChannel'].patchValue(this.salesChannel);
-    // (<FormGroup>this.parentForm.controls['sales']).controls['globalChannel'].patchValue(this.globalChannel);
     return true;
   }
 
