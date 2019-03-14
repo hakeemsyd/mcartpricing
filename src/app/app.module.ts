@@ -23,6 +23,7 @@ import { AddStoreModalComponent } from './pricing-wizard-sections/store-wizard/a
 import { QuotePersonalInfoComponent } from './pricing-wizard-sections/quote-personal-info/quote-personal-info.component';
 import { PlanInfoWizardComponent } from './plan-info-wizard/plan-info-wizard.component';
 import { StoreOptionsWizardComponent } from './pricing-wizard-sections/store-options-wizard/store-options-wizard.component';
+import { BenefitCalculatorComponent } from './plan-info-wizard/benefit-calculator/benefit-calculator.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { StoreOptionsWizardComponent } from './pricing-wizard-sections/store-opt
     QuotePersonalInfoComponent,
     PlanInfoWizardComponent,
     StoreOptionsWizardComponent,
+    BenefitCalculatorComponent,
   ],
   imports: [
     BrowserModule,
