@@ -237,3 +237,36 @@
    color: blue;
    font-size: 20px;
  }
+
+ .table-responsive {
+   background: burlywood;
+   width: 100%;
+ }
+
+ .tableContainer {
+   background: rgb(255, 142, 134);
+   width: 100%;
+ }
+
+ .thead-light {
+   max-height: 26px;
+   font-size: 10px;
+   background: #f3f3f3;
+   text-align: center;
+   font-weight: bold;
+ }
+
+ .tableBody {
+   font-size: 12px;
+   min-height: 10px;
+ }
+
+ .leftColumn {
+   background: #f3f3f3;
+   width: 20%;
+   font-weight: bold;
+ }
+
+ .tableCell{
+  background: #f3f3f3;
+ }
