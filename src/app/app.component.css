@@ -228,45 +228,82 @@
    font-weight: 400;
  }
 
- ::ng-deep .valueChecked {
-   color: red;
-   font-size: 20px;
- }
+ ::ng-deep .tableContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
- .valueDashed {
-   color: blue;
-   font-size: 20px;
+.planTitle{
+   font-weight: bold;
+   font-size: 30px;
+   color: #444444;
+   text-align: center;
+   margin-top: 80px;
+   margin-bottom: 60px;
  }
 
  .table-responsive {
-   background: burlywood;
+   /* background: burlywood; */
    width: 100%;
  }
 
- .tableContainer {
-   background: rgb(255, 142, 134);
-   width: 100%;
+ .tableInnerContainer {
+   width: 86%;
+   border-top: 1px solid #f3f3f3;
  }
 
- .thead-light {
+ .tableUnitContainer {
+   margin-bottom: 80px;
+ }
+
+ ::ng-deep .thead-light {
    max-height: 26px;
-   font-size: 10px;
-   background: #f3f3f3;
+   font-size: 14px;
+   background: #f0f3fa;
    text-align: center;
-   font-weight: bold;
+   font-weight: 900;
+   color: #666666;
  }
 
- .tableBody {
-   font-size: 12px;
-   min-height: 10px;
+ ::ng-deep .tableBody {
+   font-size: 16px;
+   font-weight: 100;
  }
 
- .leftColumn {
-   background: #f3f3f3;
+ ::ng-deep .leftColumn {
+   background: #f0f3fa;
    width: 20%;
-   font-weight: bold;
+   font-weight: 900;
+   font-size: 16px;
+   color: #666666;
  }
 
- .tableCell{
-  background: #f3f3f3;
+ ::ng-deep .tableCell {
+   width: 20%;
+   font-weight: 100;
+   color: #858585;
+ }
+
+ ::ng-deep .valueChecked {
+   font-size: 20px;
+   text-align: center;
+   font-weight: 100;
+   color: #ff756f;
+ }
+
+ ::ng-deep .valueDashed {
+   font-size: 20px;
+   text-align: center;
+   font-weight: 100;
+   color: #858585;
+   background: #f3f3f3;
+ }
+
+ .tableTitle {
+   font-size: 16px;
+   color: #666666;
+   font-weight: bold;
  }
