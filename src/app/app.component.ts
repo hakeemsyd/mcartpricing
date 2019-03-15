@@ -25,7 +25,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
   @ViewChild(PlanInfoWizardComponent) planInfoWizardInstance: PlanInfoWizardComponent;
   gmvInstance: GmvWizardComponent;
   benefitUpdated = false;
-  showPlansTable = false;
+  showPlansTable = true;
   @ViewChild('benefitTable') public benefitTable: ElementRef;
   @ViewChild('pricingWizardDiv') public pricingWizardDiv: ElementRef;
 
