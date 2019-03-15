@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { benefits as BENEFITS, IBenefit, benefits } from 'src/app/mock_data/benefit/benefit';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
-import { image } from '../../../assets/images/'
 @Component({
   selector: 'app-benefit-calculator',
   templateUrl: './benefit-calculator.component.html',
