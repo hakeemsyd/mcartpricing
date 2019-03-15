@@ -5,8 +5,18 @@
 <div class="col-xs-12 benefitsListContainer">
   <div class="benefitInnerContainer col-xs-12 col-md-10 col-lg-8"
     *ngFor="let benefitItem of benefits.benefitItemsList; let i = index">
-    <div class="row" *ngIf="i%2 === 0">
-      <img class="benefitImage col-xs-10 col-md-4" src="{{getImageName(benefitItem.image)}}">
+    <div class="row benefitItemContainer" *ngIf="i%2 === 0">
+      <ngb-carousel *ngIf="images" [showNavigationArrows]="true"
+        [showNavigationIndicators]="true">
+        <ng-template ngbSlide *ngFor="let image of images">
+          <img [src]="image" alt="Random slide" class="benefitImage ">
+          <div class="carousel-caption">
+            <h3>No mouse navigation</h3>
+            <p>This carousel hides navigation arrows and indicators.</p>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+      <!-- <img class="benefitImage col-xs-10 col-md-4" src="{{getImageName(benefitItem.image)}}"> -->
       <div class="row col-xs-10 col-sm-7 benefitDetailContainer">
         <img class="benefitIcon" src="{{getIconName(benefitItem.icon)}}" />
         <div class="col-xs-12 col-sm-8 benefitDetails">
@@ -15,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class="row" *ngIf="i%2===1">
+    <!-- <div class="row" *ngIf="i%2===1">
       <div class="row col-xs-10 col-sm-7 benefitDetailContainer">
         <img class="benefitIcon" src="{{getIconName(benefitItem.icon)}}" />
         <div class="col-xs-12 col-sm-8 benefitDetails">
@@ -25,7 +35,7 @@
       </div>
       <img class="benefitImage col-xs-10 col-md-4" src="{{getImageName(benefitItem.image)}}">
       >
-    </div>
+    </div> -->
   </div>
 </div>
 <!-- <div class="col-xs-12 benefitMainContainer">

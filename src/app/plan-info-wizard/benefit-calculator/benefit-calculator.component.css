@@ -46,10 +46,22 @@
   justify-content: center;
 }
 
+.benefitImageContainer{
+  background: blue;
+  padding: 0px 10px;
+}
+
+.benefitItemContainer{
+  align-items: center;
+  justify-content: center;
+}
+
 .benefitImage {
-  max-width: 350px;
-  height: 210px;
-  /* background: blue */
+  max-width: 370px;
+  height: 220px;
+}
+::ng-deep .carousel-control-next, ::ng-deep .carousel-control-prev{
+  /* width: 5%; */
 }
 
 .benefitIcon {
