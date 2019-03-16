@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { McartPlanTierInfoComponent } from './mcart-plan-tier-info/mcart-plan-tier-info.component';
 
 @Component({
   selector: 'app-plan-info-wizard',
@@ -9,9 +10,15 @@ export class PlanInfoWizardComponent implements OnInit {
 
   @Output() public showBenefitDetailTable: EventEmitter<boolean> = new EventEmitter();
   @Input() currPriceWizardStep: number;
+  @Input() isCurrStepBeforeGMV: boolean = false;
   showBenefit = false;
+  showPlanTable = false;
+
   currentActiveInforCard = 0;
   constructor() { }
+
+  @ViewChild(McartPlanTierInfoComponent) mcartPlanInfoTierInstance: McartPlanTierInfoComponent;
+  // @ViewChild(BusinessWizardComponent) businessChildWizardInstance: BusinessWizardComponent;
 
   @ViewChild('infoButton1') infoButton1: ElementRef;
   @ViewChild('infoButton2') infoButton2: ElementRef;
@@ -30,6 +37,8 @@ export class PlanInfoWizardComponent implements OnInit {
     this.showBenefit = true;
     this.showBenefitDetailTable.emit(true);
   }
+
+
   onPressInfo(cardNum) {
     this.currentActiveInforCard = cardNum;
   }

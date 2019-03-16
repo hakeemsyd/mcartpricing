@@ -1,5 +1,5 @@
 <div class="col-xs-12 panelContainer">
-  <ng-template [ngIf]="true">
+  <ng-template [ngIf]="isCurrStepBeforeGMV">
     <div class="banner">
       <h3 class="bannerText">Benefits you get</h3>
     </div>
@@ -147,7 +147,7 @@
       </div>
     </a>
   </ng-template>
-  <ng-template [ngIf]="true">
+  <ng-template [ngIf]="!isCurrStepBeforeGMV">
     <app-mcart-plan-tier-info></app-mcart-plan-tier-info>
   </ng-template>
 </div>

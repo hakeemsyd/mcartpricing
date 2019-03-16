@@ -25,7 +25,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
   @ViewChild(PlanInfoWizardComponent) planInfoWizardInstance: PlanInfoWizardComponent;
   gmvInstance: GmvWizardComponent;
   benefitUpdated = false;
-  showPlansTable = true;
+  showPlansTable = false;
   @ViewChild('benefitTable') public benefitTable: ElementRef;
   @ViewChild('pricingWizardDiv') public pricingWizardDiv: ElementRef;
 
@@ -86,12 +86,26 @@ export class AppComponent implements OnInit, AfterViewChecked {
     }
   }
 
+  getCurrStep(): number {
+    return this.priceWizardInstance.wizardCurrStep;
+  }
+
   stepChangedHandler(event: number) {
     this.currPriceWizardStep = event;
   }
 
   getShowHideBenefitPanel() {
-    return this.planInfoWizardInstance.showBenefit;
+    if (this.isCurrStepBeforeGMV()) {
+      return this.planInfoWizardInstance.showBenefit;
+    } else {
+      return false;
+    }
+  }
+
+  getShowPlanTable() {
+    if (this.isCurrStepBeforeGMV() === false) {
+      return this.planInfoWizardInstance.showPlanTable;
+    }
   }
 
   ngOnInit() { }
@@ -116,5 +130,11 @@ export class AppComponent implements OnInit, AfterViewChecked {
 
   isCurrStepBeforeGMV() {
     return this.priceWizardInstance.isCurrStepBeforeGMV();
+  }
+
+  getShowPlanInfoTable() {
+    if (this.planInfoWizardInstance.mcartPlanInfoTierInstance) {
+      return this.planInfoWizardInstance.mcartPlanInfoTierInstance.showPlanTable;
+    } else return false;
   }
 }
