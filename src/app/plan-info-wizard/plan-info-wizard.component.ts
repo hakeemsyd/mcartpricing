@@ -82,7 +82,7 @@ export class PlanInfoWizardComponent implements OnInit {
 
   updatePlanTier() {
     if (this.mcartPlanInfoTierInstance) {
-      this.mcartPlanInfoTierInstance.updatePlanTier();
+      this.mcartPlanInfoTierInstance.updatePlanTier(this.currPlanTier);
     }
   }
 
