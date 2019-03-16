@@ -31,7 +31,7 @@
   </div>
   <div class="col-lg-2 col-md-12 adsContainer">
     <app-plan-info-wizard (showBenefitDetailTable)="onBenefitEventChange($event)"
-      [isCurrStepBeforeGMV]="isCurrStepBeforeGMV()"></app-plan-info-wizard>
+      [isCurrStepBeforeGMV]="isCurrStepBeforeGMV()" [currPlanTier]="getCurrPlanTier()" ></app-plan-info-wizard>
   </div>
 </div>
 <!-- getShowHideBenefitPanel() -->
@@ -39,7 +39,7 @@
   <app-benefit-calculator></app-benefit-calculator>
 </div>
 
-<div class="tableContainer" *ngIf="getShowPlanInfoTable()">
+<div #planTable class="tableContainer" *ngIf="getShowPlanInfoTable()">
 
   <div class="table-responsive tableInnerContainer">
       <p class="planTitle">Compare Plans</p>

@@ -148,6 +148,6 @@
     </a>
   </ng-template>
   <ng-template [ngIf]="!isCurrStepBeforeGMV">
-    <app-mcart-plan-tier-info></app-mcart-plan-tier-info>
+    <app-mcart-plan-tier-info [currPlanTier]="getCurrPlanTier()"></app-mcart-plan-tier-info>
   </ng-template>
 </div>

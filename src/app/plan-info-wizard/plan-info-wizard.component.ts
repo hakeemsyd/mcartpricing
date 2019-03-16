@@ -13,6 +13,8 @@ export class PlanInfoWizardComponent implements OnInit {
   @Input() isCurrStepBeforeGMV: boolean = false;
   showBenefit = false;
   showPlanTable = false;
+  @Input() currPlanTier = 1;
+  oldPlanTier = 1;
 
   currentActiveInforCard = 0;
   constructor() { }
@@ -78,4 +80,17 @@ export class PlanInfoWizardComponent implements OnInit {
     return false;
   }
 
+  updatePlanTier() {
+    if (this.mcartPlanInfoTierInstance) {
+      this.mcartPlanInfoTierInstance.updatePlanTier();
+    }
+  }
+
+  getCurrPlanTier() {
+    if (this.currPlanTier !== this.oldPlanTier) {
+      this.mcartPlanInfoTierInstance.updatePlanTier(this.currPlanTier);
+    }
+    this.oldPlanTier = this.currPlanTier;
+    return this.currPlanTier;
+  }
 }

@@ -18,6 +18,7 @@ export class GmvWizardComponent implements OnInit {
   public isAnnualBilling = true;
 
   @Input() currStepNumber = 0;
+  currPlanTier = 1;
 
   variableFee: number = 200;
   approxProfit: number = 0;
@@ -128,6 +129,22 @@ export class GmvWizardComponent implements OnInit {
     console.log(value);
   }
 
+  calculatePlanTier(gmvValue) {
+    if (gmvValue < 3000000) {
+      this.currPlanTier = 1;
+      return;
+    } else if (gmvValue < 500000000) {
+      this.currPlanTier = 2;
+      return;
+    } else if (gmvValue < 5000000000) {
+      this.currPlanTier = 3;
+      return;
+    } else {
+      this.currPlanTier = 4;
+      return;
+    }
+  }
+
   calculateGMVProfile(callingSource) {
 
     let gmvValue = this.gmvSlider.value;
@@ -193,6 +210,7 @@ export class GmvWizardComponent implements OnInit {
       this.gmvSlider.value = gmvValue;
     }
 
+    this.calculatePlanTier(this.gmvSlider.value);
     let revenue = 0;
     let variableFee = 0.4;
 

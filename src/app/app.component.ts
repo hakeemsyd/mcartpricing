@@ -25,7 +25,8 @@ export class AppComponent implements OnInit, AfterViewChecked {
   @ViewChild(PlanInfoWizardComponent) planInfoWizardInstance: PlanInfoWizardComponent;
   gmvInstance: GmvWizardComponent;
   benefitUpdated = false;
-  showPlansTable = false;
+  planUpdated = false;
+  @ViewChild('planTable') public planTable: ElementRef;
   @ViewChild('benefitTable') public benefitTable: ElementRef;
   @ViewChild('pricingWizardDiv') public pricingWizardDiv: ElementRef;
 
@@ -117,6 +118,13 @@ export class AppComponent implements OnInit, AfterViewChecked {
     }
   }
 
+  onPlanEventChange($event: boolean) {
+    this.planUpdated = true;
+    if (this.planTable) {
+      this.planTable.nativeElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
   scrollBenefitTable() {
     if (this.benefitTable && this.benefitUpdated) {
       this.benefitTable.nativeElement.scrollIntoView({ behavior: 'smooth' });
@@ -136,5 +144,9 @@ export class AppComponent implements OnInit, AfterViewChecked {
     if (this.planInfoWizardInstance.mcartPlanInfoTierInstance) {
       return this.planInfoWizardInstance.mcartPlanInfoTierInstance.showPlanTable;
     } else return false;
+  }
+
+  getCurrPlanTier(): number {
+    return this.priceWizardInstance.gmvWizardInstance.currPlanTier;
   }
 }

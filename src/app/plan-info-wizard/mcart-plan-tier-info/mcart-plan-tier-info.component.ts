@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { mCartPlan as MCARTPLANARRAY, IMCartPlan } from '../../mock_data/mCartPlan';
 @Component({
   selector: 'app-mcart-plan-tier-info',
@@ -11,8 +11,9 @@ export class McartPlanTierInfoComponent implements OnInit {
   mCartPlans: IMCartPlan[] = MCARTPLANARRAY;
   selectedPlan: IMCartPlan;
   showPlanTable = false;
+  @Input() currPlanTier = 1;
   constructor() {
-    this.selectedPlan = this.mCartPlans[2];
+    this.selectedPlan = this.mCartPlans[0];
   }
 
   ngOnInit() {
@@ -21,6 +22,10 @@ export class McartPlanTierInfoComponent implements OnInit {
   onShowPlanTable() {
     this.showPlanTable = true;
     // this.showBenefitDetailTable.emit(true);
+  }
+
+  updatePlanTier(updatedTier) {
+    this.selectedPlan = this.mCartPlans[updatedTier - 1];
   }
 
 }
