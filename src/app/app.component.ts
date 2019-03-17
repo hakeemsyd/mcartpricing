@@ -42,7 +42,9 @@ export class AppComponent implements OnInit, AfterViewChecked {
        * And the menu itself is checked here, and it's where we check just outside of
        * the menu and button the condition abbove must close the menu
        */
-      this.planInfoWizardInstance.isClickedAreaBelongToThisWizard(e);
+      if (this.planInfoWizardInstance.benefitSidebarInstnace) {
+        this.planInfoWizardInstance.benefitSidebarInstnace.isClickedAreaBelongToThisWizard(e);
+      }
     });
   }
 

@@ -25,6 +25,7 @@ import { PlanInfoWizardComponent } from './plan-info-wizard/plan-info-wizard.com
 import { StoreOptionsWizardComponent } from './pricing-wizard-sections/store-options-wizard/store-options-wizard.component';
 import { BenefitCalculatorComponent } from './plan-info-wizard/benefit-calculator/benefit-calculator.component';
 import { McartPlanTierInfoComponent } from './plan-info-wizard/mcart-plan-tier-info/mcart-plan-tier-info.component';
+import { BenefitsSidebarComponent } from './plan-info-wizard/benefits-sidebar/benefits-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { McartPlanTierInfoComponent } from './plan-info-wizard/mcart-plan-tier-i
     StoreOptionsWizardComponent,
     BenefitCalculatorComponent,
     McartPlanTierInfoComponent,
+    BenefitsSidebarComponent,
   ],
   imports: [
     BrowserModule,
