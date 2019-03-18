@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, Input, AfterViewInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Item, BusinessOptions } from '../../mock_data/items';
 import { FormGroup } from '@angular/forms';
+import { PricingWizardManagerService } from 'src/app/pricing-wizard-manager.service';
 @Component({
   selector: 'app-business-wizard',
   templateUrl: './business-wizard.component.html',
@@ -19,7 +20,7 @@ export class BusinessWizardComponent implements OnInit, AfterViewInit {
 
   @Input() currStepNumber = 1;
 
-  constructor() {
+  constructor(private pricingWizardManagerService: PricingWizardManagerService) {
     this.itemsList = BusinessOptions;
     this.radioSelected = this.itemsList[0].name;
     // Selecting Default Radio item here
@@ -42,6 +43,8 @@ export class BusinessWizardComponent implements OnInit, AfterViewInit {
     }
     this.selectedItem = item;
     this.parentForm.controls['businessType'].setValue(item);
+    this.pricingWizardManagerService.changeSelectedBusiness(item);
+    // TODO: remove this
     this.valueChange.emit();
   }
 

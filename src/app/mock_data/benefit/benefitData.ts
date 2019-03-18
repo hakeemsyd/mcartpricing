@@ -16,7 +16,7 @@ export const MediaBenefitItem: IBenefitItem[] = [
     description: 'In mCart marketplaces, content sell products and products sell content! Every mCart is linked to original content . mCart marketplaces converge media and commerce, centralizing your entire content base from social and/or mainstream in one location.',
     mainImage: [
       'miss-arizona-maddie-rose-holler-magzine-cover.png',
-      'jewelery-cart-menu.png',
+      'jewelery-cart-menu.jpg',
     ],
   },
   {
@@ -33,8 +33,8 @@ export const MediaBenefitItem: IBenefitItem[] = [
     icon: 'managing-external-salesforce.png',
     description: 'Your original content is influencing articles, blogs, and social posts, and their creators can commercially exploit it without giving you a penny. mCart allows those creators to be part of your team and get paid without any back-office accounting through a digital wallet on blockchain.',
     mainImage: [
-      'contextual-commerce.png',
-      'featured-mcarts-products-tables',
+      'contextual-commerce.jpg',
+      'featured-mcarts-products-tables.png',
     ],
   },
   {
@@ -153,7 +153,7 @@ export const ProcurementBenefit: IBenefitItem[] = [
   },
   {
     heading: 'User-friendly experience ',
-    icon: 'User-friendly-experience.png',
+    icon: 'user-friendly-experience.png',
     description: 'Procurement software does not have to be a hard-to-use and unattractive dinosaur. mCart has a modern UI that employees actually want to use, so no more bureaucratic burden of processing employees purchases from third-party vendors.',
     mainImage: [
       'user-friendly-experience.png',

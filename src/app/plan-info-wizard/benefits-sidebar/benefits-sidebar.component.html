@@ -1,7 +1,7 @@
 <div class="banner">
     <h3 class="bannerText">Benefits you get</h3>
   </div>
-  <div class="benefitItemContainer" *ngFor="let benefitItem of selectedBenefits; let i = index">
+  <div class="benefitItemContainer" *ngFor="let benefitItem of selectedBenefits.benefitItemsList | slice:0:4; let i = index">
     <div class="benefitItemInnerContainer">
       <div class="tooltipContainer">
         <button class="tooltipButton" matTooltip="Info about the action" (click)="onPressInfo(i)"
@@ -13,7 +13,7 @@
             <div class="imageContainer" *ngFor="let benefitImage of benefitItem.mainImage; let j = index">
               <p class="imageTitle">{{benefitItem.heading}}</p>
               <img class="cardImage"
-                src="{{getImageName(benefitImage)}}">
+                src="{{getImageName(benefitImage) || 'https://www.unesale.com/ProductImages/Large/notfound.png'}}">
             </div>
             <!-- <div class="imageContainer">
               <p class="imageTitle">Shoes</p>
@@ -30,7 +30,7 @@
         </div>
       </div>
       <h4 class="benefitTitle">{{benefitItem.heading}}</h4>
-      <img src="{{getIconName(benefitItem.icon)}}" class="benefitIcon" />
+      <img src="{{getIconName(benefitItem.icon) || 'https://www.unesale.com/ProductImages/Large/notfound.png'}}" class="benefitIcon" />
 
     </div>
   </div>

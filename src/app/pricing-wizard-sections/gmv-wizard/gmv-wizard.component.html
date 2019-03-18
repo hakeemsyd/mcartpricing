@@ -23,7 +23,7 @@
         </div>
       </div>
       <mat-slider id='gmvSlider' [disabled]="checkIfGreateThan100B()" class="matSliders" md-discrete [max]="gmvSlider.max" [min]="gmvSlider.min"
-        (input)="calculateGMVProfile($event)" [(ngModel)]="gmvSlider.value" [step]="1" 
+        (mouseup)="calculateGMVProfile($event)" (input)="calculateGMVProfile($event)" [(ngModel)]="gmvSlider.value" [step]="1" 
         thumbLabel [displayWith]="getGMVThumbValue">
       </mat-slider>
       <div class="row rowSlider">
