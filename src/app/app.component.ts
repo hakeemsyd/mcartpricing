@@ -2,6 +2,7 @@ import { Component, ViewChild, QueryList, AfterViewInit, OnInit, AfterViewChecke
 import { GmvWizardComponent } from './pricing-wizard-sections/gmv-wizard/gmv-wizard.component';
 import { PricingWizardComponent } from './pricing-wizard/pricing-wizard.component';
 import { PlanInfoWizardComponent } from './plan-info-wizard/plan-info-wizard.component';
+import { PricingWizardManagerService } from './pricing-wizard-manager.service';
 
 enum Plan {
   Annual = 0,
@@ -11,7 +12,8 @@ enum Plan {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [PricingWizardManagerService]
 })
 
 export class AppComponent implements OnInit, AfterViewChecked {
@@ -30,7 +32,9 @@ export class AppComponent implements OnInit, AfterViewChecked {
   @ViewChild('benefitTable') public benefitTable: ElementRef;
   @ViewChild('pricingWizardDiv') public pricingWizardDiv: ElementRef;
 
-  constructor(private renderer: Renderer2) {
+  showPlanInfoTable = false;
+
+  constructor(private renderer: Renderer2, private pricingWizardManagerService: PricingWizardManagerService) {
     /**
      * This events get called by all clicks on the page
      */
@@ -46,6 +50,14 @@ export class AppComponent implements OnInit, AfterViewChecked {
         this.planInfoWizardInstance.benefitSidebarInstnace.isClickedAreaBelongToThisWizard(e);
       }
     });
+
+    pricingWizardManagerService.onBenefitTableOpenEvent.subscribe(
+      async (isBenefitTableOpen) => {
+        this.showPlanInfoTable = isBenefitTableOpen;
+        await new Promise ( resolve => setTimeout(resolve, 500) );
+        this.scrollToPlanInfoTable();
+      }
+    );
   }
 
   ngAfterViewChecked() {
@@ -113,6 +125,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() { }
 
+  // TODO: remove it
   onBenefitEventChange($event: boolean) {
     this.benefitUpdated = true;
     if (this.benefitTable) {
@@ -120,7 +133,15 @@ export class AppComponent implements OnInit, AfterViewChecked {
     }
   }
 
+  // TODO: remove it
   onPlanEventChange($event: boolean) {
+    this.planUpdated = true;
+    if (this.planTable) {
+      this.planTable.nativeElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  scrollToPlanInfoTable() {
     this.planUpdated = true;
     if (this.planTable) {
       this.planTable.nativeElement.scrollIntoView({ behavior: 'smooth' });

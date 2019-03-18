@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { mCartPlan as MCARTPLANARRAY, IMCartPlan } from '../../mock_data/mCartPlan';
+import { PricingWizardManagerService } from 'src/app/pricing-wizard-manager.service';
 @Component({
   selector: 'app-mcart-plan-tier-info',
   templateUrl: './mcart-plan-tier-info.component.html',
@@ -12,7 +13,7 @@ export class McartPlanTierInfoComponent implements OnInit {
   selectedPlan: IMCartPlan;
   showPlanTable = false;
   @Input() currPlanTier = 1;
-  constructor() {
+  constructor(private pricingWizardManagerService: PricingWizardManagerService) {
     this.selectedPlan = this.mCartPlans[0];
   }
 
@@ -21,6 +22,7 @@ export class McartPlanTierInfoComponent implements OnInit {
 
   onShowPlanTable() {
     this.showPlanTable = true;
+    this.pricingWizardManagerService.openBenefitTable();
     // this.showBenefitDetailTable.emit(true);
   }
 
