@@ -35,11 +35,11 @@
   </div>
 </div>
 <!-- getShowHideBenefitPanel() -->
-<div *ngIf="getShowHideBenefitPanel()" #benefitTable class="benefitInfoPanel col-xs-12">
+<div *ngIf="getShowBenefitTable()" #benefitTable class="benefitInfoPanel col-xs-12">
   <app-benefit-calculator></app-benefit-calculator>
 </div>
 
-<div #planTable class="tableContainer" *ngIf="showPlanInfoTable">
+<div #planTable class="tableContainer" *ngIf="getShowPlanInfoTable()">
 
   <div class="table-responsive tableInnerContainer">
       <p class="planTitle">Compare Plans</p>

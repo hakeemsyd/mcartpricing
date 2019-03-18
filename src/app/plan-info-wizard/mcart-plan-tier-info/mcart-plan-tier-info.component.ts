@@ -22,7 +22,7 @@ export class McartPlanTierInfoComponent implements OnInit {
 
   onShowPlanTable() {
     this.showPlanTable = true;
-    this.pricingWizardManagerService.openBenefitTable();
+    this.pricingWizardManagerService.openPlanInfoTable();
     // this.showBenefitDetailTable.emit(true);
   }
 

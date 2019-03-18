@@ -33,6 +33,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
   @ViewChild('pricingWizardDiv') public pricingWizardDiv: ElementRef;
 
   showPlanInfoTable = false;
+  showBenefitTable = false;
 
   constructor(private renderer: Renderer2, private pricingWizardManagerService: PricingWizardManagerService) {
     /**
@@ -51,19 +52,28 @@ export class AppComponent implements OnInit, AfterViewChecked {
       }
     });
 
-    pricingWizardManagerService.onBenefitTableOpenEvent.subscribe(
-      async (isBenefitTableOpen) => {
-        this.showPlanInfoTable = isBenefitTableOpen;
-        await new Promise ( resolve => setTimeout(resolve, 500) );
+    pricingWizardManagerService.onPlanInfoTableOpenEvent.subscribe(
+      async (isPlanInfoTableOpen) => {
+        this.showPlanInfoTable = isPlanInfoTableOpen;
+        await new Promise(resolve => setTimeout(resolve, 500));
         this.scrollToPlanInfoTable();
       }
     );
+
+    pricingWizardManagerService.onBenefitTableOpenEvent.subscribe(
+      async (isBenefitTableOpen) => {
+        this.showBenefitTable = isBenefitTableOpen;
+        await new Promise(resolve => setTimeout(resolve, 500));
+        this.scrollToBenefitTable();
+      }
+    );
+
+    pricingWizardManagerService.onScrollUpToFormEvent.subscribe(() => {
+      this.scrollToForm();
+    });
   }
 
   ngAfterViewChecked() {
-    if (this.benefitTable) {
-      this.scrollBenefitTable();
-    }
   }
 
   onClickPlan(val: number) {
@@ -148,8 +158,9 @@ export class AppComponent implements OnInit, AfterViewChecked {
     }
   }
 
-  scrollBenefitTable() {
-    if (this.benefitTable && this.benefitUpdated) {
+  scrollToBenefitTable() {
+    this.benefitUpdated = true;
+    if (this.benefitTable) {
       this.benefitTable.nativeElement.scrollIntoView({ behavior: 'smooth' });
       this.benefitUpdated = false;
     }
@@ -163,10 +174,20 @@ export class AppComponent implements OnInit, AfterViewChecked {
     return this.priceWizardInstance.isCurrStepBeforeGMV();
   }
 
+  getShowBenefitTable() {
+    if (this.showBenefitTable && this.isCurrStepBeforeGMV()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   getShowPlanInfoTable() {
-    if (this.planInfoWizardInstance.mcartPlanInfoTierInstance) {
-      return this.planInfoWizardInstance.mcartPlanInfoTierInstance.showPlanTable;
-    } else return false;
+    if (this.showPlanInfoTable && !this.isCurrStepBeforeGMV()) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   getCurrPlanTier(): number {

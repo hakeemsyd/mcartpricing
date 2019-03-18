@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, ViewChildren, QueryList } from '@angular/core';
 import { IBenefitItem } from 'src/app/mock_data/benefit/benefit';
+import { PricingWizardManagerService } from 'src/app/pricing-wizard-manager.service';
 
 @Component({
   selector: 'app-benefits-sidebar',
@@ -63,7 +64,7 @@ export class BenefitsSidebarComponent implements OnInit {
   },
   ];
 
-  constructor() { }
+  constructor(private pricingWizardManagerService: PricingWizardManagerService) { }
 
   ngOnInit() {
   }
@@ -117,5 +118,9 @@ export class BenefitsSidebarComponent implements OnInit {
 
   getImageName(name) {
     return `../../../assets/images/${name}`;
+  }
+
+  showBenefitPanel() {
+    this.pricingWizardManagerService.openBenefitTable();
   }
 }

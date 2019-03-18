@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { benefits as BENEFITS, IBenefit, benefits } from 'src/app/mock_data/benefit/benefit';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
+import { PricingWizardManagerService } from 'src/app/pricing-wizard-manager.service';
 @Component({
   selector: 'app-benefit-calculator',
   templateUrl: './benefit-calculator.component.html',
@@ -16,7 +17,7 @@ export class BenefitCalculatorComponent implements OnInit {
 
   benefits: IBenefit[] = BENEFITS;
   selectedBenefit: IBenefit;
-  constructor(config: NgbCarouselConfig) {
+  constructor(config: NgbCarouselConfig, private pricingWizardManagerService: PricingWizardManagerService) {
     console.log('benefits', this.benefits);
     // customize default values of carousels used by this component tree
     config.showNavigationArrows = true;
@@ -41,5 +42,9 @@ export class BenefitCalculatorComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  scrollUpToForm() {
+    this.pricingWizardManagerService.scrollUpToForm();
   }
 }
