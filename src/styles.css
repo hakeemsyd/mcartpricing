@@ -87,46 +87,6 @@ body, html {
 .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
   background-color: white;
 }
-.radioButton {
-  margin-right: 10px;
-  margin-top: 2px;
-  
-  -webkit-appearance: none;
-     -moz-appearance: none;
-     appearance: none;
-    
- display: inline-block;
-    vertical-align: middle;
-    margin: 5px;
-    cursor: pointer;
-content: '';
-    background: #fff;
-    
-    display: inline-block;
-    vertical-align: middle;
-    width: 30px;
-    height: 30px;
-    padding: 2px;
-    margin-right: 10px;
-    text-align: center;
-border-radius: 50%; 
-}
-.radioButton:checked::before {
-    content: "\2713";
-    font: 14px/1 'Open Sans', sans-serif;
-    color: #fff;
-font-weight:bold;
-
-}
-.radioButton:checked {
-background: #95D0CC;
-border: 0px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-     appearance: none;
-
-
-}
 
 .mat-slider-thumb {
   transform: scale(.65) !important;
