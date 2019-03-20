@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import numeral from 'numeral';
 import { Item } from 'src/app/mock_data/items';
+import { PricingWizardManagerService } from 'src/app/pricing-wizard-manager.service';
 
 @Component({
   selector: 'app-gmv-wizard',
@@ -68,7 +69,8 @@ export class GmvWizardComponent implements OnInit {
 
   gmvType = 1;
 
-  constructor() {
+  constructor(private pricingWizardManagerService: PricingWizardManagerService) {
+
   }
 
   ngOnInit() {
@@ -132,15 +134,19 @@ export class GmvWizardComponent implements OnInit {
   calculatePlanTier(gmvValue) {
     if (gmvValue < 3000000) {
       this.currPlanTier = 1;
+      this.pricingWizardManagerService.updatePlanTier(1);
       return;
     } else if (gmvValue < 500000000) {
       this.currPlanTier = 2;
+      this.pricingWizardManagerService.updatePlanTier(2);
       return;
     } else if (gmvValue < 5000000000) {
       this.currPlanTier = 3;
+      this.pricingWizardManagerService.updatePlanTier(3);
       return;
     } else {
       this.currPlanTier = 4;
+      this.pricingWizardManagerService.updatePlanTier(4);
       return;
     }
   }
@@ -254,6 +260,11 @@ export class GmvWizardComponent implements OnInit {
 
   toggleGreaterThan100B(e) {
     this.greaterThan100B = e.target.checked;
+    if (e.target.checked) {
+      this.calculatePlanTier(100000000000);
+    } else {
+      this.calculatePlanTier(this.gmvSlider.value);
+    }
   }
 
   checkIfGreateThan100B() {

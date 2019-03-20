@@ -19,7 +19,6 @@ export class BenefitCalculatorComponent implements OnInit {
   totalBenefits: IBenefit[] = BENEFITS;
   selectedBenefits: IBenefit;
   constructor(config: NgbCarouselConfig, private pricingWizardManagerService: PricingWizardManagerService) {
-    console.log('benefits', this.benefits);
     // customize default values of carousels used by this component tree
     config.showNavigationArrows = true;
     config.showNavigationIndicators = true;

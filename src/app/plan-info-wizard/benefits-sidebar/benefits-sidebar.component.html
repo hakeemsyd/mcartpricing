@@ -1,41 +1,43 @@
 <div class="banner">
-    <h3 class="bannerText">Benefits you get</h3>
-  </div>
-  <div class="benefitItemContainer" *ngFor="let benefitItem of selectedBenefits.benefitItemsList | slice:0:4; let i = index">
-    <div class="benefitItemInnerContainer">
-      <div class="tooltipContainer">
-        <button class="tooltipButton" matTooltip="Info about the action" (click)="onPressInfo(i)"
-          aria-label="Button that displays a tooltip when focused or hovered over">
-          <img id="infoButton{{i}}"  #infoButton src="../../assets/images/info.png" class="tooltipButton" />
-        </button>
-        <div id="cardContainer{{i}}" class="cardContainer" #card *ngIf="showInfoPanel(i)">
-          <div class="cardImageContainer">
-            <div class="imageContainer" *ngFor="let benefitImage of benefitItem.mainImage; let j = index">
-              <p class="imageTitle">{{benefitItem.heading}}</p>
-              <img class="cardImage"
-                src="{{getImageName(benefitImage) || 'https://www.unesale.com/ProductImages/Large/notfound.png'}}">
-            </div>
-            <!-- <div class="imageContainer">
+  <h3 class="bannerText">Benefits you get</h3>
+</div>
+<div class="benefitItemContainer"
+  *ngFor="let benefitItem of selectedBenefits.benefitItemsList | slice:0:4; let i = index">
+  <div class="benefitItemInnerContainer">
+    <div class="tooltipContainer">
+      <button class="tooltipButton" matTooltip="Info about the action" (click)="onPressInfo(i)"
+        aria-label="Button that displays a tooltip when focused or hovered over">
+        <img id="infoButton{{i}}" #infoButton src="../../assets/images/info.png" class="tooltipButton" />
+      </button>
+      <div id="cardContainer{{i}}" class="cardContainer" #card *ngIf="showInfoPanel(i)">
+        <div class="cardImageContainer">
+          <div class="imageContainer" *ngFor="let benefitImage of benefitItem.mainImage; let j = index">
+            <p class="imageTitle">{{benefitItem.heading}}</p>
+            <img class="cardImage"
+            [attr.src]="getImageName(benefitImage)" onError="this.src='https://www.unesale.com/ProductImages/Large/notfound.png'" />
+          </div>
+          <!-- <div class="imageContainer">
               <p class="imageTitle">Shoes</p>
               <img class="cardImage" src="https://i.pinimg.com/236x/de/ee/81/deee8140f767232c43f0d81fd6d189e7.jpg">
             </div> -->
-          </div>
-          <div class="cardInfoContainer">
-            <h4 class="cardTitle">{{benefitItem.heading}}</h4>
-            <p class="cardDescription">{{benefitItem.description}}</p>
-            <a>
-              <i class="cardAction" (click)="onCloseCardRequest()">Ok, Got it</i>
-            </a>
-          </div>
+        </div>
+        <div class="cardInfoContainer">
+          <h4 class="cardTitle">{{benefitItem.heading}}</h4>
+          <p class="cardDescription">{{benefitItem.description}}</p>
+          <a>
+            <i class="cardAction" (click)="onCloseCardRequest()">Ok, Got it</i>
+          </a>
         </div>
       </div>
-      <h4 class="benefitTitle">{{benefitItem.heading}}</h4>
-      <img src="{{getIconName(benefitItem.icon) || 'https://www.unesale.com/ProductImages/Large/notfound.png'}}" class="benefitIcon" />
+    </div>
+    <h4 class="benefitTitle">{{benefitItem.heading}}</h4>
+    <img [attr.src]="getIconName(benefitItem.icon)" onError="this.src='https://www.unesale.com/ProductImages/Large/notfound.png'"
+      class="benefitIcon" />
 
-    </div>
   </div>
-  <a (click)="showBenefitPanel()">
-    <div class="viewFullContainer showPanelButton">
-      <h4 class="viewFullText">View Full Benefits</h4>
-    </div>
-  </a>
+</div>
+<a (click)="showBenefitPanel()">
+  <div class="viewFullContainer showPanelButton">
+    <h4 class="viewFullText">View Full Benefits</h4>
+  </div>
+</a>

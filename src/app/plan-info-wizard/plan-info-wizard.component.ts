@@ -33,16 +33,12 @@ export class PlanInfoWizardComponent implements OnInit {
   }
 
   updatePlanTier() {
-    if (this.mcartPlanInfoTierInstance) {
-      this.mcartPlanInfoTierInstance.updatePlanTier(this.currPlanTier);
-    }
+    // if (this.mcartPlanInfoTierInstance) {
+    //   this.mcartPlanInfoTierInstance.updatePlanTier(this.currPlanTier);
+    // }
   }
 
   getCurrPlanTier() {
-    if (this.currPlanTier !== this.oldPlanTier) {
-      this.mcartPlanInfoTierInstance.updatePlanTier(this.currPlanTier);
-    }
-    this.oldPlanTier = this.currPlanTier;
     return this.currPlanTier;
   }
 }

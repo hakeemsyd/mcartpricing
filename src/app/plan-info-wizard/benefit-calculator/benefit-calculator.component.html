@@ -10,14 +10,14 @@
         <ngb-carousel *ngIf="benefitItem.mainImage" [showNavigationArrows]="isImageArray(benefitItem.mainImage)"
           [showNavigationIndicators]="isImageArray(benefitItem.mainImage)">
           <ng-template ngbSlide *ngFor="let image of benefitItem.mainImage">
-            <img src="{{getImageName(image)}}" alt="Random slide" class="benefitImage ">
+            <img class="benefitImage" [attr.src]="getImageName(image)" onError="this.src='https://www.unesale.com/ProductImages/Large/notfound.png'"/> 
           </ng-template>
         </ngb-carousel>
       </div>
 
       <!-- <img class="benefitImage col-xs-10 col-md-4" src="{{getImageName(benefitItem.image)}}"> -->
       <div class="row col-xs-10 col-sm-7 benefitDetailContainer">
-        <img class="benefitIcon" src="{{getIconName(benefitItem.icon) || 'https://www.unesale.com/ProductImages/Large/notfound.png'}}" />
+        <img class="benefitIcon" [attr.src]="getIconName(benefitItem.icon)" onError="this.src='https://www.unesale.com/ProductImages/Large/notfound.png'"/>
         <div class="col-xs-12 col-sm-8 benefitDetails">
           <h3 class="benefitHeader">Benefit {{i+1}}<br />{{benefitItem.heading}}</h3>
           <p class="benefitDetailText">{{benefitItem.description}}</p>
@@ -26,7 +26,7 @@
     </div>
     <div class="row benefitItemContainer" *ngIf="i%2===1">
       <div class="row col-xs-10 col-sm-7 benefitDetailContainer">
-        <img class="benefitIcon" src="{{getIconName(benefitItem.icon) || 'https://www.unesale.com/ProductImages/Large/notfound.png'}}" />
+        <img class="benefitIcon" [attr.src]="getIconName(benefitItem.icon)" onError="this.src='https://www.unesale.com/ProductImages/Large/notfound.png'"/>
         <div class="col-xs-12 col-sm-8 benefitDetails">
           <h3 class="benefitHeader">Benefit {{i+1}}<br />{{benefitItem.heading}}</h3>
           <p class="benefitDetailText">{{benefitItem.description}}</p>
@@ -36,7 +36,7 @@
         <ngb-carousel *ngIf="benefitItem.mainImage" [showNavigationArrows]="isImageArray(benefitItem.mainImage)"
           [showNavigationIndicators]="isImageArray(benefitItem.mainImage)">
           <ng-template ngbSlide *ngFor="let image of benefitItem.mainImage">
-            <img src="{{getImageName(image)}}" alt="Random slide" class="benefitImage ">
+            <img [attr.src]="getImageName(image)" alt="Random slide" class="benefitImage" onError="this.src='https://www.unesale.com/ProductImages/Large/notfound.png'">
           </ng-template>
         </ngb-carousel>
       </div>

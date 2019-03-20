@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { mCartPlan as MCARTPLANARRAY, IMCartPlan } from '../../mock_data/mCartPlan';
 import { PricingWizardManagerService } from 'src/app/pricing-wizard-manager.service';
+import { Item } from 'src/app/mock_data/items';
 @Component({
   selector: 'app-mcart-plan-tier-info',
   templateUrl: './mcart-plan-tier-info.component.html',
@@ -15,6 +16,12 @@ export class McartPlanTierInfoComponent implements OnInit {
   @Input() currPlanTier = 1;
   constructor(private pricingWizardManagerService: PricingWizardManagerService) {
     this.selectedPlan = this.mCartPlans[0];
+
+    this.pricingWizardManagerService.onUpdatePlanTier.subscribe(
+      (updatedTier: number) => {
+        this.updatePlanTier(updatedTier);
+      });
+
   }
 
   ngOnInit() {
