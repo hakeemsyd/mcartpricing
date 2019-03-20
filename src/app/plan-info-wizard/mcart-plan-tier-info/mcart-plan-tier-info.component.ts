@@ -35,6 +35,22 @@ export class McartPlanTierInfoComponent implements OnInit {
 
   updatePlanTier(updatedTier) {
     this.selectedPlan = this.mCartPlans[updatedTier - 1];
+    this.currPlanTier = updatedTier - 1;
+  }
+
+  getCurrTierSpectrum() {
+    switch (this.currPlanTier) {
+      case 0:
+        return 'tier1.png';
+      case 1:
+        return 'tier2.png';
+      case 2:
+        return 'tier3.png';
+      case 3:
+        return 'tier4.png';
+      default:
+        return 'tier4.png';
+    }
   }
 
 }
