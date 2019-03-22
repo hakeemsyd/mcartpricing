@@ -5,8 +5,8 @@ import { Item } from 'src/app/mock_data/items';
 @Component({
   selector: 'app-store-options-wizard',
   templateUrl: './store-options-wizard.component.html',
-  styleUrls: ['./store-options-wizard.component.css',
-    '../../pricing-wizard/pricing-wizard.component.css']
+  styleUrls: ['./store-options-wizard.component.scss',
+    '../../pricing-wizard/pricing-wizard.component.scss']
 })
 export class StoreOptionsWizardComponent implements OnInit, AfterViewInit {
 

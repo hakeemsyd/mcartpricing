@@ -29,7 +29,7 @@ interface Influencers {
 @Component({
   selector: 'app-pricing-wizard',
   templateUrl: './pricing-wizard.component.html',
-  styleUrls: ['./pricing-wizard.component.css'],
+  styleUrls: ['./pricing-wizard.component.scss'],
 })
 export class PricingWizardComponent implements OnInit {
 

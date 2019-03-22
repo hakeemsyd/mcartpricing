@@ -6,8 +6,8 @@ import { element } from '@angular/core/src/render3/instructions';
 @Component({
   selector: 'app-objective-wizard',
   templateUrl: './objective-wizard.component.html',
-  styleUrls: ['./objective-wizard.component.css',
-    '../../pricing-wizard/pricing-wizard.component.css']
+  styleUrls: ['./objective-wizard.component.scss',
+    '../../pricing-wizard/pricing-wizard.component.scss']
 })
 export class ObjectiveWizardComponent implements OnInit {
 

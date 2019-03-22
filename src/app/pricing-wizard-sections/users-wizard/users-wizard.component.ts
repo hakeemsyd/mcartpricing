@@ -4,8 +4,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-users-wizard',
   templateUrl: './users-wizard.component.html',
-  styleUrls: ['./users-wizard.component.css',
-    '../../pricing-wizard/pricing-wizard.component.css']
+  styleUrls: ['./users-wizard.component.scss',
+    '../../pricing-wizard/pricing-wizard.component.scss']
 })
 export class UsersWizardComponent implements OnInit {
 

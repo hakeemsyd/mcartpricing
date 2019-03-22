@@ -5,7 +5,7 @@ import { PricingWizardManagerService } from 'src/app/pricing-wizard-manager.serv
 @Component({
   selector: 'app-business-wizard',
   templateUrl: './business-wizard.component.html',
-  styleUrls: ['./business-wizard.component.css', '../../pricing-wizard/pricing-wizard.component.css'],
+  styleUrls: ['./business-wizard.component.scss', '../../pricing-wizard/pricing-wizard.component.scss'],
 })
 
 export class BusinessWizardComponent implements OnInit, AfterViewInit {

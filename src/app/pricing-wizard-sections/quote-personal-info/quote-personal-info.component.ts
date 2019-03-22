@@ -4,8 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-quote-personal-info',
   templateUrl: './quote-personal-info.component.html',
-  styleUrls: ['./quote-personal-info.component.css',
-  '../../pricing-wizard/pricing-wizard.component.css']
+  styleUrls: ['./quote-personal-info.component.scss',
+  '../../pricing-wizard/pricing-wizard.component.scss']
 })
 export class QuotePersonalInfoComponent implements OnInit {
 

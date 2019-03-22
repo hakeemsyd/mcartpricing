@@ -5,8 +5,8 @@ import { Item } from 'src/app/mock_data/items';
 @Component({
   selector: 'app-sales-wizard',
   templateUrl: './sales-wizard.component.html',
-  styleUrls: ['./sales-wizard.component.css',
-    '../../pricing-wizard/pricing-wizard.component.css']
+  styleUrls: ['./sales-wizard.component.scss',
+    '../../pricing-wizard/pricing-wizard.component.scss']
 })
 export class SalesWizardComponent implements OnInit {
 

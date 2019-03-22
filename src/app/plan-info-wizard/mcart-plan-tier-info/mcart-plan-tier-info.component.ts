@@ -5,8 +5,8 @@ import { Item } from 'src/app/mock_data/items';
 @Component({
   selector: 'app-mcart-plan-tier-info',
   templateUrl: './mcart-plan-tier-info.component.html',
-  styleUrls: ['./mcart-plan-tier-info.component.css',
-    '../plan-info-wizard.component.css'],
+  styleUrls: ['./mcart-plan-tier-info.component.scss',
+    '../plan-info-wizard.component.scss'],
 })
 export class McartPlanTierInfoComponent implements OnInit {
 

@@ -7,8 +7,8 @@ import { PricingWizardManagerService } from 'src/app/pricing-wizard-manager.serv
 @Component({
   selector: 'app-gmv-wizard',
   templateUrl: './gmv-wizard.component.html',
-  styleUrls: ['./gmv-wizard.component.css',
-    '../../pricing-wizard/pricing-wizard.component.css']
+  styleUrls: ['./gmv-wizard.component.scss',
+    '../../pricing-wizard/pricing-wizard.component.scss']
 })
 export class GmvWizardComponent implements OnInit {
 

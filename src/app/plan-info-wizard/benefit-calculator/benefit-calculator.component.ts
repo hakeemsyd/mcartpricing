@@ -7,7 +7,7 @@ import { Item } from 'src/app/mock_data/items';
 @Component({
   selector: 'app-benefit-calculator',
   templateUrl: './benefit-calculator.component.html',
-  styleUrls: ['./benefit-calculator.component.css'],
+  styleUrls: ['./benefit-calculator.component.scss'],
   providers: [NgbCarouselConfig]  // add NgbCarouselConfig to the component providers
 })
 

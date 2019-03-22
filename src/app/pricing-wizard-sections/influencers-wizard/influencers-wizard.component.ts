@@ -5,8 +5,8 @@ import { influencersListJSON } from 'src/app/mock_data/influencers';
 @Component({
   selector: 'app-influencers-wizard',
   templateUrl: './influencers-wizard.component.html',
-  styleUrls: ['./influencers-wizard.component.css',
-    '../../pricing-wizard/pricing-wizard.component.css']
+  styleUrls: ['./influencers-wizard.component.scss',
+    '../../pricing-wizard/pricing-wizard.component.scss']
 })
 export class InfluencersWizardComponent implements OnInit {
 

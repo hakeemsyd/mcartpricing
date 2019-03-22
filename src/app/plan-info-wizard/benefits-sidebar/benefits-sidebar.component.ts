@@ -6,8 +6,8 @@ import { Item } from 'src/app/mock_data/items';
 @Component({
   selector: 'app-benefits-sidebar',
   templateUrl: './benefits-sidebar.component.html',
-  styleUrls: ['./benefits-sidebar.component.css',
-    '../plan-info-wizard.component.css']
+  styleUrls: ['./benefits-sidebar.component.scss',
+    '../plan-info-wizard.component.scss']
 })
 export class BenefitsSidebarComponent implements OnInit {
 

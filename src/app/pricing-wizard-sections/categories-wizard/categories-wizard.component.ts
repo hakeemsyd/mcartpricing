@@ -4,8 +4,8 @@ import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn } from '@an
 @Component({
   selector: 'app-categories-wizard',
   templateUrl: './categories-wizard.component.html',
-  styleUrls: ['./categories-wizard.component.css',
-    '../../pricing-wizard/pricing-wizard.component.css']
+  styleUrls: ['./categories-wizard.component.scss',
+    '../../pricing-wizard/pricing-wizard.component.scss']
 })
 export class CategoriesWizardComponent implements OnInit {
 

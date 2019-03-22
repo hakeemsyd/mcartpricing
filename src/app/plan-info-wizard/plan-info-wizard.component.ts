@@ -5,7 +5,7 @@ import { BenefitsSidebarComponent } from './benefits-sidebar/benefits-sidebar.co
 @Component({
   selector: 'app-plan-info-wizard',
   templateUrl: './plan-info-wizard.component.html',
-  styleUrls: ['./plan-info-wizard.component.css']
+  styleUrls: ['./plan-info-wizard.component.scss']
 })
 export class PlanInfoWizardComponent implements OnInit {
 
