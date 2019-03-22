@@ -1,7 +1,10 @@
  * {
    font-family: Roboto;
  }
-
+ .user-padding{
+  padding-top: 50%;
+  padding-bottom: 50%;
+ }
  .jumbotron-fluid {
    background: rgb(255, 255, 255);
    border-top: solid #e1e1e1 2px;

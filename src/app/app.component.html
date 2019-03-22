@@ -39,7 +39,7 @@
   <app-benefit-calculator></app-benefit-calculator>
 </div>
 
-<div #planTable class="tableContainer" *ngIf="getShowPlanInfoTable()">
+<div #planTable class="tableContainer">
 
   <div class="table-responsive tableInnerContainer">
       <p class="planTitle">Compare Plans</p>
@@ -83,7 +83,7 @@
             <td class="leftColumn"># of supported stores (Already supported)</td>
             <td class="tableCell">1</td>
             <td class="tableCell">2-10</td>
-            <td class="tableCell">Upto</td>
+            <td class="tableCell">Up to 30</td>
             <td class="tableCell">All</td>
           </tr>
           <tr>
@@ -115,23 +115,23 @@
             <td class="tableCell">Unlimited</td>
           </tr>
           <tr>
-            <td class="leftColumn textItalic"># of Users</td>
+            <td class="leftColumn textItalic "> <div class="user-padding">  # of Users </div></td>
             <td class="tableCell">Up to <br />
-              - 100k Shoppers
-              - 50 Influencers
+              - 100k Shoppers<br />
+              - 50 Influencers<br />
               - 1 Admin
             </td>
             <td class="tableCell">Up to <br />
-              - 1 Million Shoppers
-              - 200 Influencers
-              - 30 Sales People
-              - 5 Admin ( 1 Super Admin, 2 Marketing, 2 Editorial)
+              - 1 Million Shoppers <br />
+              - 200 Influencers <br />
+              - 30 Sales People <br />
+              - 5 Admin ( 1 Super <br /> Admin, 2 <br />Marketing, 2 <br /> Editorial)
             </td>
             <td class="tableCell">Up to <br />
-              - 3 Million Shoppers
-              - 1000 Influencers
-              - 200 Sales People
-              - 12 Admin ( 2 Super Admin, 10 Marketing, 5 Editorial, 1 Analytical )
+              - 3 Million Shoppers<br />
+              - 1000 Influencers <br />
+              - 200 Sales People<br />
+              - 12 Admin ( 2 <br />Super Admin, 10 <br />Marketing, 5 <br />Editorial, 1<br /> Analytical )
             </td>
             <td class="tableCell">Unlimited Users
             </td>
@@ -155,7 +155,7 @@
           <tr>
             <td class="leftColumn">Single Sign on</td>
             <td class="valueDashed">&#8212;</td>
-            <td class="valueDashed">&#8212;</td>
+            <td class="valueChecked">✓</td>
             <td class="valueChecked">✓</td>
             <td class="valueChecked">✓</td>
           </tr>
@@ -219,7 +219,7 @@
             <td class="valueChecked">✓</td>
           </tr>
           <tr>
-            <td class="leftColumn textBold">Partners Stores Admin</td>
+            <td class="leftColumn textBold">Partner Stores Admin</td>
             <td class="valueDashed">&#8212;</td>
             <td class="valueDashed">&#8212;</td>
             <td class="valueChecked">✓</td>
