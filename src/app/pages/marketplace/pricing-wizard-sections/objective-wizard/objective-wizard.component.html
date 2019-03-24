@@ -1,0 +1,9 @@
+<div>
+  <h2 class="wizardTitle">Step {{currStepNumber + 1}} - Objective(s)</h2>
+  <p class="wizardSubtitle">What is/are your main objective(s)?</p>
+  <div>
+    <li class="list-group-item .col-xs-12" *ngFor="let item of itemsList; let i = index">
+      <mat-checkbox class="example-margin" [(ngModel)]="itemsList[i].isChecked">{{item.name}}</mat-checkbox>
+    </li>
+  </div>
+</div>

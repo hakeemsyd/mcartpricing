@@ -1,0 +1,60 @@
+.wizardSubtitleDark {
+  /* background: red; */
+  text-align: center;
+}
+
+:host .intl-tel-input {
+  width: 100% !important;
+}
+
+.formContainer {
+  justify-content: center;
+  /* background: blanchedalmond; */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.form-control {
+  height: 30px;
+}
+
+.inputTitle {
+  /* background: red; */
+  font-size: 12px;
+  color: #666666;
+  font-weight: bold;
+}
+
+.inputBox {
+  padding: 0px 5px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #515151;
+  margin-bottom: 30px;
+  font-weight: 400;
+  height: 30px;
+  border: 1px solid #ddd;
+  width: 100%;
+  max-width: 450px;
+  flex: 1;
+}
+
+.teleFlag {
+  height: 30px;
+  width: 40px;
+  padding: 0px 3px;
+  background: #7ce1d9;
+  position: absolute;
+  /* border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+   */
+}
+
+.teleInput {
+  padding-left: 45px;
+}
