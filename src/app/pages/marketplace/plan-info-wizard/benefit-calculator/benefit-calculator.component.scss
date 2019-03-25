@@ -112,7 +112,7 @@
 .benefitHeader {
   font-size: 16px;
   color: #444444;
-  font-weight: 'bold';
+  font-weight: bolder;
   text-align: 'left';
 }
 
@@ -121,10 +121,11 @@
 }
 
 .benefitDetailText {
-  font-size: 14px;
+  font-size: 11px;
   line-height: 16px;
   color: #444444;
   text-align: 'left';
+  font-weight: lighter;
   padding: 0;
   /* background: red; */
 }
