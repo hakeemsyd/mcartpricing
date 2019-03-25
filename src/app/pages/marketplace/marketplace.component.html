@@ -1,0 +1,252 @@
+<div class="jumbotron-fluid">
+  <p class="jumbotronHeader"> Find the right plan for your business</p>
+  <p class="jumbotronSubHeader">Plug in your desired numbers in our Plan Calculator to discover your perfect plan</p>
+</div>
+
+<div class="container-fluid mainContainer row">
+  <div class="col-lg-8 col-md-12 leftContainer">
+    <div class="billingContainer row">
+      <div class="billingInnerContainer col-md-4 col-sm-6 col-xs-12">
+        <p class="billingHeader">Approximate Profit:</p>
+        <p class="billingSubHeader">{{getTotalProfit()}}</p>
+      </div>
+      <div class="billingInnerContainer col-md-4 col-sm-6 col-xs-12">
+        <p class="billingHeader">Price Range:</p>
+        <p class="billingSubHeader">{{getPriceRange()}}</p>
+      </div>
+      <div class="btn-group billingInnerContainer col-md-4 col-sm-6 col-xs-12" role="group">
+        <button type="button" [disabled]="isCurrStepBeforeGMV()" class="btn buttonPricing" (click)="onClickPlan(0)"
+          [ngStyle]="annualStyle">
+          Annual Billing
+        </button>
+        <button type="button" [disabled]="isCurrStepBeforeGMV()" class="btn buttonPricing" (click)="onClickPlan(1)"
+          [ngStyle]="monthlyStyle">Monthly
+          Billing
+        </button>
+      </div>
+    </div>
+    <div #pricingWizardDiv class="wizard col-xs-12">
+      <app-pricing-wizard (stepChanged)="stepChangedHandler($event)" class="col-xs-12"></app-pricing-wizard>
+    </div>
+  </div>
+  <div class="col-lg-2 col-md-12 adsContainer">
+    <app-plan-info-wizard (showBenefitDetailTable)="onBenefitEventChange($event)"
+      [isCurrStepBeforeGMV]="isCurrStepBeforeGMV()" [currPlanTier]="getCurrPlanTier()"></app-plan-info-wizard>
+  </div>
+</div>
+<!-- getShowHideBenefitPanel() -->
+<div *ngIf="getShowBenefitTable()" #benefitTable class="benefitInfoPanel col-xs-12">
+  <app-benefit-calculator></app-benefit-calculator>
+</div>
+
+<div #planTable class="tableContainer">
+
+  <div class="table-responsive tableInnerContainer">
+    <p class="planTitle">Compare Plans</p>
+
+    <div class="tableUnitContainer">
+      <table class="table table-bordered ">
+        <thead class="thead-light">
+          <tr>
+            <th class="tableHeader"></th>
+            <th class="tableHeader">Pilot</th>
+            <th class="tableHeader">Standard</th>
+            <th class="tableHeader">Enterprise</th>
+            <th class="tableHeader">High-Volume</th>
+          </tr>
+        </thead>
+        <tbody class="tableBody">
+          <tr>
+            <td class="leftColumn">Commission</td>
+            <td class="tableCell">None</td>
+            <td class="tableCell">5% of the affiliate sales rev</td>
+            <td class="tableCell">2% of the affiliate sales rev</td>
+            <td class="tableCell">Contact Us</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tableUnitContainer">
+      <p class="tableTitle">Supported Stores</p>
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th class="tableHeader"></th>
+            <th class="tableHeader">Pilot</th>
+            <th class="tableHeader">Standard</th>
+            <th class="tableHeader">Enterprise</th>
+            <th class="tableHeader">High-Volume</th>
+          </tr>
+        </thead>
+        <tbody class="tableBody">
+          <tr>
+            <td class="leftColumn"># of supported stores (Already supported)</td>
+            <td class="tableCell">1</td>
+            <td class="tableCell">2-10</td>
+            <td class="tableCell">Up to 30</td>
+            <td class="tableCell">All</td>
+          </tr>
+          <tr>
+            <td class="leftColumn"># of supported stores (New)</td>
+            <td class="tableCell">$10k/Store</td>
+            <td class="tableCell">$10k/Store</td>
+            <td class="tableCell">$10k/Store</td>
+            <td class="tableCell">$5k/Store</td>
+          </tr>
+          <tr>
+            <td class="leftColumn"># of Product Categories</td>
+            <td class="tableCell">100</td>
+            <td class="tableCell">300</td>
+            <td class="tableCell">800</td>
+            <td class="tableCell">Unlimited</td>
+          </tr>
+          <tr>
+            <td class="leftColumn"># of SKUs</td>
+            <td class="tableCell">10,000</td>
+            <td class="tableCell">Up to 1 Million</td>
+            <td class="tableCell">Up to 10 Million</td>
+            <td class="tableCell">Unlimited</td>
+          </tr>
+          <tr>
+            <td class="leftColumn textItalic"># of mCarts</td>
+            <td class="tableCell">100</td>
+            <td class="tableCell">1500</td>
+            <td class="tableCell">5000</td>
+            <td class="tableCell">Unlimited</td>
+          </tr>
+          <tr>
+            <td class="leftColumn textItalic ">
+              <div class="user-padding"> # of Users </div>
+            </td>
+            <td class="tableCell">Up to <br />
+              - 100k Shoppers<br />
+              - 50 Influencers<br />
+              - 1 Admin
+            </td>
+            <td class="tableCell">Up to <br />
+              - 1 Million Shoppers <br />
+              - 200 Influencers <br />
+              - 30 Sales People <br />
+              - 5 Admin ( 1 Super <br /> Admin, 2 <br />Marketing, 2 <br /> Editorial)
+            </td>
+            <td class="tableCell">Up to <br />
+              - 3 Million Shoppers<br />
+              - 1000 Influencers <br />
+              - 200 Sales People<br />
+              - 12 Admin ( 2 <br />Super Admin, 10 <br />Marketing, 5 <br />Editorial, 1<br /> Analytical )
+            </td>
+            <td class="tableCell">Unlimited Users
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--Table-->
+    <div class="tableUnitContainer">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th class="tableHeader"></th>
+            <th class="tableHeader">Pilot</th>
+            <th class="tableHeader">Standard</th>
+            <th class="tableHeader">Enterprise</th>
+            <th class="tableHeader">High-Volume</th>
+          </tr>
+        </thead>
+        <tbody class="tableBody">
+          <tr>
+            <td class="leftColumn">Single Sign on</td>
+            <td class="valueDashed">&#8212;</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tableUnitContainer">
+
+      <p class="tableTitle">User's Dashboards</p>
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th class="tableHeader"></th>
+            <th class="tableHeader">Pilot</th>
+            <th class="tableHeader">Standard</th>
+            <th class="tableHeader">Enterprise</th>
+            <th class="tableHeader">High-Volume</th>
+          </tr>
+        </thead>
+        <tbody class="tableBody">
+          <tr>
+            <td class="leftColumn">Shoppers</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+          </tr>
+          <tr>
+            <td class="leftColumn">Influencers</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+          </tr>
+          <tr>
+            <td class="leftColumn">Super Admin</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+          </tr>
+          <tr>
+            <td class="leftColumn textItalic">Admin(Marketing)</td>
+            <td class="valueDashed">&#8212;</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+          </tr>
+          <tr>
+            <td class="leftColumn textItalic">Admin(Editorial)</td>
+            <td class="valueDashed">&#8212;</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+          </tr>
+          <tr>
+            <td class="leftColumn textItalic">Admin(Analytical)</td>
+            <td class="valueDashed">&#8212;</td>
+            <td class="valueDashed">&#8212;</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+          </tr>
+          <tr>
+            <td class="leftColumn textBold">Partner Stores Admin</td>
+            <td class="valueDashed">&#8212;</td>
+            <td class="valueDashed">&#8212;</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+          </tr>
+          <tr>
+            <td class="leftColumn textItalic">Omnichannel Sales People</td>
+            <td class="valueDashed">&#8212;</td>
+            <td class="valueDashed">&#8212;</td>
+            <td class="valueChecked">✓</td>
+            <td class="valueChecked">✓</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div>
+  <div class="d-none d-xl-block" style="background: #007bff; color: #fff; padding: 5px; text-align: center;">XL</div>
+  <div class="d-none d-lg-block d-xl-none" style="background: #27a745; color: #fff; padding: 5px; text-align: center;">
+    LG</div>
+  <div class="d-none d-md-block d-lg-none" style="background: #ffc108; color: #fff; padding: 5px; text-align: center;">
+    MD</div>
+  <div class="d-none d-sm-block d-md-none" style="background: #18a2b8; color: #fff; padding: 5px; text-align: center;">
+    SM</div>
+  <div class="d-block d-sm-none" style="background: #dc3545; color: #fff; padding: 5px; text-align: center;">XS</div>
+
+</div>

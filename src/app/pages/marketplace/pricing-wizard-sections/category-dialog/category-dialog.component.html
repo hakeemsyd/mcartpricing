@@ -1,0 +1,49 @@
+<div class="modal-header modalHeader">
+  <h4 class="modalTitle" id="modal-basic-title">Add Category</h4>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="form-group">
+      <div class="inputGroup">
+        <label class="inputLabel" for="storeName">Store Name</label>
+        <input id="storeName" placeholder="Nike" class="form-control">
+      </div>
+
+      <div class="inputGroup">
+        <label class="inputLabel" for="storeWebsite">Store Website</label>
+        <input id="storeName" class="form-control" placeholder="www.nike.com">
+      </div>
+      <div class="inputGroup">
+        <label class="inputLabel" for="storeWebsite">Region</label>
+        <div class="row">
+          <div class="col">
+            <div ngbDropdown class="dropdownContainer">
+              <button class="dropdownButton" id="dropdownBasic1" ngbDropdownToggle>{{selectedRegion.name}}</button>
+              <!-- <i class="fas fa-sort-down fa-2x dropdownIcon"></i> -->
+              <ul ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdownContainer">
+                <li *ngFor="let region of regions; let i = index">
+                  <button class="dropdown-item" (click)="onSelectRegion(region)">{{region.name}}</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="inputGroup">
+        <label class="inputLabel" for="storeWebsite">Direct Relationship</label>
+        <div class="row relationRow">
+          <mat-radio-button color="primary" class="example-radio-button" value="yes">
+            Yes
+          </mat-radio-button>
+          <mat-radio-button color="primary" class="example-radio-button" value="no">
+            No
+          </mat-radio-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="close()">Cancel</button>
+  <button type="button" class="btn btn-success add_store" (click)="close()">Add Store</button>
+</div>

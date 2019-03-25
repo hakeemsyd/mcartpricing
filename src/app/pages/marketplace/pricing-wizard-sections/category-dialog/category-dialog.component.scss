@@ -1,0 +1,128 @@
+:host {
+  padding: 0 !important;
+  display: block;
+  min-width: 380px;
+
+  .modal-content {
+    align-self: center;
+    margin: 0px 20px;
+    width: 90%;
+  }
+
+  .modal-body {
+    padding: 0px !important;
+  }
+
+  .modalHeader {
+    background: #f0f3fa;
+    padding: 0 10px;
+    height: 45px;
+
+    h4 {
+      padding-left: 20px;
+      font-size: 14px;
+      margin-bottom: 0px;
+      color: #363636;
+      font-weight: 600;
+      line-height: 45px;
+    }
+  }
+
+  .modalTitle {
+    font-size: 16px;
+    margin-bottom: 0px;
+    color: #363636;
+    font-weight: 600;
+  }
+
+  .form-group {
+    padding: 10px 20px;
+  }
+
+  .inputGroup {
+    margin-bottom: 20px;
+  }
+
+  .inputLabel {
+    font-size: 12px;
+    margin-bottom: 0px;
+    color: #363636;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .form-control {
+    font-size: 11px;
+    height: 30px;
+  }
+
+  .form-control:focus {
+    height: 32px;
+    border-color: #dedede;
+  }
+
+  .dropdownContainer {
+    width: 100%;
+    border-radius: 3px;
+  }
+
+  #dropdownBasic1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dropdown-item {
+    height: 30px;
+    font-size: 11px;
+    border-color: #dedede;
+    color: #363636;
+    background: white;
+  }
+
+  .dropdownTitle {
+    font-size: 12px;
+    color: #363636;
+    padding: 0px;
+    margin-top: 0;
+    cursor: pointer;
+  }
+
+  .dropdownIcon {
+    color: #363636;
+    padding: 0px;
+    margin-top: 0;
+  }
+
+  .custom-control-input {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .dropdownButton {
+    width: 100%;
+    height: 30px;
+    background: white;
+    font-size: 12px;
+    border-color: #dedede;
+    color: #363636;
+    border-radius: .25rem;
+  }
+
+  .radioLabel {
+    margin-left: 10px;
+    margin-right: 20px;
+  }
+
+  .add_store {
+    background: #ff756f;
+    border-color: #ff756f;
+  }
+
+  .relationRow {
+    justify-content: space-around;
+    width: 40%;
+    margin: 0px;
+  }
+}

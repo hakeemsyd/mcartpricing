@@ -1,0 +1,21 @@
+.textInput {
+  padding: 0px 5px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #515151;
+  margin-bottom: 30px;
+  font-weight: 400;
+  height: 30px;
+  border: 1px solid #ddd;
+  width: 100%;
+  max-width: 450px;
+}
+
+.inputGroup {
+  margin-bottom: 100px;
+  margin-top: 20px;
+}
+
+.form-control:focus {
+  height: 25px;
+}

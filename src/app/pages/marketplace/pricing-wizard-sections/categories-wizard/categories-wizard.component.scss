@@ -1,0 +1,60 @@
+.formClass {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-container {
+  border-width: 3px;
+  border-color: red;
+}
+
+.listItemContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: .0rem 1.25rem;
+  border-width: 0px;
+}
+
+.listHeader {
+  background: #f0f3fa;
+}
+
+.add_new {
+  border: 1px solid #81c1b6;
+  border-radius: 3px;
+  height: 30px;
+  margin: 0 1px;
+
+  .mat-icon {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+}
+
+.list-item-title {
+  font-size: 14px;
+  margin-bottom: 0px;
+  color: #363636;
+}
+
+.listAddStore {
+  color: #555555;
+}
+
+.oddListRow {
+  background: #f9f9f9;
+}
+
+.evenListRow {
+  background: #fdfdfd;
+}
+
+.suggested-stores {
+  margin-top: 22px;
+}

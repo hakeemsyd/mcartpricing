@@ -1,0 +1,176 @@
+<div class="row pricingWizard col-xs-12">
+
+  <aw-wizard #archWiz navBarLocation="bottom" navigationMode="free">
+    <!-- Step 1 Business Type-->
+    <aw-wizard-step (stepEnter)="enterStep(1)" stepId="selectBusiness">
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
+      <div class="wizardContainer">
+        <app-business-wizard [parentForm]="planCalculatorForm" [currStepNumber]="wizardCurrStep"
+          (valueChange)='refreshPaths($event)'></app-business-wizard>
+      </div>
+      <div class="navButtonContainer">
+        <button type="button" class="btn nextButton" (click)="onSubmitBusiness()" (click)="selectPath()">Next</button>
+      </div>
+    </aw-wizard-step>
+
+    <!-- Step 2 Objective-->
+    <aw-wizard-step (stepEnter)="enterStep(2)" stepId="selectObjective">
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
+      <div class="wizardContainer">
+        <app-objective-wizard [parentForm]="planCalculatorForm" [currStepNumber]="wizardCurrStep">
+        </app-objective-wizard>
+      </div>
+      <div class="navButtonContainer">
+        <button type="button" class="btn btn-outline-dark prevButton" (click)="goToPrevStep()">Back</button>
+        <button type="button" class="btn nextButton" (click)="onSubmitObjectives()">Next</button>
+      </div>
+    </aw-wizard-step>
+
+    <!-- Step 3 Sales-->
+    <aw-wizard-step (stepEnter)="enterStep(3)" stepId="saleInfo">
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
+      <div class="wizardContainer">
+        <app-sales-wizard [parentForm]="planCalculatorForm" [currStepNumber]="wizardCurrStep"></app-sales-wizard>
+      </div>
+      <div class="navButtonContainer">
+        <button type="button" class="btn btn-outline-dark prevButton" (click)="goToPrevStep()">Back</button>
+        <button type="button" class="btn nextButton" (click)="onSubmitSales()">Next</button>
+      </div>
+    </aw-wizard-step>
+
+    <!-- Step 4 GMV-->
+    <aw-wizard-step (stepEnter)="enterStep(4)" stepId="gmv">
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
+      <div class="wizardContainer">
+        <app-gmv-wizard #gmvComponent [parentForm]="planCalculatorForm" [currStepNumber]="wizardCurrStep">
+        </app-gmv-wizard>
+      </div>
+      <div class="navButtonContainer">
+        <button type="button" class="btn btn-outline-dark prevButton" (click)="goToPrevStep()">Back</button>
+        <button type="button" class="btn nextButton" (click)="onSubmitGMV()" (click)="goToNextStep()">Next</button>
+      </div>
+    </aw-wizard-step>
+
+    <!-- Step 5 Supported Stores-->
+    <aw-wizard-step (stepEnter)="enterStep(5)" stepId="selectStores">
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
+      <div class="wizardContainer">
+        <app-store-wizard [parentForm]="planCalculatorForm" [currStepNumber]="wizardCurrStep"></app-store-wizard>
+      </div>
+      <div class="navButtonContainer">
+        <button type="button" class="btn btn-outline-dark prevButton" (click)="goToPrevStep()">Back</button>
+        <button type="button" (click)="onSubmitStores()" class="btn nextButton" (click)="goToNextStep()">Next</button>
+      </div>
+    </aw-wizard-step>
+
+    <!-- Step 6 Choose categories-->
+    <aw-wizard-step (stepEnter)="enterStep(6)" stepId="selectCategories">
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
+      <div class="wizardContainer">
+        <app-categories-wizard [parentForm]="planCalculatorForm" [currStepNumber]="wizardCurrStep">
+        </app-categories-wizard>
+      </div>
+      <div class="navButtonContainer">
+        <button type="button" class="btn btn-outline-dark prevButton" (click)="goToPrevStep()">Back</button>
+        <button type="button" (click)="onSubmitCategories()" (click)="goToNextStep()"
+          class="btn nextButton">Next</button>
+      </div>
+    </aw-wizard-step>
+
+    <!-- Step 7 Influencers-->
+    <aw-wizard-step (stepEnter)="enterStep(7)" stepId="selectInfluencers">
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
+      <div class="wizardContainer">
+        <app-influencers-wizard [parentForm]="planCalculatorForm" [currStepNumber]="wizardCurrStep">
+        </app-influencers-wizard>
+      </div>
+      <div class="navButtonContainer">
+        <button type="button" class="btn btn-outline-dark prevButton" (click)="goToPrevStep()">Back</button>
+        <button type="button" (click)="onSubmitInfluencers()" class="btn nextButton"
+          (click)="goToNextStep()">Next</button>
+      </div>
+    </aw-wizard-step>
+
+    <!-- Step 8 Users-->
+    <aw-wizard-step (stepEnter)="enterStep(8)" stepId="getUsersPlan">
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
+      <div class="wizardContainer">
+        <app-users-wizard [parentForm]="planCalculatorForm" [currStepNumber]="wizardCurrStep"></app-users-wizard>
+      </div>
+      <div class="navButtonContainer">
+        <button type="button" class="btn btn-outline-dark prevButton" (click)="goToPrevStep()">Back</button>
+        <button type="button" (click)="onSubmitUsers()" class="btn nextButton" (click)="goToNextStep()">Next</button>
+      </div>
+    </aw-wizard-step>
+
+    <!-- Step 9 Other options-->
+    <aw-wizard-step (stepEnter)="enterStep(9)" stepId="getQuote">
+      <div class="wizardHeaderContainer col-xs-12">
+        <h2 class="wizardHeader">Request a quote</h2>
+      </div>
+      <div class="wizardContainer">
+        <app-quote-personal-info [parentForm]="planCalculatorForm"></app-quote-personal-info>
+      </div>
+      <div class="col-xs-12 navButtonContainer row">
+        <button type="button" class="btn btn-outline-dark prevButton col-sm-2 col-xs-12"
+          (click)="goToPrevStep()">Back</button>
+        <div class="row col-xs-12">
+          <button type="button" (click)="onSubmitQuote()" class="btn quoteButton col-sm-2 col-xs-12">Get a
+            quote</button>
+          <button type="button" class="btn scheduleButton col-sm-3 col-xs-12">Schedule your kick-off
+            demo</button>
+        </div>
+      </div>
+    </aw-wizard-step>
+
+    <aw-wizard-step stepId="storeOptions">
+      <div class="wizardHeaderContainer col-xs-12">
+        <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>
+        <h2 class="wizardHeader">Plan Calculator</h2>
+      </div>
+      <div class="wizardContainer">
+        <app-store-options-wizard [parentForm]="planCalculatorForm" [currStepNumber]="wizardCurrStep">
+        </app-store-options-wizard>
+      </div>
+      <div class="navButtonContainer">
+        <button type="button" class="btn btn-outline-dark prevButton" (click)="goToPrevStep()">Back</button>
+        <button type="button" (click)="onSubmitStoreOptions()" class="btn nextButton">Next</button>
+      </div>
+    </aw-wizard-step>
+  </aw-wizard>
+</div>
+<!-- <div class="container">
+  <input type="checkbox" [(ngModel)]="showWizardFormValues" [ngModelOptions]="{standalone: true}" />
+  <p>Show Price Wizard Values</p>
+</div> -->
+<!-- <div class="row pricingWizard col-xs-12">
+
+  <div *ngIf="showWizardFormValues">
+    <pre>{{planCalculatorForm.value | json}}</pre>
+  </div>
+
+</div> -->
