@@ -29,12 +29,11 @@ export const MediaBenefitItem: IBenefitItem[] = [
     ],
   },
   {
-    heading: 'Managing An External Salesforce with No Back Office Efforts',
-    icon: 'managing-external-salesforce.png',
-    description: 'Your original content is influencing articles, blogs, and social posts, and their creators can commercially exploit it without giving you a penny. mCart allows those creators to be part of your team and get paid without any back-office accounting through a digital wallet on blockchain.',
+    heading: 'Actionable Data & CRM',
+    icon: 'actionable-data-crm.png',
+    description: 'Get data about every step along the path to purchase to learn more about your audience-turned-customers and what’s driving them to buy or pass. Then put all that data to use with mCart’s AI-driven CRM.',
     mainImage: [
-      'contextual-commerce.jpg',
-      'featured-mcarts-products-tables.png',
+      'iMac-display-monitor-with-complete-info.png',
     ],
   },
   {
@@ -47,13 +46,15 @@ export const MediaBenefitItem: IBenefitItem[] = [
     ],
   },
   {
-    heading: 'Actionable Data & CRM',
-    icon: 'actionable-data-crm.png',
-    description: 'Get data about every step along the path to purchase to learn more about your audience-turned-customers and what’s driving them to buy or pass. Then put all that data to use with mCart’s AI-driven CRM.',
+    heading: 'Managing An External Salesforce with No Back Office Efforts',
+    icon: 'managing-external-salesforce.png',
+    description: 'Your original content is influencing articles, blogs, and social posts, and their creators can commercially exploit it without giving you a penny. mCart allows those creators to be part of your team and get paid without any back-office accounting through a digital wallet on blockchain.',
     mainImage: [
-      'iMac-display-monitor-with-complete-info.png',
+      'contextual-commerce.jpg',
+      'featured-mcarts-products-tables.png',
     ],
   },
+
   {
     heading: 'Social media centralization and monetization',
     icon: 'social-media-centralization.png',
@@ -199,7 +200,7 @@ export const MallsBenefit: IBenefitItem[] = [
     description: 'All influencers—from your aunt to the biggest Hollywoods stars—can make mCart smart shopping carts, promote them on social media and in content, and seamlessly receive payment for their influence using blockchain.',
     mainImage: [
       'create-and-promote-mcart-in-3-easy-steps.png',
-      'contexual-commerce-impression-purchase.png',
+      'contextual-commerce.jpg',
     ],
   },
   {
@@ -207,7 +208,7 @@ export const MallsBenefit: IBenefitItem[] = [
     icon: 'shop-in-real-world-context.png',
     description: 'mCart Shop-able Walls on Sharp interactive displays and mCarts posted behind content make cross-touchpoint shopping experience possible. Shoppers discover products in real-world context, and then send their carts from content or Walls to their phone, share with others or communicate with on-site salespeople.',
     mainImage: [
-      'shopping-real-world-context.png',
+      'shopping-real-world-context.jpg',
     ],
   },
   {
