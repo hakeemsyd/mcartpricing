@@ -90,9 +90,10 @@ export const CPGBenefit: IBenefitItem[] = [
     icon: 'Smart-Centralized-trade-promotions.png',
     description: 'mCart’s AI-powered, dynamic and personalized promotion management portal let CPGs control their trade-spend efficiency by sending adjustable and segmented promotions only to consumers who are already active on the path to purchase.',
     mainImage: [
-      'trade-promotion-ad-product-medinatura.png',
-      'add-new-personal-promo-code.png',
       'trade-promotion-price-drop-alerts.png',
+      'add-new-personal-promo-code.jpg',
+      'trade-promotion-ad-product-medinatura.png',
+      
     ],
   },
   {
@@ -100,8 +101,8 @@ export const CPGBenefit: IBenefitItem[] = [
     icon: 'shop-in-real-world-context.png',
     description: 'mCart Shop-able Walls on Sharp interactive displays and mCarts posted behind content make the mCart cross-touchpoint shopping experience possible. Shoppers discover products in real-world context, and then send carts to their phone, share with others or communicate with on-site salespeople.',
     mainImage: [
-      'shopping-real-world-context.png',
-      'contexual-commerce-impression-purchase.png',
+      'shopping-real-world-context.jpg',
+      'contextual-commerce-impression-purchase.png',
     ],
   },
   {
@@ -127,7 +128,7 @@ export const CPGBenefit: IBenefitItem[] = [
     description: 'mCarts are integrated with all major social media platforms, letting you monetize your brand’s social influence on consumers.',
     mainImage: [
       'mCart-social-media-share-links-url-qrcode.png',
-      'contexual-commerce-impression-purchase.png',
+      'contextual-commerce-impression-purchase.png',
     ],
   },
 

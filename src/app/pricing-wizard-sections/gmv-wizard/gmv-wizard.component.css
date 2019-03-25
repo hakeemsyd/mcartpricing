@@ -3,7 +3,7 @@
   margin-left: 10px;
 }
 
-.gmv {
+.col-xs-12 .gmv {
   border-left: 2px solid #e1e1e1;
   padding-left: 15px;
   font-size: 12px;
@@ -22,11 +22,14 @@
   font-weight: 500;
   letter-spacing: .6px;
   margin-bottom: 0px;
+  margin-bottom: 0px;
+  margin-right: 40px;
+  
   color: #444444;
   border: 1px solid #f3f3f3;
 }
 
-.col-xs-12 .gmv {
+ .gmv {
   border-left: 0px;
   padding-left: 0px;
   font-size: 12px;
@@ -42,7 +45,7 @@
 }
 
 .gmvRowWithCheckbox {
-  display: flex;
+  display: flex;  
   justify-content: center;
   align-items: center;
 
@@ -50,7 +53,7 @@
 }
 
 .row {
-  margin-left: 0px;
+  margin-left: 5px;
   align-items: center;
   /* background: red; */
 }
@@ -159,6 +162,7 @@
 
 :ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
   background-color: red !important;
+  /* margin-left:auto; */
 }
 
 :ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
