@@ -1,6 +1,6 @@
 <div>
   <h2 class="wizardTitle">Step {{currStepNumber + 1}} - GMV</h2>
-  <p class="wizardSubtitle">Pick your desired revenue and influencer payout and commission that you want to pay to see
+  <p class="wizardSubtitle text-justify">Pick your desired revenue and influencer payout and commission that you want to pay to see
     your approximate profit
     and platform cost. You can fine-tune these numbers in the next steps</p>
   <div>
@@ -11,17 +11,19 @@
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Info_icon-72a7cf.svg/768px-Info_icon-72a7cf.svg.png"
           class="infoIcon" />
       </div>
-
-      <div class="row col-xs-12 col-sm-7">
+      <div class="row  ">  <!--   -->
           <input id="gmvInput" [disabled]="checkIfGreateThan100B()" class="gmvInput" matInput type="number" (input)="onGMVValueInput($event)" placeholder="Enter GMV"
            [(ngModel)]="gmvSlider.value" >
         <!-- <p class="gmvInput">{{gmvSlider.value}}</p> -->
-        <div class="gmvRowWithCheckbox">
+        <div class="row gmvRowWithCheckbox ">
           <h4 class="gmv">Greate than $100b</h4>
-          <mat-checkbox type="checkbox" [(ngModel)]="greaterThan100B" (input)="toggleGreaterThan100B($event)">
-          </mat-checkbox>
+          <div class="d-flex align-items-center">
+            <mat-checkbox type="checkbox" [(ngModel)]="greaterThan100B" (input)="toggleGreaterThan100B($event)">
+            </mat-checkbox>
+         </div>
         </div>
       </div>
+
       <mat-slider id='gmvSlider' [disabled]="checkIfGreateThan100B()" class="matSliders" md-discrete [max]="gmvSlider.max" [min]="gmvSlider.min"
         (mouseup)="calculateGMVProfile($event)" (input)="calculateGMVProfile($event)" [(ngModel)]="gmvSlider.value" [step]="1" 
         thumbLabel [displayWith]="getGMVThumbValue">
