@@ -20,7 +20,11 @@ export class PricingWizardManagerService {
         businessType: ['media', [Validators.required]],
         otherBusiness: new FormControl({ value: '', disabled: true })
       }),
-      objective: ['', [Validators.required]]
+      objectives: ['', [Validators.required]],
+      sales: this._fb.group({
+        salesChannel: [0 as number, [Validators.required, Validators.min(1)]],
+        globalChannel: [0 as number, [Validators.required, Validators.min(1)]]
+      }),
     })
 
     this.businessType.valueChanges.subscribe(val => {
@@ -40,6 +44,10 @@ export class PricingWizardManagerService {
   get businessInfo() { return this.marketPlaceCalculatorForm.get('business_info') };
   get businessType() { return this.marketPlaceCalculatorForm.get('business_info.businessType') };
   get otherBusiness() { return this.marketPlaceCalculatorForm.get('business_info.otherBusiness') };
+  get objectives() { return this.marketPlaceCalculatorForm.get('objectives') };
+  get sales() { return this.marketPlaceCalculatorForm.get('sales') };
+  get salesChannel() { return this.marketPlaceCalculatorForm.get('sales.salesChannel') };
+  get globalChannel() { return this.marketPlaceCalculatorForm.get('sales.globalChannel') };
 
 
   // mark all controls dirty

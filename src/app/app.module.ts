@@ -9,6 +9,7 @@ import { MatIconModule, MatCardModule, MatCheckboxModule, MatSliderModule, MatRa
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import 'hammerjs';
 
+import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
 import { MarketplaceComponent } from './pages/marketplace/marketplace.component';
@@ -29,7 +30,7 @@ import { BenefitCalculatorComponent } from './pages/marketplace/plan-info-wizard
 import { McartPlanTierInfoComponent } from './pages/marketplace/plan-info-wizard/mcart-plan-tier-info/mcart-plan-tier-info.component';
 import { BenefitsSidebarComponent } from './pages/marketplace/plan-info-wizard/benefits-sidebar/benefits-sidebar.component';
 import { CategoryDialogComponent } from './pages/marketplace/pricing-wizard-sections/category-dialog/category-dialog.component';
-import {Ng2TelInputModule} from 'ng2-tel-input';
+import { Ng2TelInputModule } from 'ng2-tel-input';
 
 const routes: Routes = [
   {
@@ -86,6 +87,9 @@ const routes: Routes = [
     MatCardModule,
     MatIconModule,
     MatButtonToggleModule,
+    ToastrModule.forRoot({
+      preventDuplicates: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

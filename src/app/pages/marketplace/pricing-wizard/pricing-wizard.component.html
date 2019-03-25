@@ -28,8 +28,7 @@
       </div>
       <div class="navButtonContainer">
         <button type="button" class="btn btn-outline-dark prevButton" (click)="goToPrevStep()">Back</button>
-        <button type="button" class="btn nextButton" (click)="onSubmitObjectives()"
-          (click)="goToNextStep()">Next</button>
+        <button type="button" class="btn nextButton" (click)="onSubmitObjectives()">Next</button>
       </div>
     </aw-wizard-step>
 
@@ -147,7 +146,7 @@
         </div>
       </div>
     </aw-wizard-step>
-    
+
     <aw-wizard-step stepId="storeOptions">
       <div class="wizardHeaderContainer col-xs-12">
         <p id="wizardPageNumber">{{getCurrentStep()}}/{{getTotalSteps()}}</p>

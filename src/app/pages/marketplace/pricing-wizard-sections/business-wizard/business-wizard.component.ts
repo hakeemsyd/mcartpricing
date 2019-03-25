@@ -28,5 +28,39 @@ export class BusinessWizardComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    this.onRadioSelect(this.itemsList[0]);
+  }
+
+  onRadioSelect(item: Item) {
+    this.selectedItem = item;
+    this.parentForm.controls['businessType'].setValue(item);
+    this.pricingWizardManagerService.changeSelectedBusiness(item);
+    this.valueChange.emit();
+  }
+
+  onSubmitBusiness(): boolean {
+    if (this.selectedItem) {
+      let item = this.selectedItem;
+      item.otherValue = this.otherValue;
+      this.parentForm.controls['businessType'].setValue(item);
+      return true;
+    }
+    return false;
+  }
+
+  checkIfItemIsOthers(item: Item): boolean {
+    if (item.value === 'other') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isOtherCheckboxSelected(): boolean {
+    if (this.radioSelected === 'other') {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

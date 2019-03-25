@@ -14,6 +14,7 @@ import { SalesWizardComponent } from '../pricing-wizard-sections/sales-wizard/sa
 import { StoreOptionsWizardComponent } from '../pricing-wizard-sections/store-options-wizard/store-options-wizard.component';
 import { WizardComponent } from 'modules/angular-archwizard';
 import { PricingWizardManagerService } from '../marketplace.service';
+import { ToastrService } from 'ngx-toastr';
 
 interface Store {
   name: String;
@@ -61,6 +62,7 @@ export class PricingWizardComponent implements OnInit {
   showWizardFormValues = true;
 
   constructor(private fb: FormBuilder,
+    private toastr: ToastrService,
     private pricingWizardManagerService: PricingWizardManagerService) { }
 
   ngOnInit() {
@@ -109,17 +111,22 @@ export class PricingWizardComponent implements OnInit {
       this.salesWizardInstance.loadSalesVariables();
       this.goToNextStep();
       this.selectPath();
+    } else {
+      this.toastr.warning('Please select business type to proceed.', 'Alert');
     }
   }
 
 
   onSubmitObjectives() {
-    this.objectivesWizardInstance.submitObjectives();
+    if (this.pricingWizardManagerService.objectives.invalid)
+      this.toastr.warning('Please select business type to proceed.', 'Alert');
+    else
+      this.goToNextStep();
   }
 
   onSubmitSales() {
-    const isValid = this.salesWizardInstance.submitSales();
-    if (isValid) {
+    this.salesWizardInstance.submitSales();
+    if (this.pricingWizardManagerService.sales.valid) {
       this.gmvWizardInstance.loadGMVVariables();
       this.goToNextStep();
     }

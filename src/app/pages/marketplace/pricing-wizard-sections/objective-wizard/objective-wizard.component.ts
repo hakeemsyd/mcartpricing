@@ -30,13 +30,13 @@ export class ObjectiveWizardComponent implements OnInit {
 
   }
 
-  submitObjectives() {
+  objectiveSelected(item) {
     let checkedValues = [];
     this.itemsList.forEach(item => {
       if (item.isChecked === true) {
         checkedValues.push(item);
       }
     });
-    this.parentForm.controls['objectives'].setValue(checkedValues);
+    this.pricingWizardManagerService.objectives.setValue(checkedValues);
   }
 }
