@@ -1,0 +1,40 @@
+<div class="container">
+  <h2 class="wizardTitle">Step {{currStepNumber + 1}} - Choose your categories</h2>
+  <p class="wizardSubtitle">Select any category that wish to support in your marketplace</p>
+
+  <div>
+    <ul class="list-group list-container">
+      <li class="list-group-item listHeader listItemContainer">
+        <p class="list-item-title"><b>Categories List</b></p>
+        <mat-checkbox class="radioButton" (change)="onTriggerSelectAllCategories()"
+          [(ngModel)]="selectAllCategoriesChecked"></mat-checkbox>
+      </li>
+      <li class="list-group-item listItemContainer" *ngFor="let order of categoriesListWCheck; let i = index;"
+        [ngClass]="{oddListRow: (i % 2) === 1, evenListRow: (i % 2) === 0 }">
+        <p class="list-item-title">{{order.name}}</p>
+        <mat-checkbox class="radioButton" [(ngModel)]="categoriesListWCheck[i].isChecked"></mat-checkbox>
+      </li>
+      <li (click)="openDialog()" class="list-group-item listItemContainer add_new"> <b>
+          <p class="list-item-title">Add new category
+            <mat-icon color="primary">add_circle</mat-icon>
+          </p>
+        </b>
+      </li>
+    </ul>
+  </div>
+
+  <div class="suggested-stores">
+    <ul class="list-group list-container">
+      <li class="list-group-item listHeader listItemContainer">
+        <p class="list-item-title"><b>Suggested Categories</b></p>
+        <mat-checkbox class="radioButton" (change)="onTriggerSelectAllSuggestedCategories()"
+          [(ngModel)]="selectAllSuggestedCategoriesChecked"></mat-checkbox>
+      </li>
+      <li class="list-group-item listItemContainer" *ngFor="let order of suggestedCategoriesListWCheck; let i = index;"
+        [ngClass]="{oddListRow: (i % 2) === 1, evenListRow: (i % 2) === 0 }">
+        <p class="list-item-title">{{order.name}}</p>
+        <mat-checkbox class="radioButton" [(ngModel)]="suggestedCategoriesListWCheck[i].isChecked"></mat-checkbox>
+      </li>
+    </ul>
+  </div>
+</div>
