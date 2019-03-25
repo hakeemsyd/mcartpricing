@@ -1,0 +1,193 @@
+  * {
+    font-family: Roboto;
+  }
+
+  .jumbotron-fluid {
+    background: rgb(255, 255, 255);
+    border-top: solid #e1e1e1 2px;
+    border-bottom: solid #e1e1e1 2px;
+    height: 200px;
+    /* padding: 3rem 2rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 100%;
+  }
+
+  .jumbotronHeader {
+    font-size: 36px;
+    color: #797979;
+    font-weight: lighter;
+    text-align: center;
+    line-height: 37px;
+    padding: 0px 10px;
+  }
+
+  .jumbotronSubHeader {
+    font-size: 14px;
+    color: #333333;
+    font-weight: 400;
+    text-align: center;
+    line-height: 15px;
+    padding: 0px 10px;
+  }
+
+  .mainContainer {
+    margin: 0px;
+    margin-top: 20px;
+    align-self: center;
+    justify-content: center;
+  }
+
+  .leftContainer {
+    justify-content: center;
+    padding-left: 0px;
+  }
+
+  .billingContainer {
+    margin: 35px 0px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(181, 167, 181, 1);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(181, 167, 181, 1);
+    box-shadow: 0px 0px 20px 0px rgba(181, 167, 181, 1);
+  }
+
+  .billingInnerContainer {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    border-radius: 5px;
+  }
+
+  .billingHeader {
+    font-weight: bolder;
+    color: #444444;
+    font-size: 15px;
+    margin-right: 20px;
+    margin-top: 16px;
+  }
+
+  .billingSubHeader {
+    font-weight: lighter;
+    color: #444444;
+    font-size: 14px;
+    margin-top: 16px;
+  }
+
+  .buttonPricing {
+    outline: none;
+    border: 0;
+    font-size: 10px;
+    font-weight: 400;
+  }
+
+  .wizard {
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(181, 167, 181, 1);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(181, 167, 181, 1);
+    box-shadow: 0px 0px 20px 0px rgba(181, 167, 181, 1);
+    margin: 35px 0px;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .adsContainer {
+    background-color: transparent;
+    margin: 35px 20px;
+    padding: 0px;
+    min-height: 150px;
+  }
+
+  .benefitInfoPanel {
+    padding: 40px 0px;
+  }
+
+  ::ng-deep .tableContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .planTitle {
+    font-weight: bold;
+    font-size: 30px;
+    color: #444444;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 60px;
+  }
+
+  .table-responsive {
+    /* background: burlywood; */
+    width: 100%;
+  }
+
+  .tableInnerContainer {
+    width: 86%;
+    border-top: 1px solid #f3f3f3;
+  }
+
+  .tableUnitContainer {
+    margin-bottom: 80px;
+  }
+
+  ::ng-deep .thead-light {
+    max-height: 26px;
+    font-size: 14px;
+    background: #f0f3fa;
+    text-align: center;
+    font-weight: 900;
+    color: #666666;
+  }
+
+  ::ng-deep .tableBody {
+    font-size: 16px;
+    font-weight: 100;
+  }
+
+  ::ng-deep .leftColumn {
+    background: #f0f3fa;
+    width: 20%;
+    font-weight: 900;
+    font-size: 16px;
+    color: #666666;
+  }
+
+  ::ng-deep .tableCell {
+    width: 20%;
+    font-weight: 100;
+    color: #858585;
+  }
+
+  ::ng-deep .valueChecked {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 100;
+    color: #ff756f;
+  }
+
+  ::ng-deep .valueDashed {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 100;
+    color: #858585;
+    background: #f3f3f3;
+  }
+
+  .tableTitle {
+    font-size: 16px;
+    color: #666666;
+    font-weight: bold;
+  }

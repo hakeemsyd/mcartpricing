@@ -1,0 +1,56 @@
+.spectrum {
+  width: 230px;
+  height: 230px;
+  margin: 10px 0px;
+  padding: 10px;
+}
+
+.storeContainer {
+  margin: 10px 0px;
+  width: 90%;
+}
+
+.storeIcon {
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+.storeSingleRow {
+  margin: 10px 20px;
+  display: flex;
+  align-self: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.storeRow {
+  margin: 10px 10px;
+  display: flex;
+  align-self: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  /* background: pink; */
+  width: 90%;
+}
+
+.storeCol {
+  display: flex;
+  flex-direction: column;
+  width: 70px;
+  /* background: lightblue; */
+  justify-content: flex-start;
+  align-items: center;
+  align-self: flex-start;
+}
+
+.storeNum {
+  font-size: 12px;
+  color: #444444;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.viewFullContainer {
+  cursor: pointer;
+}
