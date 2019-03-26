@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { PricingWizardManagerService } from '../../marketplace.service';
 
 @Component({
   selector: 'app-users-wizard',
@@ -13,7 +14,7 @@ export class UsersWizardComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private pricingWizardManagerService: PricingWizardManagerService) {
     this.form = fb.group({
       usersPlan: ['plan1', Validators.required]
     });
@@ -49,13 +50,14 @@ export class UsersWizardComponent implements OnInit {
   // }
 
   isSelectedGroup(name: String): boolean {
-    if (this.form.value.usersPlan === name) {
+    if (this.pricingWizardManagerService.usersPlan.value === name) {
       return true;
     } else {
       return false;
     }
   }
   onSubmitUsers() {
+    this.pricingWizardManagerService.usersPlan.setValue(this.form.value.usersPlan);
     this.parentForm.controls['usersPlan'].setValue(this.form.value.usersPlan);
   }
 }

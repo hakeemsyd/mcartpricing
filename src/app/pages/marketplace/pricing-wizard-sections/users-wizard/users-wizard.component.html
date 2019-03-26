@@ -2,46 +2,46 @@
   <h2 class="wizardTitle">Step {{currStepNumber + 1}}: Number of users</h2>
   <p class="wizardSubtitle">Pick the user package that fits your business needs</p>
 
-  <form [formGroup]="form" class="row planOptRow col-xs-12">
-    <!-- <mat-radio-group layout="row" aria-labelledby="example-radio-group-label" class="example-radio-group"
-      formControlName="usersPlan"> -->
-    <div [className]="isSelectedGroup('plan1') ? 'planOptContainer' : 'planOptContainerHighlighted'">
-      <div class="optTextGroup">
-        <p class="optText">10K Shoppers </p>
-        <p class="optText">30 Influencers</p>
-        <p class="optText">No Sales People</p>
-        <p class="optText">1 Admin</p>
+  <form [formGroup]="pricingWizardManagerService.marketPlaceCalculatorForm" class="row planOptRow col-xs-12">
+    <mat-radio-group layout="row" aria-labelledby="example-radio-group-label" class="example-radio-group"
+      [formControl]="pricingWizardManagerService.usersPlan">
+      <div [className]="isSelectedGroup('plan1') ? 'planOptContainer' : 'planOptContainerHighlighted'">
+        <div class="optTextGroup">
+          <p class="optText">10K Shoppers </p>
+          <p class="optText">30 Influencers</p>
+          <p class="optText">No Sales People</p>
+          <p class="optText">1 Admin</p>
+        </div>
+        <mat-radio-button color="primary" value="plan1" class="example-radio-button">
+        </mat-radio-button>
       </div>
-      <mat-radio-button color="primary" value="plan1" class="example-radio-button">
-      </mat-radio-button>
-    </div>
-    <div [className]="isSelectedGroup('plan2') ? 'planOptContainer' : 'planOptContainerHighlighted'">
-      <div class="optTextGroup">
-        <p class="optText">1M Shoppers</p>
-        <p class="optText">200 Influencers</p>
-        <p class="optText">30 Sales People</p>
-        <p class="optText">5 Admins</p>
+      <div [className]="isSelectedGroup('plan2') ? 'planOptContainer' : 'planOptContainerHighlighted'">
+        <div class="optTextGroup">
+          <p class="optText">1M Shoppers</p>
+          <p class="optText">200 Influencers</p>
+          <p class="optText">30 Sales People</p>
+          <p class="optText">5 Admins</p>
+        </div>
+        <mat-radio-button color="primary" value="plan2" class="example-radio-button">
+        </mat-radio-button>
       </div>
-      <mat-radio-button color="primary" value="plan2" class="example-radio-button">
-      </mat-radio-button>
-    </div>
-    <div [className]="isSelectedGroup('plan3') ? 'planOptContainer' : 'planOptContainerHighlighted'">
-      <div class="optTextGroup">
-        <p class="optText">10M </p>
-        <p class="optText">1000 Influencers</p>
-        <p class="optText">200 Sales People</p>
-        <p class="optText">12 Admins</p>
+      <div [className]="isSelectedGroup('plan3') ? 'planOptContainer' : 'planOptContainerHighlighted'">
+        <div class="optTextGroup">
+          <p class="optText">10M </p>
+          <p class="optText">1000 Influencers</p>
+          <p class="optText">200 Sales People</p>
+          <p class="optText">12 Admins</p>
+        </div>
+        <mat-radio-button color="primary" value="plan3" class="example-radio-button">
+        </mat-radio-button>
       </div>
-      <mat-radio-button color="primary" value="plan3" class="example-radio-button">
-      </mat-radio-button>
-    </div>
-    <div [className]="isSelectedGroup('plan4') ? 'planOptContainer' : 'planOptContainerHighlighted'">
-      <div class="optTextGroup">
-        <p class="optText">Unlimited Users of all types </p>
+      <div [className]="isSelectedGroup('plan4') ? 'planOptContainer' : 'planOptContainerHighlighted'">
+        <div class="optTextGroup">
+          <p class="optText">Unlimited Users of all types </p>
+        </div>
+        <mat-radio-button color="primary" value="plan4" class="example-radio-button">
+        </mat-radio-button>
       </div>
-      <mat-radio-button color="primary" value="plan4" class="example-radio-button">
-      </mat-radio-button>
-    </div>
-    <!-- </mat-radio-group> -->
+    </mat-radio-group>
   </form>
 </div>

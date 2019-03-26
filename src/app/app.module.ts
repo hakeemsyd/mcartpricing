@@ -31,18 +31,10 @@ import { McartPlanTierInfoComponent } from './pages/marketplace/plan-info-wizard
 import { BenefitsSidebarComponent } from './pages/marketplace/plan-info-wizard/benefits-sidebar/benefits-sidebar.component';
 import { CategoryDialogComponent } from './pages/marketplace/pricing-wizard-sections/category-dialog/category-dialog.component';
 import { Ng2TelInputModule } from 'ng2-tel-input';
+import { AppRoutingModule } from './app-routing.module';
+import { ThanksComponent } from './pages/thanks/thanks.component';
+import { HttpClientModule } from '@angular/common/http';
 
-const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'marketplace',
-    pathMatch: 'full'
-  },
-  {
-    path: 'marketplace',
-    component: AppComponent
-  }
-];
 
 @NgModule({
   declarations: [
@@ -64,13 +56,13 @@ const routes: Routes = [
     BenefitCalculatorComponent,
     McartPlanTierInfoComponent,
     BenefitsSidebarComponent,
-    MarketplaceComponent
+    MarketplaceComponent,
+    ThanksComponent
   ],
   entryComponents: [
     CategoryDialogComponent
   ],
   imports: [
-    RouterModule.forRoot(routes),
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
@@ -85,11 +77,13 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatCardModule,
+    HttpClientModule,
     MatIconModule,
     MatButtonToggleModule,
     ToastrModule.forRoot({
       preventDuplicates: true
-    })
+    }),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

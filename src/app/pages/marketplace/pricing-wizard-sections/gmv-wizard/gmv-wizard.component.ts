@@ -111,24 +111,17 @@ export class GmvWizardComponent implements OnInit {
 
 
   onSubmitGMV() {
-    (<FormGroup>this.parentForm.controls['gmv']).controls['gmv'].patchValue(this.gmvSlider.value);
-    (<FormGroup>this.parentForm.controls['gmv']).controls['platformCommissionPercentage'].patchValue(this.platformCommission.value);
-    (<FormGroup>this.parentForm.controls['gmv']).controls['influencerPayoutPercentage'].patchValue(this.influencerPayout.value);
-    (<FormGroup>this.parentForm.controls['gmv']).controls['shopperRebatePercentage'].patchValue(this.shopperRebate.value);
+    this.pricingWizardManagerService.gmv.setValue(this.gmvSlider.value);
+    this.pricingWizardManagerService.platformCommissionPercentage.setValue(this.platformCommission.value);
+    this.pricingWizardManagerService.influencerPayoutPercentage.setValue(this.influencerPayout.value);
+    this.pricingWizardManagerService.shopperRebatePercentage.setValue(this.shopperRebate.value);
   }
 
-  // remove this function
   calculateGMVmCartValues(mCartValue) {
     let _gmv = 0;
     _gmv = this.salesChanneValue * this.globalChannelValues * (mCartValue / 100);
     _gmv = Math.ceil(_gmv);
     return _gmv;
-  }
-
-
-
-  onChangeGMV(value) {
-    console.log(value);
   }
 
   calculatePlanTier(gmvValue) {
