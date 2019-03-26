@@ -4,7 +4,6 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-add-store-modal',
   templateUrl: './add-store-modal.component.html',
-  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./add-store-modal.component.scss',
     '../store-wizard.component.scss',
     '../../../pricing-wizard/pricing-wizard.component.scss'

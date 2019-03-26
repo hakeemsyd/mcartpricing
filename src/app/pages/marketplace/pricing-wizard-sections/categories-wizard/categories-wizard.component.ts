@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn } from '@angular/forms';
 import { MatDialogConfig, MatDialog } from '@angular/material';
 import { CategoryDialogComponent } from '../category-dialog/category-dialog.component';
+import { PricingWizardManagerService } from '../../marketplace.service';
 
 @Component({
   selector: 'app-categories-wizard',
@@ -36,7 +37,8 @@ export class CategoriesWizardComponent implements OnInit {
   imageUrl = 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
   @Input() currStepNumber = 1;
 
-  constructor(private formBuilder: FormBuilder, private dialog: MatDialog) {
+  constructor(private formBuilder: FormBuilder, private dialog: MatDialog,
+    private pricingWizardManagerService: PricingWizardManagerService) {
 
     this.categories.forEach(item => {
       this.categoriesListWCheck.push({ ...item, isChecked: false as boolean });
@@ -65,7 +67,7 @@ export class CategoriesWizardComponent implements OnInit {
     this.dialog.open(CategoryDialogComponent, dialogConfig);
   }
 
-  submitStores() {
+  submitCategories() {
     let checkedValues = [];
     this.categoriesListWCheck.forEach(item => {
       if (item.isChecked === true) {
@@ -77,7 +79,7 @@ export class CategoriesWizardComponent implements OnInit {
         checkedValues.push(item);
       }
     });
-    this.parentForm.controls['category'].setValue(checkedValues);
+    this.pricingWizardManagerService.selectedCategories.setValue(checkedValues);
   }
 
   onTriggerSelectAllCategories() {

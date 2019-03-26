@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { influencersListJSON } from '../../mock_data/influencers';
+import { PricingWizardManagerService } from '../../marketplace.service';
 
 @Component({
   selector: 'app-influencers-wizard',
@@ -90,7 +91,7 @@ export class InfluencersWizardComponent implements OnInit {
 
   // ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private pricingWizardManagerService: PricingWizardManagerService) {
     this.tempInfluencers.forEach(item => {
       this.influencersListWChecks.push({ ...item, isChecked: false as boolean });
     });
@@ -120,7 +121,7 @@ export class InfluencersWizardComponent implements OnInit {
         checkedValues.push(item);
       }
     });
-    this.parentForm.controls['influencers'].setValue(checkedValues);
+    this.pricingWizardManagerService.influencers.setValue(checkedValues);
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn } from '@angular/forms';
+import { PricingWizardManagerService } from '../../marketplace.service';
 
 @Component({
   selector: 'app-store-wizard',
@@ -29,7 +30,8 @@ export class StoreWizardComponent implements OnInit {
   imageUrl = 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
   @Input() currStepNumber = 1;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+    private pricingWizardManagerService: PricingWizardManagerService) {
 
     this.orders.forEach(item => {
       this.ordersListWCheck.push({ ...item, isChecked: false as boolean });
@@ -45,7 +47,8 @@ export class StoreWizardComponent implements OnInit {
         checkedValues.push(item);
       }
     });
-    this.parentForm.controls['selectedStores'].setValue(checkedValues);
+    console.log(checkedValues)
+    this.pricingWizardManagerService.selectedStores.setValue(checkedValues);
   }
 
   deselectAllStores() {

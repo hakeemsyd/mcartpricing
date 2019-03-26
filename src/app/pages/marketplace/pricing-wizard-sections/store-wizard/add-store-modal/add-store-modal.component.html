@@ -1,6 +1,7 @@
 <ng-template #content let-modal>
   <div class="modal-header modalHeader">
-    <h4 class="modalTitle" id="modal-basic-title">Add Store</h4>
+    <h4 class="modalTitle" id="modal-basic-title">Add Store
+    </h4>
   </div>
   <div class="modal-body">
     <form>
@@ -51,8 +52,10 @@
     <button type="button" class="btn btn-success" (click)="modal.close('Save click')">Add Store</button>
   </div>
 </ng-template>
-<li class="list-group-item listItemContainer" style="cursor: pointer;" (click)="open(content);">
-  <p class="list-item-title listAddStore"><b>Add new store</b></p>
+<li class="list-group-item listItemContainer add_new" style="cursor: pointer;" (click)="open(content);">
+  <p class="list-item-title listAddStore"><b>Add new store</b>
+    <mat-icon color="primary">add_circle</mat-icon>
+  </p>
 </li>
 
 <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
