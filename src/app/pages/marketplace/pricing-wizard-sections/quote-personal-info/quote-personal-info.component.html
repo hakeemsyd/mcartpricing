@@ -2,49 +2,49 @@
   <div>
     <p class="wizardSubtitleDark">Enter your information below to receive an exact quote</p>
   </div>
-  <form [formGroup]="registerForm" class="formContainer" (ngSubmit)="onSubmit()">
+  <form [formGroup]="pricingWizardManagerService.marketPlaceCalculatorForm" class="formContainer">
     <div class="form-group row">
       <label class="col-sm-2 col-form-label inputTitle">Full Name</label>
       <div class="col-sm-6 col-xs-12">
-        <input type="text" formControlName="fullName" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" />
+        <input type="text" [formControl]="pricingWizardManagerService.fullName" class="form-control"
+          [ngClass]="{ 'is-invalid': pricingWizardManagerService.fullName.touched && pricingWizardManagerService.fullName.invalid }" />
       </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label inputTitle">Company Name</label>
       <div class="col-sm-6 col-xs-12">
-        <input type="text" formControlName="companyName" class="form-control" />
+        <input type="text" [formControl]="pricingWizardManagerService.companyName" class="form-control" />
       </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label inputTitle">Telephone Num</label>
       <div class="col-sm-6 col-xs-12">
-        <input type="tel" formControlName="teleNum" class="form-control" id="phonenumber" />
+        <input type="tel" [formControl]="pricingWizardManagerService.teleNum" class="form-control" id="phonenumber" />
       </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label inputTitle">Email</label>
       <div class="col-sm-6 col-xs-12">
-        <input type="email" formControlName="email" class="form-control" id="email"
-          [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <input type="email" [formControl]="pricingWizardManagerService.email" class="form-control" id="email"
+          [ngClass]="{ 'is-invalid': pricingWizardManagerService.email.touched && pricingWizardManagerService.email.invalid }" />
       </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label inputTitle">Referred By</label>
       <div class="col-sm-6 col-xs-12">
-        <input type="text" formControlName="referredBy" class="form-control" />
+        <input type="text" [formControl]="pricingWizardManagerService.referredBy" class="form-control" />
       </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label inputTitle">Website URL</label>
       <div class="col-sm-6 col-xs-12">
-        <input type="text" formControlName="referredBy" class="form-control" />
+        <input type="text" [formControl]="pricingWizardManagerService.referredBy" class="form-control" />
       </div>
     </div>
     <div class="form-group row">
       <label class="col-sm-2 col-form-label inputTitle">Comments</label>
       <div class="col-sm-6 col-xs-12">
-        <input type="text" formControlName="comments" class="form-control" />
+        <input type="text" [formControl]="pricingWizardManagerService.comments" class="form-control" />
       </div>
     </div>
   </form>

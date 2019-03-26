@@ -15,6 +15,7 @@ import { StoreOptionsWizardComponent } from '../pricing-wizard-sections/store-op
 import { WizardComponent } from 'modules/angular-archwizard';
 import { PricingWizardManagerService } from '../marketplace.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 interface Store {
   name: String;
@@ -54,15 +55,16 @@ export class PricingWizardComponent implements OnInit {
   wizardCurrStep = 0;
   wizardSelectedPathIndex = 0;
   wizardPathArray: Array<Array<number>> = [
-    [0, 1, 3, 4, 5, 6, 7, 8, 9], // Media, Procurement, Agency
-    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], // CPG, others
-    [0, 1, 2, 3, 4, 5, 6, 7, 9, 8] // Malls, step 10 is extra step in malls category
+    [0, 1, 3, 4, 5, 6, 7, 8, 9, 10], // Media, Procurement, Agency
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], // CPG, others
+    [0, 1, 2, 3, 4, 5, 6, 7, 9, 8, 10] // Malls, step 10 is extra step in malls category
   ];
 
   showWizardFormValues = true;
 
   constructor(private fb: FormBuilder,
     private toastr: ToastrService,
+    private router: Router,
     private pricingWizardManagerService: PricingWizardManagerService) { }
 
   ngOnInit() {
@@ -112,14 +114,14 @@ export class PricingWizardComponent implements OnInit {
       this.goToNextStep();
       this.selectPath();
     } else {
-      this.toastr.warning('Please select business type to proceed.', 'Alert');
+      this.toastr.warning('Please select business type to proceed.', 'Error');
     }
   }
 
 
   onSubmitObjectives() {
     if (this.pricingWizardManagerService.objectives.invalid)
-      this.toastr.warning('Please select business type to proceed.', 'Alert');
+      this.toastr.warning('Please select business type to proceed.', 'Error');
     else
       this.goToNextStep();
   }
@@ -138,14 +140,29 @@ export class PricingWizardComponent implements OnInit {
 
   onSubmitStores() {
     this.storeWizardInstance.submitStores();
+    if (this.pricingWizardManagerService.selectedStores.invalid) {
+      this.toastr.warning('Please select any store that wish to support in your marketplace.', 'Error');
+    } else {
+      this.goToNextStep();
+    }
   }
 
   onSubmitCategories() {
-    this.categoriesWizardInstance.submitStores();
+    this.categoriesWizardInstance.submitCategories();
+    if (this.pricingWizardManagerService.selectedCategories.invalid) {
+      this.toastr.warning('Please select any category that wish to support in your marketplace.', 'Error');
+    } else {
+      this.goToNextStep();
+    }
   }
 
   onSubmitInfluencers() {
     this.influencersWizardInstance.submitInfluencers();
+    if (this.pricingWizardManagerService.influencers.invalid) {
+      this.toastr.warning('Please pick from mCart Influencers or invite your own.', 'Error');
+    } else {
+      this.goToNextStep();
+    }
   }
 
   onSubmitUsers() {
@@ -153,11 +170,27 @@ export class PricingWizardComponent implements OnInit {
   }
 
   onSubmitQuote() {
-    this.quoteWizardInstance.onSubmitPersnalInfo();
+    this.pricingWizardManagerService.markControlsTouched(this.pricingWizardManagerService.personalInfo);
+    if (this.pricingWizardManagerService.personalInfo.invalid) {
+      this.toastr.warning('Please provide required information to proceed.', 'Error');
+    } else {
+      this.pricingWizardManagerService.emailPlanDetails().subscribe((res) => {
+        console.log(res);
+      })
+      this.router.navigate(['thanks']);
+    }
   }
 
   onRequestQuote() {
-    this.quoteWizardInstance.onSubmit();
+    this.pricingWizardManagerService.markControlsTouched(this.pricingWizardManagerService.personalInfo);
+    if (this.pricingWizardManagerService.personalInfo.invalid) {
+      this.toastr.warning('Please provide required information to proceed.', 'Error');
+    } else {
+      this.pricingWizardManagerService.emailPlanDetails().subscribe((res) => {
+        console.log(res);
+      })
+      this.router.navigate(['thanks']);
+    }
   }
 
   onSubmitStoreOptions() {
@@ -204,6 +237,7 @@ export class PricingWizardComponent implements OnInit {
     const currArr = this.wizardPathArray[this.wizardSelectedPathIndex];
     const nextStep = currArr[this.wizardCurrStep + 1];
     this.wizardCurrStep = this.wizardCurrStep + 1;
+    console.log(nextStep)
     this.wizard.navigation.goToStep(nextStep);
   }
 
